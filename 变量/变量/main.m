@@ -38,9 +38,14 @@
 //#import"person.h"
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
-        int i = 0;
-        scanf("%d", &i);
-        NSLog(@"%d", i);
+        enum {male, female} me, you;
+        me = male;
+        you = 1;
+        me = 4;
+        NSLog(@"you的值: %u", you);
+        int ival = you * 2 + 12 + me;
+        NSLog(@"%d", ival);
     }
     return EXIT_SUCCESS;
 }
+
