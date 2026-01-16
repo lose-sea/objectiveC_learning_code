@@ -34,18 +34,33 @@
 //    return EXIT_SUCCESS;
 //}
 
-#import <Foundation/Foundation.h>
-//#import"person.h"
-int main(int argc, const char * argv[]) {
-    @autoreleasepool {
-        enum {male, female} me, you;
-        me = male;
-        you = 1;
-        me = 4;
-        NSLog(@"you的值: %u", you);
-        int ival = you * 2 + 12 + me;
-        NSLog(@"%d", ival);
-    }
-    return EXIT_SUCCESS;
-}
+//#import <Foundation/Foundation.h>
+////#import"person.h"
+//int main(int argc, const char * argv[]) {
+//    @autoreleasepool {
+//        enum {male, female} me, you;
+//        me = male;
+//        you = 1;
+//        me = 4;
+//        NSLog(@"you的值: %u", you);
+//        int ival = you * 2 + 12 + me;
+//        NSLog(@"%d", ival);
+//    }
+//    return EXIT_SUCCESS;
+//}
+
+//#import<Foundation/Foundation.h>
+//int main(int argc, char* argv[]) {
+//    @autoreleasepool {
+//        int count = 0;
+//        while (count < 10)  {
+//            NSLog(@"不停执行的死循环");
+//            count--;
+//        }
+//        NSLog(@"永远无法跳出的循环体");
+//    }
+//    return EXIT_SUCCESS;
+//}
+
+
 
