@@ -93,31 +93,81 @@
 //    return EXIT_SUCCESS;
 //}
  
+//
+//#import<Foundation/Foundation.h>
+//@interface DataWrap : NSObject  // 定义一个DataWrap类
+//// 为DataWrap定义a, b 两个属性
+//@property int a;
+//@property int b;
+//@end
+//@implementation DataWrap
+//@synthesize a, b;   //为a, b两个属性合成访问器方法和实例变量
+//@end
+//void swap(DataWrap* dw) {
+//    // 下面这三行代码实现 dw 中的 a , b 两个属性的值交换
+//    int tem = dw.a;
+//    dw.a = dw.b;
+//    dw.b = tem;
+//    NSLog(@"swap函数里, 属性a的值是 : %d, 属性b的值是: %d", dw.a, dw.b);
+//}
+//int main(int argc, char* argv[]) {
+//    @autoreleasepool {
+//        DataWrap* dw = [[DataWrap alloc] init];
+//        dw.a = 6;
+//        dw.b = 3;
+//        swap(dw);
+//        NSLog(@"交换结束后, 属性 a 的值是: %d, 属性b的值是 %d", dw.a, dw.b);
+//    }
+//}
+//    
+
+
+//// 函数指针
+//#import<Foundation/Foundation.h>
+//void map(int* data, int len, int (*fn)(int)) {
+//    // 采用指针遍历data数组的元素
+//    for (int* p = data; p < data + len; p++) {
+//        // 调用fn函数, (fn) 函数是动态传入的
+//        printf("%d , ", (*fn)(*p));
+//    }
+//    printf("\n");
+//}
+//int noChange(int val) {
+//    return val;
+//}
+//// 定义一个计算平方的函数
+//int square(int val) {
+//    return val * val;
+//}
+//// 定义一个计算立方的函数
+//int cube(int val) {
+//    return val * val * val;
+//}
+//int main(int argc, char* argv[]) {
+//    @autoreleasepool {
+//        int data[] = {20, 12, 3, 36, 24};
+//        map(data, 5, noChange);
+//        map(data, 5, square);
+//        map(data, 5, cube);
+//    }
+//    return EXIT_SUCCESS;
+//}
 
 #import<Foundation/Foundation.h>
-@interface DataWrap : NSObject  // 定义一个DataWrap类
-// 为DataWrap定义a, b 两个属性
-@property int a;
-@property int b;
-@end
-@implementation DataWrap
-@synthesize a, b;   //为a, b两个属性合成访问器方法和实例变量
-@end
-void swap(DataWrap* dw) {
-    // 下面这三行代码实现 dw 中的 a , b 两个属性的值交换
-    int tem = dw.a;
-    dw.a = dw.b;
-    dw.b = tem;
-    NSLog(@"swap函数里, 属性a的值是 : %d, 属性b的值是: %d", dw.a, dw.b);
-}
 int main(int argc, char* argv[]) {
     @autoreleasepool {
-        DataWrap* dw = [[DataWrap alloc] init];
-        dw.a = 6;
-        dw.b = 3;
-        swap(dw);
-        NSLog(@"交换结束后, 属性 a 的值是: %d, 属性b的值是 %d", dw.a, dw.b);
+        struct rect {
+            int x;
+            int y;
+            int width;
+            int height;
+        }rect1 = {1, 3, 4, 5};
+        //  在定义结构体的同时, 还可以定义结构体变量
+        // 可以直接对结构体变量执行初始化
     }
+    return 0;
 }
-    
+
+
+
 
