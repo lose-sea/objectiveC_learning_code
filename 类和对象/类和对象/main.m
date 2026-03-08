@@ -635,45 +635,145 @@
 //}
 
 
-@interface FKCar : NSObject
-@property (nonatomic, copy) NSString* brand;
-@property (nonatomic, copy) NSString* model;
-@property (nonatomic, copy) NSString* color;
+//@interface FKCar : NSObject
+//@property (nonatomic, copy) NSString* brand;
+//@property (nonatomic, copy) NSString* model;
+//@property (nonatomic, copy) NSString* color;
+//
+//- (id) initWithBrand: (NSString*) brand model: (NSString*) model;
+//- (id) initWithBrand: (NSString*) brand model: (NSString*) model color: (NSString*) color;
+//
+//@end
+//
+//
+//@implementation FKCar
+//- (id) init {
+//    // 调用父类的init方法执行初始化, 将初始值得到的对象赋值给 self 对象
+//    // 如果self不为nil, 则表明父类的init方法初始化成功
+//    if (self = [super init]) {
+//        self->_brand = @"奥迪";
+//        self->_model = @"Q5";
+//        self->_color = @"black";
+//    }
+//    return self;
+//}
+//
+//- (id) initWithBrand:(NSString *)brand model:(NSString *)model {
+//    // 调用父类的init方法进行初始化 将初始化得到的对象赋值给self对象
+//    // 如果self不为nil, 则表明父类的init方法初始化成功
+//    if (self = [super init]) {
+//        self->_brand = brand;
+//        self->_model = model;
+//        self->_color = @"黑色";
+//    }
+//    return self;
+//}
+//- (id) initWithBrand:(NSString *)brand model:(NSString *)model color:(NSString *)color {
+//    // 调用本类的initWithBrand:model:方法进行初始化 将初始化得到的对象赋值给self对象
+//   // 如果self不为nil, 则表明本类的initWithBrand:model:方法初始化成功
+//    if (self = [self initWithBrand:brand model:model]) {
+//        self->_color = color;
+//    }
+//    return self;
+//}
+//@end
 
-- (id) initWithBrand: (NSString*) brand model: (NSString*) model;
-- (id) initWithBrand: (NSString*) brand model: (NSString*) model color: (NSString*) color;
 
+
+
+//@interface FKFruit : NSObject
+//@property (nonatomic, assign) double weight;
+//- (void) info;
+//@end
+//
+//@implementation FKFruit
+//@synthesize weight;
+//- (void) info {
+//    NSLog(@"I am a fruit, my weight is %g", weight);
+//}
+//@end
+//
+//@interface FKApple : FKFruit
+//@end
+//
+//@implementation FKApple
+//
+//@end
+//
+//int main(int argc, char* argv[]) {
+//    @autoreleasepool {
+//        FKApple* a = [[FKApple alloc] init];
+//        a.weight = 56;
+//        [a info];
+//    }
+//    return 0;
+//}
+
+
+//@interface FKBird : NSObject
+//- (void) fly;
+//@end
+//
+//@implementation FKBird
+//
+//- (void) fly {
+//    NSLog(@"flying");
+//}
+//@end
+//
+//@interface FKOstrich : FKBird
+//
+//@end
+//
+//@implementation FKOstrich
+//- (void) fly {
+//    NSLog(@"only to run");
+//}
+//@end
+//
+//
+//int main(int argc, char* argv[]) {
+//    @autoreleasepool {
+//        FKOstrich* os = [[FKOstrich alloc] init];
+//        [os fly];
+//    }
+//    return 0;
+//}
+
+
+@interface FKBird : NSObject
+- (void) fly;
+@end
+
+@implementation FKBird
+
+- (void) fly {
+    NSLog(@"flying");
+}
+@end
+
+@interface FKOstrich : FKBird
+- (void) callOverridedMethod;
+@end
+
+@implementation FKOstrich
+- (void) fly {
+    NSLog(@"only to run");
+}
+- (void) callOverridedMethod {
+    // 在子类方法中通过super显示调用父类被覆盖的实例方法
+    [super fly];
+}
 @end
 
 
-@implementation FKCar
-- (id) init {
-    // 调用父类的init方法执行初始化, 将初始值得到的对象赋值给 self 对象
-    // 如果self不为nil, 则表明父类的init方法初始化成功
-    if (self = [super init]) {
-        self->_brand = @"奥迪";
-        self->_model = @"Q5";
-        self->_color = @"black";
+int main(int argc, char* argv[]) {
+    @autoreleasepool {
+        FKOstrich* os = [[FKOstrich alloc] init];
+        [os callOverridedMethod];
     }
-    return self;
+    return 0;
 }
 
-- (id) initWithBrand:(NSString *)brand model:(NSString *)model {
-    // 调用父类的init方法进行初始化 将初始化得到的对象赋值给self对象
-    // 如果self不为nil, 则表明父类的init方法初始化成功
-    if (self = [super init]) {
-        self->_brand = brand;
-        self->_model = model;
-        self->_color = @"黑色";
-    }
-    return self;
-}
-- (id) initWithBrand:(NSString *)brand model:(NSString *)model color:(NSString *)color {
-    // 调用本类的initWithBrand:model:方法进行初始化 将初始化得到的对象赋值给self对象
-   // 如果self不为nil, 则表明本类的initWithBrand:model:方法初始化成功
-    if (self = [self initWithBrand:brand model:model]) {
-        self->_color = color;
-    }
-    return self;
-}
-@end
+
+
