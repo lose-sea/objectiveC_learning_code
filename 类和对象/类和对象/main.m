@@ -741,39 +741,158 @@
 //}
 
 
-@interface FKBird : NSObject
-- (void) fly;
-@end
+//@interface FKBird : NSObject
+//- (void) fly;
+//@end
+//
+//@implementation FKBird
+//
+//- (void) fly {
+//    NSLog(@"flying");
+//}
+//@end
+//
+//@interface FKOstrich : FKBird
+//- (void) callOverridedMethod;
+//@end
+//
+//@implementation FKOstrich
+//- (void) fly {
+//    NSLog(@"only to run");
+//}
+//- (void) callOverridedMethod {
+//    // 在子类方法中通过super显示调用父类被覆盖的实例方法
+//    [super fly];
+//}
+//@end
+//
+//
+//int main(int argc, char* argv[]) {
+//    @autoreleasepool {
+//        FKOstrich* os = [[FKOstrich alloc] init];
+//        [os callOverridedMethod];
+//    }
+//    return 0;
+//}
+//
 
-@implementation FKBird
-
-- (void) fly {
-    NSLog(@"flying");
-}
-@end
-
-@interface FKOstrich : FKBird
-- (void) callOverridedMethod;
-@end
-
-@implementation FKOstrich
-- (void) fly {
-    NSLog(@"only to run");
-}
-- (void) callOverridedMethod {
-    // 在子类方法中通过super显示调用父类被覆盖的实例方法
-    [super fly];
-}
-@end
 
 
-int main(int argc, char* argv[]) {
+//@interface FKBase : NSObject
+//- (void)base;
+//- (void)test;
+//@end
+//
+//
+//@implementation FKBase
+//- (void)base
+//{
+//    NSLog(@"父类的普通base方法");
+//}
+//- (void)test
+//{
+//    NSLog(@"父类的将被覆盖的test方法");
+//}
+//@end
+//
+//
+//@interface FKSubclass : FKBase
+//- (void)sub;
+//@end
+//
+//
+//
+//@implementation FKSubclass
+//- (void)test
+//{
+//    NSLog(@"子类的覆盖父类的test方法");
+//}
+//- (void)sub
+//{
+//    NSLog(@"子类的sub方法");
+//}
+//@end
+//
+//
+//
+//
+//int main(int argc, char * argv[])
+//{
+//    @autoreleasepool {
+//        // 编译时和运行时类型一致，无多态
+//        FKBase* bc = [[FKBase alloc] init];
+//        [bc base];
+//        [bc test];
+//        
+//        // 编译时和运行时类型一致，无多态
+//        FKSubclass* sc = [[FKSubclass alloc] init];
+//        [sc base];
+//        [sc test];
+//        [sc sub];
+//        
+//        // 编译时和运行时类型不同，发生多态
+//        FKBase* plyomphicBc = [[FKSubclass alloc] init];
+//        [plyomphicBc base];
+//        [plyomphicBc test];
+//        // [plyomphicBc sub]; // 编译报错，FKBase无sub方法
+//        
+//        // id类型变量可接收任意对象
+//        id dyna = plyomphicBc;
+//        [dyna sub];
+//        // [dyna test];
+//    }
+//    return 0;
+//}
+
+
+
+//#import <Foundation/Foundation.h>
+//
+//int main(int argc, char * argv[])
+//{
+//    @autoreleasepool {
+//        NSObject* obj = @"Hello";
+//        // 由于obj变量所指向的对象是NSString对象，所以运行时也可通过
+//        NSString* objStr = (NSString*)obj;
+//        NSLog(@"%@", objStr);
+//        
+//        // 定义一个obj2变量，编译时类型为NSObject，实际类型为NSString
+//        NSObject* obj2 = @"iOS";
+//        // 尝试将obj2强制转换为NSDate，这行代码没有任何问题
+//        // 但程序只是定义一个NSDate类型的指针，该指针与obj2指向同一个对象
+//        NSDate* date = (NSDate*)obj2;
+//        
+//        // 程序调用date的isEqualToDate:方法。
+//        // 由于date的编译时类型是NSDate，因此编译时没有任何问题
+//        // 由于date实际指向的对象是NSString，因此程序执行时就会引发错误
+//         NSLog(@"%d", [date isEqualToDate:[NSDate date]]);
+//    }
+//    return 0;
+//}
+
+
+int main(int argc, char * argv[])
+{
     @autoreleasepool {
-        FKOstrich* os = [[FKOstrich alloc] init];
-        [os callOverridedMethod];
+        // 声明hello为NSObject类型，实际指向NSString对象
+        NSObject* hello = @"Hello";
+        
+        // 判断是否是NSObject类的实例
+        NSLog(@"字符串是否是NSObject类的实例：%d",
+              ([hello isKindOfClass:[NSObject class]]));
+        
+        // 判断是否是NSString类的实例
+        NSLog(@"字符串是否是NSString类的实例：%d",
+              ([hello isKindOfClass:[NSString class]]));
+        
+        // 判断是否是NSDate类的实例
+        NSLog(@"字符串是否是NSDate类的实例：%d",
+              ([hello isKindOfClass:[NSDate class]]));
+        
+        NSString* a = @"Hello";
+        // 判断a是否是NSDate类的实例
+        NSLog(@"a是否是NSDate类的实例：%d",
+              ([a isKindOfClass:[NSDate class]]));
     }
-    return 0;
+    return EXIT_SUCCESS;
 }
-
-
-
