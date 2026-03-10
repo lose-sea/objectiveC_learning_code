@@ -115,96 +115,32 @@
 
 
 
-//@interface FKUser : NSObject
-//@property (nonatomic, copy) NSString* name;
-//@property (nonatomic, copy) NSString* idStr;
-//- (id) initWithName: (NSString*) name idStr: (NSString*) idstr;
-//@end
-//
-//@implementation FKUser
-//- (id) initWithName: (NSString*) name idStr: (NSString*) idStr {
-//    if (self = [super init]) {
-//        self.name = name;
-//        [self setName: name];
-//        self->_name = name;
-//        self.idStr = idStr;
-//    }
-//    return self;
-//}
-//// 重写Equal 方法: 提供自定义的相等标准
-//- (BOOL)isEqual: (id) other {
-//    if (self == other) {
-//        return YES;
-//    }
-//    if (other != nil && [other isMemberOfClass: FKUser.class]) {
-//        FKUser* target = (FKUser*)other;
-//        return [self.idStr isEqual: target.idStr];
-//    }
-//    return NO;
-//}
-//@end
+@interface FKUser : NSObject
+@property (nonatomic, copy) NSString* name;
+@property (nonatomic, copy) NSString* idStr;
+- (id) initWithName: (NSString*) name idStr: (NSString*) idstr;
+@end
 
-
-//@interface NSNumber (fk)
-//// 在类别中定义4个方法
-//- (NSNumber*) add: (double) num2;
-//- (NSNumber*) substract: (double) num2;
-//- (NSNumber*) multiply: (double) num2;
-//- (NSNumber*) divde: (double) num2;
-// @end
-//
-//@implementation NSNumber (fk)
-//- (NSNumber*) add: (double) num2 {
-//    return [NSNumber numberWithDouble: [self doubleValue] + num2];
-//}
-//- (NSNumber*) substract:(double)num2 {
-//    return [NSNumber numberWithDouble: [self doubleValue] - num2];
-//}
-//- (NSNumber*) multiply:(double)num2 {
-//    return [NSNumber numberWithDouble: [self doubleValue] * num2];
-//}
-//- (NSNumber*) divde:(double)num2 {
-//    return [NSNumber numberWithDouble: [self doubleValue] / num2];
-//}
-//@end
-//
-//int main(int argc, char* argv[]) {
-//    @autoreleasepool {
-//        NSNumber* myNum = [NSNumber numberWithInt: 3];
-//        NSNumber* add = [myNum add: 2.4];
-//        NSLog(@"%@", add);
-//        NSNumber* substract = [myNum substract: 2.4];
-//        NSLog(@"%@", substract);
-//    }
-//    return 0;
-//}
-
-
-
-//// MyClass.h（公开）
-//@interface MyClass : NSObject
-//- (void)publicMethod;
-//@end
-//
-//// MyClass.m（只在这里定义，没有在.h声明）
-//@implementation MyClass
-//- (void)privateMethod {
-//    NSLog(@"我是私有方法");
-//}
-//- (void)publicMethod {
-//    [self privateMethod];  // ✅ 内部调用完全没问题
-//}
-//@end
-//
-//int main(int argc, char* argv[]) {
-//    @autoreleasepool {
-//        MyClass* class = [[MyClass alloc] init];
-//        [class privateMethod];
-//        [class publicMethod];
-//    }
-//    return 0;
-//}
-
-
-
+@implementation FKUser
+- (id) initWithName: (NSString*) name idStr: (NSString*) idStr {
+    if (self = [super init]) {
+        self.name = name;
+        [self setName: name];
+        self->_name = name;
+        self.idStr = idStr;
+    }
+    return self;
+}
+// 重写Equal 方法: 提供自定义的相等标准
+- (BOOL)isEqual: (id) other {
+    if (self == other) {
+        return YES;
+    }
+    if (other != nil && [other isMemberOfClass: FKUser.class]) {
+        FKUser* target = (FKUser*)other;
+        return [self.idStr isEqual: target.idStr];
+    }
+    return NO;
+}
+@end
 
