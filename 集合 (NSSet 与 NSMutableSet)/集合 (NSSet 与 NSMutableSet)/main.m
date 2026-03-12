@@ -14,7 +14,64 @@
 //    }
 //    return EXIT_SUCCESS;
 //}
+@interface FKUser : NSObject
+@property (nonatomic, copy) NSString* name;
+@property (nonatomic, copy) NSString* pass;
+- (id) initWithName: (NSString*) aName pass: (NSString*) aPass;
+- (void) say: (NSString*) content;
+@end
+
+@implementation FKUser
+- (id) initWithName: (NSString*) aName pass: (NSString*) aPass {
+    if (self = [super init]) {
+        self.name = aName;
+        self->_name = aName;
+        self->_pass = aPass;
+    }
+    return self;
+}
+- (void) say: (NSString*) content {
+    NSLog(@"%@ say %@", _name, content);
+}
+
+// 重写isEqual 方法
+- (BOOL) isEqual: (id) other {
+    if (self == other) {
+        return YES;
+    }
+    if ([self class] == [FKUser class]) {
+        FKUser* target = (FKUser*) other;
+        return [self.name isEqualToString: target.name] && [self.pass isEqualToString: target.pass];
+    }
+    return NO;
+}
+// 重写description 方法
+- (NSString*) description {
+    return [NSString stringWithFormat: @"my name is %@, my pass is %@", _name, _pass];
+}
+
+- (NSUInteger) hash {
+    NSUInteger namehash = _name == nil ? 0 : [_name hash];
+    NSUInteger passhash = _pass == nil ? 0 : [_pass hash];
+    return namehash * 31 + passhash;
+}
+@end
 
 
 
+
+int main(int argc, char* argv[]) {
+    @autoreleasepool {
+        NSSet* set = [[NSSet alloc] initWithObjects:
+                        [[FKUser alloc] initWithName: @"sun" pass: @"123"],
+                        [[FKUser alloc] initWithName: @"xin" pass: @"456"],
+                        [[FKUser alloc] initWithName:@"sun" pass:@"123"],
+                        [[FKUser alloc] initWithName:@"xun" pass:@"432"],
+                        [[FKUser alloc] initWithName: @"liu" pass: @"543"],
+                      nil];
+        NSLog(@"The count of set is %ld", [set count]);
+        
+    }
+    return 0;
+}
 
