@@ -870,29 +870,71 @@
 //    return 0;
 //}
 
+//
+//int main(int argc, char * argv[])
+//{
+//    @autoreleasepool {
+//        // 声明hello为NSObject类型，实际指向NSString对象
+//        NSObject* hello = @"Hello";
+//        
+//        // 判断是否是NSObject类的实例
+//        NSLog(@"字符串是否是NSObject类的实例：%d",
+//              ([hello isKindOfClass:[NSObject class]]));
+//        
+//        // 判断是否是NSString类的实例
+//        NSLog(@"字符串是否是NSString类的实例：%d",
+//              ([hello isKindOfClass:[NSString class]]));
+//        
+//        // 判断是否是NSDate类的实例
+//        NSLog(@"字符串是否是NSDate类的实例：%d",
+//              ([hello isKindOfClass:[NSDate class]]));
+//        
+//        NSString* a = @"Hello";
+//        // 判断a是否是NSDate类的实例
+//        NSLog(@"a是否是NSDate类的实例：%d",
+//              ([a isKindOfClass:[NSDate class]]));
+//    }
+//    return EXIT_SUCCESS;
+//}
 
-int main(int argc, char * argv[])
-{
-    @autoreleasepool {
-        // 声明hello为NSObject类型，实际指向NSString对象
-        NSObject* hello = @"Hello";
-        
-        // 判断是否是NSObject类的实例
-        NSLog(@"字符串是否是NSObject类的实例：%d",
-              ([hello isKindOfClass:[NSObject class]]));
-        
-        // 判断是否是NSString类的实例
-        NSLog(@"字符串是否是NSString类的实例：%d",
-              ([hello isKindOfClass:[NSString class]]));
-        
-        // 判断是否是NSDate类的实例
-        NSLog(@"字符串是否是NSDate类的实例：%d",
-              ([hello isKindOfClass:[NSDate class]]));
-        
-        NSString* a = @"Hello";
-        // 判断a是否是NSDate类的实例
-        NSLog(@"a是否是NSDate类的实例：%d",
-              ([a isKindOfClass:[NSDate class]]));
-    }
-    return EXIT_SUCCESS;
-}
+
+#import<Foundation/Foundation.h>
+ 
+
+//@interface VarArgs : NSObject
+//- (void) test: (NSString*) name, ...;
+//@end
+//
+//
+//
+//@implementation VarArgs
+//- (void) test: (NSString*) name, ... {
+//    // 使用一个va_list 定义一个argList指针变量, 该指针变量指向可变参数链表
+//    va_list argList;
+//    // 如果第一个name参数存在, 才需要处理
+//    if (name) {
+//        // 由于name参数并不在参数列表中, 因此先处理name参数
+//        NSLog(@"%@", name);
+//        va_start(argList, name);
+//        NSString* arg = va_arg(argList, id);
+//        while (arg) {
+//            NSLog(@"%@", arg);
+//            arg = va_arg(argList, id);
+//        }
+//    }
+//    va_end(argList);
+//}
+//@end
+//
+//
+//int main(int argc, char* argv[]) {
+//    @autoreleasepool {
+//        // NSArray* array = [NSArray arrayWithObjects: @"int", @"string", [NSString stringWithFormat: @"%d", 78],  nil];
+//        VarArgs* arg = [[VarArgs alloc] init];
+//        [arg test: @"int", @"string", [NSString stringWithFormat: @"%d", 78],  nil];
+//    }
+//    
+//    return 0;
+//}
+
+
