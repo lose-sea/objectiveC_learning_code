@@ -607,30 +607,33 @@
 
 
 
-#import <Foundation/Foundation.h>
+//#import <Foundation/Foundation.h>
+//
+//@interface FKUser : NSObject
+//@property (nonatomic, copy) NSString* name;
+//@end
+//
+//@implementation FKUser
+//- (BOOL) isEqual: (id) other {
+//    if ([super isEqual: other]) {
+//        return YES;
+//    }
+//    if (other != nil && [other isMemberOfClass: FKUser.class]) {
+//        FKUser* target = (FKUser*) other;
+//        return [self.name isEqual: target.name];
+//    }
+//    
+//    return NO;
+//}
+//@end
+//
+//int main(int argc, char* argv[]) {
+//    @autoreleasepool {
+//        NSNumber* a = [NSNumber numberWithDouble: 8.7];
+//        NSLog(@"%g", [a doubleValue]); 
+//    }
+//    return 0;
+//}
 
-@interface FKUser : NSObject
-@property (nonatomic, copy) NSString* name;
-@end
 
-@implementation FKUser
-- (BOOL) isEqual: (id) other {
-    if ([super isEqual: other]) {
-        return YES;
-    }
-    if (other != nil && [other isMemberOfClass: FKUser.class]) {
-        FKUser* target = (FKUser*) other;
-        return [self.name isEqual: target.name];
-    }
-    
-    return NO;
-}
-@end
 
-int main(int argc, char* argv[]) {
-    @autoreleasepool {
-        NSNumber* a = [NSNumber numberWithDouble: 8.7];
-        NSLog(@"%g", [a doubleValue]); 
-    }
-    return 0;
-}
