@@ -127,11 +127,119 @@
 
 #import<Foundation/Foundation.h>
 // 创建字符串
+//int main(int argc, char* argv[]) {
+//    @autoreleasepool {
+//        unichar data[6] = {97, 98, 99, 100, 101, 102};
+//        NSString* str = [[NSString alloc] initWithCharacters: data length: 6];
+//        NSLog(@"%@", str);
+//    }
+//    return 0;
+//}
+
+//int main(int argc, char* argv[]) {
+//    unichar data[6] = {97, 98, 99, 100, 101, 102};
+//    NSString* str = [[NSString alloc] initWithCharacters: data length: 5];
+//    NSLog(@"%@", str);
+//    return 0;
+//}
+
+//int main(int argc, char* argv[]) {
+//    char* data = "hello";
+//    NSString* str = [[NSString alloc] initWithUTF8String: data];
+//    NSLog(@"%@", str);
+//    return 0;
+//}
+
+
+//int main(int argc, char* argv[]) {
+//    NSString* str = [NSString stringWithFormat: @"hello %d", 8];
+//    NSLog(@"%@", str);
+//    return 0;
+//}
+
+//int main(int argc, char* argv[]) {
+//    char* data = "hello";
+//    NSString* str = [NSString stringWithUTF8String: data];
+//    NSLog(@"%@", str);
+//    str = [str stringByAppendingString: @" world"];
+//    NSLog(@"%@", str);
+//    const char* cstr = [str UTF8String];
+//    NSLog(@"%s", cstr);
+//    str = [str stringByAppendingFormat: @" hello %d", 7];
+//    NSLog(@"%@", str);
+//    return 0;
+//}
+
+
+//int main(int argc, char* argv[]) {
+//    char* data = "helloabcdefghigk";
+//    NSString* str = [NSString stringWithUTF8String: data];
+//    NSLog(@"%@", str);
+//    str = [str stringByAppendingFormat: @" hello %d", 7];
+//    NSLog(@"%@", str);
+//    return 0;
+//}
+
+//int main(int argc, char* argv[]) {
+//    char* data = "helloabcdefghigk";
+//    NSString* str = [NSString stringWithUTF8String: data];
+//    NSLog(@"%@", str);
+//    str = [str substringFromIndex: 5];
+//    NSLog(@"%@", str); 
+//    return 0;
+//}
+
+//int main(int argc, char* argv[]) {
+//    char* data = "helloabcdefghigk";
+//    NSString* str = [NSString stringWithUTF8String: data];
+//    NSLog(@"%@", str);
+//    str = [str substringWithRange: NSMakeRange(5, 4)];
+//    NSLog(@"%@", str);
+//    return 0;
+//}
+
+//int main(int argc, char* argv[]) {
+//    char* data = "helloabcdefghigk";
+//    NSString* str = [NSString stringWithUTF8String: data];
+//    NSLog(@"%@", str);
+//    NSRange pos = [str rangeOfString: @"abc"];
+//    NSLog(@"abc 出现的开始为位置为: %ld,长度为 %ld", pos.location, pos.length);
+//    return 0;
+//}
+//int main(int argc, char* argv[]) {
+//    char* data = "helloabcdefghigk";
+//    NSString* str = [NSString stringWithUTF8String: data];
+//    NSLog(@"%@", str);
+//    str = [str uppercaseString];
+//    NSLog(@"%@", str);
+//    str = [str lowercaseString];
+//    NSLog(@"%@", str);
+//    return 0;
+//}
+
+//int main(int argc, char* argv[]) {
+//    NSMutableString* str = [NSMutableString stringWithString: @"helloabcdefg"];
+//    NSLog(@"%@", str);
+//    
+//    [str insertString: @" xinyan " atIndex: 6];
+//    NSLog(@"%@", str);
+//    return 0;
+//}
+
+//int main(int argc, char* argv[]) {
+//    NSMutableString* str = [NSMutableString stringWithString: @"helloabcdefg"];
+//    NSLog(@"%@", str);
+//    
+//    [str deleteCharactersInRange: NSMakeRange(4, 5)];
+//    NSLog(@"%@", str);
+//    return 0;
+//}
+
 int main(int argc, char* argv[]) {
-    @autoreleasepool {
-        unichar data[6] = {97, 98, 99, 100, 101, 102};
-        NSString* str = [[NSString alloc] initWithCharacters: data length: 6];
-        NSLog(@"%@", str); 
-    }
+    NSMutableString* str = [NSMutableString stringWithString: @"helloabcdefg"];
+    NSLog(@"%@", str);
+    
+    [str replaceCharactersInRange: NSMakeRange(4, 5) withString: @"xxxx"];
+    NSLog(@"%@", str);
     return 0;
 }

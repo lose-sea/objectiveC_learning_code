@@ -328,7 +328,7 @@
 //}
 
 
-#import<Foundation/Foundation.h>
+//#import<Foundation/Foundation.h>
 //// 创建
 //int main(int argc, char* argv[]) {
 //    @autoreleasepool {
@@ -357,33 +357,121 @@
 //    return 0;
 //}
 
-int main(int argc, char* argv[]) {
-    @autoreleasepool {
-        NSArray* array = [[NSArray alloc] initWithObjects: @"hello", @"world", @"xinyan", @"iOS", @"learning", nil];
-        // 获取数组个数
-        NSLog(@"%ld", [array count]);
-        
-        // 访问指定索引的元素
-        NSLog(@"first: %@", [array objectAtIndex: 0]);
-        // 访问最后一个元素
-        NSLog(@"last: %@", [array lastObject]);
-        
-        // 获取元素在数组中的位置
-        NSString* a = @"xinyan";
-        NSLog(@"%ld", [array indexOfObject: a]);
-        
-        // 向末尾追加一个元素
-        array = [array arrayByAddingObject: a];
-        NSLog(@"%@", array);
-        
-        // 向末尾追加多个元素
-        array = [array arrayByAddingObjectsFromArray: [NSArray arrayWithObjects: @"hello world", nil]];
-        NSLog(@"%@", array);
-    }
+//int main(int argc, char* argv[]) {
+//    @autoreleasepool {
+//        NSArray* array = [[NSArray alloc] initWithObjects: @"hello", @"world", @"xinyan", @"iOS", @"learning", nil];
+//        // 获取数组个数
+//        NSLog(@"%ld", [array count]);
+//        
+//        // 访问指定索引的元素
+//        NSLog(@"first: %@", [array objectAtIndex: 0]);
+//        // 访问最后一个元素
+//        NSLog(@"last: %@", [array lastObject]);
+//        
+//        // 获取元素在数组中的位置
+//        NSString* a = @"xinyan";
+//        NSLog(@"%ld", [array indexOfObject: a]);
+//        
+//        // 向末尾追加一个元素
+//        array = [array arrayByAddingObject: a];
+//        NSLog(@"%@", array);
+//        
+//        // 向末尾追加多个元素
+//        array = [array arrayByAddingObjectsFromArray: [NSArray arrayWithObjects: @"hello world", nil]];
+//        NSLog(@"%@", array);
+//    }
+//
+//    return 0;
+//}
 
+//#import<Foundation/Foundation.h>
+//int main(int argc, char* argv[]) {
+////    NSArray* arr = [NSArray array];
+////    NSLog(@"%@", arr);
+////    NSArray* arr = [NSArray arrayWithObject: @"hello"];
+//    NSArray* arr = [NSArray arrayWithObjects: @"hello", @"xinyan", nil];
+//    NSArray* arr1 = [NSArray arrayWithArray: arr];
+//    NSLog(@"%@", arr1);
+//    return 0;
+//}
+
+//#import<Foundation/Foundation.h>
+//int main(int argc, char* argv[]) {
+//    NSArray* arr = [NSArray arrayWithObjects: @"hello", @"xinyan", nil];
+//    NSArray* arr1 = [NSArray arrayWithArray: arr];
+//    NSLog(@"%@", arr1);
+//    return 0;
+//}
+
+
+//#import<Foundation/Foundation.h>
+//int main(int argc, char* argv[]) {
+//    NSArray* arr = @[@"hello", @"xinyan", @"Jack"];
+//    NSLog(@"%@", arr);
+//    return 0;
+//}
+
+
+//#import<Foundation/Foundation.h>
+//int main(int argc, char* argv[]) {
+//    NSArray* arr = [[NSArray alloc] initWithObjects: @"hello", @"xinyan", nil];
+//    NSLog(@"%@", arr);
+//    return 0;
+//}
+
+//#import<Foundation/Foundation.h>
+//int main(int argc, char* argv[]) {
+//    NSArray* arr = [[NSArray alloc] initWithObjects: @"hello", @"xinyan", nil];
+//    NSArray* arr1 = [[NSArray alloc] initWithArray: arr];
+//    NSLog(@"%@", arr1);
+//    return 0;
+//}
+
+#import<Foundation/Foundation.h>
+//int main(int argc, char* argv[]) {
+//    NSArray* arr = [[NSArray alloc] initWithObjects: @"hello", @"xinyan", @"world", @"iOS", nil];
+//    // 取出第一个元素
+//    NSLog(@"%@", [arr objectAtIndex: 0]);
+//    
+//    // 取出索引为 2 的元素
+//    NSLog(@"%@", [arr objectAtIndex: 2]);
+//    
+//    // 取出最后一个元素
+//    NSLog(@"%@", [arr lastObject]);
+//    return 0;
+//}
+
+
+
+//int main(int argc, char* argv[]) {
+//    NSArray* arr = [[NSArray alloc] initWithObjects: @"hello", @"xinyan", @"world", @"iOS", nil];
+//    NSIndexSet* indexSet = [NSIndexSet indexSetWithIndexesInRange :NSMakeRange(1, 3)];
+//    NSArray* arr1 = [arr objectsAtIndexes: indexSet];
+//    NSLog(@"%@", arr1);
+//    return 0;
+//}
+
+//int main(int argc, char* argv[]) {
+//    NSArray* arr = [[NSArray alloc] initWithObjects: @"swift", @"hello", @"xinyan", @"world", @"iOS", @"C++",nil];
+//    NSLog(@"xinyan 在集合的位置为: %ld", [arr indexOfObject: @"xinyan"]);
+//    NSLog(@"xinyan 在集合(1, 3)的位置为: %ld", [arr indexOfObject: @"xinyan" inRange: NSMakeRange(1, 3)]);
+//    return 0;
+//}
+
+
+
+//int main(int argc, char* argv[]) {
+//    NSArray* arr = [[NSArray alloc] initWithObjects: @"hello", @"xinyan", @"world", @"iOS", nil];
+//    arr = [arr arrayByAddingObject: @"swift"];
+//    NSLog(@"%@", arr);
+//    return 0;
+//}
+
+int main(int argc, char* argv[]) {
+    NSArray* arr = [[NSArray alloc] initWithObjects: @"hello", @"xinyan", @"world", @"iOS", nil];
+    NSArray* arr1 = [NSArray arrayWithObjects: @"swift", @"python", nil];
+    arr = [arr arrayByAddingObjectsFromArray: arr1];
+    NSLog(@"%@", arr);
     return 0;
 }
-
-
-
 

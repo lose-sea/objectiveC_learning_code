@@ -109,25 +109,68 @@
 //}
 
 
-#import <Foundation/Foundation.h>
+//#import <Foundation/Foundation.h>
+//
+//@interface FKItem : NSObject
+//// 使用copy指示符修饰NSMutableString属性
+//@property (nonatomic, copy) NSMutableString *name;
+//@end
+//
+//
+//@implementation FKItem
+//
+//@end
+//
+//int main(int argc, const char * argv[]) {
+//    @autoreleasepool {
+//        FKItem* item = [FKItem new]; // 创建FKItem对象
+//        // 为name属性赋值可变字符串
+//        item.name = [NSMutableString stringWithString:@"疯狂iOS讲义"];
+//        // 尝试为name属性追加字符串（此处会触发运行时错误）
+//        [item.name appendString:@"fkit"];
+//    }
+//    return 0;
+//}
 
-@interface FKItem : NSObject
-// 使用copy指示符修饰NSMutableString属性
-@property (nonatomic, copy) NSMutableString *name;
+
+#import<Foundation/Foundation.h>
+
+@interface FKDog : NSObject
+@property (nonatomic, strong) NSMutableString* name;
+@property (nonatomic, assign) int age;
 @end
 
-
-@implementation FKItem
-
+@implementation FKDog
+- (id) copyWithZone: (NSZone*) zone {
+    NSLog(@"开始执行copy");
+    FKDog* dog = [[FKDog alloc] init];
+    // dog.name = _name;
+    dog.name = [self.name mutableCopy];
+    dog.age = _age;
+    return dog;
+}
 @end
 
-int main(int argc, const char * argv[]) {
-    @autoreleasepool {
-        FKItem* item = [FKItem new]; // 创建FKItem对象
-        // 为name属性赋值可变字符串
-        item.name = [NSMutableString stringWithString:@"疯狂iOS讲义"];
-        // 尝试为name属性追加字符串（此处会触发运行时错误）
-        [item.name appendString:@"fkit"];
-    }
+//int main(int argc, char* argv[]) {
+//    FKDog* dog1 = [[FKDog alloc] init];
+//    dog1.name = [NSMutableString stringWithString: @"John"];
+//    dog1.age = 20;
+//    FKDog* dog2 = [dog1 copy];
+//    NSLog(@"%@ %d", dog1.name, dog1.age);
+//    dog2.name = [NSMutableString stringWithString: @"hello"];
+//    NSLog(@"%@ %d", dog2.name, dog2.age);
+//    return 0;
+//}
+
+int main(int argc, char* argv[]) {
+    FKDog* dog = [[FKDog alloc] init];
+    dog.name = [NSMutableString stringWithString: @"hello"];
+    dog.age = 32;
+    NSLog(@"%@ %d", dog.name, dog.age);
+    FKDog* dogCopy = [dog copy];
+    [dogCopy.name replaceCharactersInRange: NSMakeRange(0, 3) withString: @"nihao"];
+    NSLog(@"%@ %d", dog.name, dog.age);
+    NSLog(@"%@ %d", dogCopy.name, dogCopy.age);
     return 0;
 }
+
