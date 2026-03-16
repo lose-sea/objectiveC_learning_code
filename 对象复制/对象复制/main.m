@@ -133,44 +133,141 @@
 //}
 
 
-#import<Foundation/Foundation.h>
-
-@interface FKDog : NSObject
-@property (nonatomic, strong) NSMutableString* name;
-@property (nonatomic, assign) int age;
-@end
-
-@implementation FKDog
-- (id) copyWithZone: (NSZone*) zone {
-    NSLog(@"开始执行copy");
-    FKDog* dog = [[FKDog alloc] init];
-    // dog.name = _name;
-    dog.name = [self.name mutableCopy];
-    dog.age = _age;
-    return dog;
-}
-@end
-
+//#import<Foundation/Foundation.h>
+//
+//@interface FKDog : NSObject
+//@property (nonatomic, strong) NSMutableString* name;
+//@property (nonatomic, assign) int age;
+//@end
+//
+//@implementation FKDog
+//- (id) copyWithZone: (NSZone*) zone {
+//    NSLog(@"开始执行copy");
+//    FKDog* dog = [[FKDog alloc] init];
+//    // dog.name = _name;
+//    dog.name = [self.name mutableCopy];
+//    dog.age = _age;
+//    return dog;
+//}
+//@end
+//
+////int main(int argc, char* argv[]) {
+////    FKDog* dog1 = [[FKDog alloc] init];
+////    dog1.name = [NSMutableString stringWithString: @"John"];
+////    dog1.age = 20;
+////    FKDog* dog2 = [dog1 copy];
+////    NSLog(@"%@ %d", dog1.name, dog1.age);
+////    dog2.name = [NSMutableString stringWithString: @"hello"];
+////    NSLog(@"%@ %d", dog2.name, dog2.age);
+////    return 0;
+////}
+//
 //int main(int argc, char* argv[]) {
-//    FKDog* dog1 = [[FKDog alloc] init];
-//    dog1.name = [NSMutableString stringWithString: @"John"];
-//    dog1.age = 20;
-//    FKDog* dog2 = [dog1 copy];
-//    NSLog(@"%@ %d", dog1.name, dog1.age);
-//    dog2.name = [NSMutableString stringWithString: @"hello"];
-//    NSLog(@"%@ %d", dog2.name, dog2.age);
+//    FKDog* dog = [[FKDog alloc] init];
+//    dog.name = [NSMutableString stringWithString: @"hello"];
+//    dog.age = 32;
+//    NSLog(@"%@ %d", dog.name, dog.age);
+//    FKDog* dogCopy = [dog copy];
+//    [dogCopy.name replaceCharactersInRange: NSMakeRange(0, 3) withString: @"nihao"];
+//    NSLog(@"%@ %d", dog.name, dog.age);
+//    NSLog(@"%@ %d", dogCopy.name, dogCopy.age);
+//    return 0;
+//}
+//
+
+
+//#import<Foundation/Foundation.h>
+//
+//@interface person : NSObject
+//@property (nonatomic, copy) NSMutableString* name;
+//@end
+//
+//@implementation person
+//@end
+//
+//int main(int argc, char* argv[]) {
+//    NSMutableString* str = [NSMutableString stringWithString: @"hello"];
+//    NSMutableString* strCopy = [str mutableCopy];
+//    NSLog(@"%@", str);
+//    NSLog(@"%@", strCopy);
+//    [strCopy appendString: @"hello"];
+//    NSLog(@"%@", str);
+//    NSLog(@"%@", strCopy);
 //    return 0;
 //}
 
+//#import <Foundation/Foundation.h>
+//
+//@interface FKDog : NSObject
+//@property (nonatomic, strong) NSMutableString* name;
+//@property (nonatomic, assign) int age;
+//@end
+//
+//@implementation FKDog
+//- (id) copyWithZone: (NSZone*) zone {
+//    NSLog(@"执行 copyWithZone: ");
+//    FKDog* dog = [[[self class] allocWithZone: zone] init];
+//    dog.name = self.name;
+//    dog.age = self.age;
+//    return dog;
+//}
+//@end
+//
+//
+//int main(int argc, char * argv[]) {
+//    @autoreleasepool {
+//        FKDog* dog1 = [FKDog new]; // 创建一个FKDog对象
+//        dog1.name = [NSMutableString stringWithString:@"旺财"];
+//        dog1.age = 20;
+//        FKDog* dog2 = [dog1 copy]; // 复制副本
+//        NSLog(@"%@, %d", dog2.name, dog2.age);
+//    }
+//    return 0;
+//}
+
+
+//#import<Foundation/Foundation.h>
+//
+//@interface person : NSObject
+//@property (nonatomic, copy) NSMutableString* name;
+//@end
+//
+//@implementation person
+//@end
+
+//int main(int argc, char* argv[]) {
+//    NSMutableString* str = [NSMutableString stringWithString: @"hello"];
+//    NSMutableString* strCopy = [str mutableCopy];
+//    NSLog(@"%@", str);
+//    NSLog(@"%@", strCopy);
+//    [strCopy appendString: @"hello"];
+//    NSLog(@"%@", str);
+//    NSLog(@"%@", strCopy);
+//    return 0;
+//}
+
+#import<Foundation/Foundation.h>
+
+@interface person : NSObject
+@property (nonatomic) NSMutableString* name;
+@end
+
+@implementation person
+- (id) copyWithZone: (NSZone*) zone {
+    NSLog(@"执行 copyWithZone");
+    person* per = [[person alloc] init];
+    per.name = self.name;
+    return per;
+}
+@end
+
+
 int main(int argc, char* argv[]) {
-    FKDog* dog = [[FKDog alloc] init];
-    dog.name = [NSMutableString stringWithString: @"hello"];
-    dog.age = 32;
-    NSLog(@"%@ %d", dog.name, dog.age);
-    FKDog* dogCopy = [dog copy];
-    [dogCopy.name replaceCharactersInRange: NSMakeRange(0, 3) withString: @"nihao"];
-    NSLog(@"%@ %d", dog.name, dog.age);
-    NSLog(@"%@ %d", dogCopy.name, dogCopy.age);
+    person* per = [[person alloc] init];
+    per.name = [NSMutableString stringWithString: @"hello"];
+    person* perCopy = [per copy];
+    [perCopy.name appendString: @"xinyan"];
+    NSLog(@"%@", per.name);
+    NSLog(@"%@", perCopy.name);
     return 0;
 }
-
