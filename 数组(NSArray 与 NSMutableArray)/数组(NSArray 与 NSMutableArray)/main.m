@@ -427,7 +427,7 @@
 //    return 0;
 //}
 
-#import<Foundation/Foundation.h>
+//#import<Foundation/Foundation.h>
 //int main(int argc, char* argv[]) {
 //    NSArray* arr = [[NSArray alloc] initWithObjects: @"hello", @"xinyan", @"world", @"iOS", nil];
 //    // 取出第一个元素
@@ -467,11 +467,218 @@
 //    return 0;
 //}
 
+//@interface NSString (fk)
+//- (void) say: (NSString* )str;
+//@end
+//
+//@implementation NSString (fk)
+//- (void) say: (NSString*) str {
+//    NSLog(@"%@ say %@", self, str);
+//}
+//@end
+//
+//int main(int argc, char* argv[]) {
+//    NSArray* arr = [[NSArray alloc] initWithObjects: @"hello", @"xinyan", @"world", @"iOS", nil];
+//    NSArray* arr1 = [NSArray arrayWithObjects: @"swift", @"python", nil];
+//    arr = [arr arrayByAddingObjectsFromArray: arr1];
+//    NSLog(@"%@", arr);
+//    // 对集合整体调用方法
+//    [arr enumerateObjectsAtIndexes: [NSIndexSet indexSetWithIndexesInRange: NSMakeRange(2, 2)] options: NSEnumerationReverse usingBlock: ^(id obj, NSUInteger idx, BOOL* stop) {
+//        NSLog(@"正在处理第 %ld 个元素 %@", idx, obj);
+//    }];
+//    return 0;
+//}
+ 
+
+//// 定义比较函数
+//NSComparisonResult intSort(id num1, id num2, void* conrtext) {
+//    int v1 = [num1 intValue];
+//    int v2 = [num2 intValue];
+//    if (v1 > v2) {
+//        return NSOrderedAscending;
+//    }
+//    if (v1 < v2) {
+//        return NSOrderedDescending;
+//    }
+//    return NSOrderedSame;
+//}
+//
+//int main(int argc, char* argv[]) {
+////    NSArray* arr = @[[NSNumber numberWithInt: 3], [NSNumber numberWithInt: 6], [NSNumber numberWithInt: 5]];
+////    NSArray* arr1 = [arr sortedArrayUsingFunction: intSort context: nil];
+////    NSLog(@"%@", arr);
+////    NSLog(@"%@", arr1);
+//    
+//
+//    return 0;
+//}
+//#import<Foundation/Foundation.h>
+//#import<objc/runtime.h>
+//
+//@interface Dog : NSObject
+//@end
+//
+//@implementation Dog
+//
+//@end
+
+//int main(int argc, char* argv[]) {
+//    Dog* dog1 = [[Dog alloc] init];
+//    Dog* dog2 = [[Dog alloc] init];
+//    NSLog(@"%d", [[Dog class] class] == objc_getMetaClass("Dog"));
+//    return 0;
+//}
+
+
+
+//#import<Foundation/Foundation.h>
+//// 定义比较函数
+//NSComparisonResult intSort(id num1, id num2, void* conrtext) {
+//    int v1 = [num1 intValue];
+//    int v2 = [num2 intValue];
+//    if (v1 > v2) {
+//        return NSOrderedAscending;
+//    }
+//    if (v1 < v2) {
+//        return NSOrderedDescending;
+//    }
+//    return NSOrderedSame;
+//}
+//int main(int argc, char* argv[]) {
+//    NSArray* arr = @[[NSNumber numberWithInt: 3], [NSNumber numberWithInt: 6], [NSNumber numberWithInt: 5]];
+//    NSLog(@"%@", arr);
+//    NSArray* arr1 = [arr sortedArrayUsingSelector:@selector(compare:)];
+//    NSLog(@"%@", arr1);
+//    NSArray* arr2 = [arr sortedArrayUsingFunction: intSort context: nil];
+//    NSLog(@"%@", arr2);
+//    NSArray* arr3 = [arr sortedArrayUsingComparator: ^ (id num1, id num2) {
+//        if ([num1  intValue] > [num2 intValue]) {
+//            return NSOrderedAscending;
+//        } else if ([num1 intValue] < [num2 intValue]) {
+//            return NSOrderedDescending;
+//        } else {
+//            return NSOrderedSame;
+//        }
+//    }];
+//    NSLog(@"%@", arr3);
+//    return 0;
+//}
+
+
+
+//#import<Foundation/Foundation.h>
+//// 定义比较函数
+//NSComparisonResult intSort(id num1, id num2, void* conrtext) {
+//    int v1 = [num1 intValue];
+//    int v2 = [num2 intValue];
+//    if (v1 > v2) {
+//        return NSOrderedAscending;
+//    }
+//    if (v1 < v2) {
+//        return NSOrderedDescending;
+//    }
+//    return NSOrderedSame;
+//}
+//int main(int argc, char* argv[]) {
+//    NSArray* arr = @[[NSNumber numberWithInt: 3], [NSNumber numberWithInt: 6], [NSNumber numberWithInt: 5]];
+//    NSLog(@"%@", arr);
+//    arr = [arr arrayByAddingObjectsFromArray: [NSArray arrayWithObjects: [NSNumber numberWithInt: 4], [NSNumber numberWithInt: 9], [NSNumber numberWithInt: 5], nil]];
+//    NSEnumerator* en = [arr objectEnumerator];
+//    id object;
+//    while (object = [en nextObject]) {
+//        NSLog(@"%@", object);
+//    }
+//    NSLog(@"%@", object);
+//    NSLog(@"开始逆序便利");
+//    en = [arr reverseObjectEnumerator];
+//    while (object = [en nextObject]) {
+//        NSLog(@"%@", object);
+//    }
+//    return 0;
+//}
+
+
+
+//#import<Foundation/Foundation.h>
+//// 定义比较函数
+//NSComparisonResult intSort(id num1, id num2, void* conrtext) {
+//    int v1 = [num1 intValue];
+//    int v2 = [num2 intValue];
+//    if (v1 > v2) {
+//        return NSOrderedAscending;
+//    }
+//    if (v1 < v2) {
+//        return NSOrderedDescending;
+//    }
+//    return NSOrderedSame;
+//}
+//int main(int argc, char* argv[]) {
+//    NSArray* arr = @[[NSNumber numberWithInt: 3], [NSNumber numberWithInt: 6], [NSNumber numberWithInt: 5]];
+//    arr = [arr arrayByAddingObjectsFromArray: [NSArray arrayWithObjects: [NSNumber numberWithInt: 4], [NSNumber numberWithInt: 9], [NSNumber numberWithInt: 5], nil]];
+//    NSLog(@"%@", arr);
+//    for (id object in arr) {
+//        NSLog(@"%@", object);
+//    }
+//    return 0;
+//}
+
+
+
+
+//#import<Foundation/Foundation.h>
+//// 定义比较函数
+//NSComparisonResult intSort(id num1, id num2, void* conrtext) {
+//    int v1 = [num1 intValue];
+//    int v2 = [num2 intValue];
+//    if (v1 > v2) {
+//        return NSOrderedAscending;
+//    }
+//    if (v1 < v2) {
+//        return NSOrderedDescending;
+//    }
+//    return NSOrderedSame;
+//}
+//int main(int argc, char* argv[]) {
+//    NSArray* arr = @[[NSNumber numberWithInt: 3], [NSNumber numberWithInt: 6], [NSNumber numberWithInt: 5]];
+//    arr = [arr arrayByAddingObjectsFromArray: [NSArray arrayWithObjects: [NSNumber numberWithInt: 4], [NSNumber numberWithInt: 9], [NSNumber numberWithInt: 5], nil]];
+//    NSLog(@"%@", arr);
+//    return 0;
+//}
+
+
+
+#import<Foundation/Foundation.h>
+// 定义比较函数
+NSComparisonResult intSort(id num1, id num2, void* conrtext) {
+    int v1 = [num1 intValue];
+    int v2 = [num2 intValue];
+    if (v1 > v2) {
+        return NSOrderedAscending;
+    }
+    if (v1 < v2) {
+        return NSOrderedDescending;
+    }
+    return NSOrderedSame;
+}
+//int main(int argc, char* argv[]) {
+//    NSArray* arr = @[[NSNumber numberWithInt: 3], [NSNumber numberWithInt: 6], [NSNumber numberWithInt: 5]];
+//    arr = [arr arrayByAddingObjectsFromArray: [NSArray arrayWithObjects: [NSNumber numberWithInt: 4], [NSNumber numberWithInt: 9], [NSNumber numberWithInt: 5], nil]];
+//    NSMutableArray *mutablearr = [NSMutableArray arrayWithArray: arr];
+//    NSLog(@"%@", mutablearr);
+//    [mutablearr removeLastObject];
+//    NSLog(@"%@", mutablearr);
+//
+//    return 0;
+//}
+
 int main(int argc, char* argv[]) {
-    NSArray* arr = [[NSArray alloc] initWithObjects: @"hello", @"xinyan", @"world", @"iOS", nil];
-    NSArray* arr1 = [NSArray arrayWithObjects: @"swift", @"python", nil];
-    arr = [arr arrayByAddingObjectsFromArray: arr1];
-    NSLog(@"%@", arr);
+    NSArray* arr = @[[NSNumber numberWithInt: 3], [NSNumber numberWithInt: 6], [NSNumber numberWithInt: 5]];
+    arr = [arr arrayByAddingObjectsFromArray: [NSArray arrayWithObjects: [NSNumber numberWithInt: 4], [NSNumber numberWithInt: 9], [NSNumber numberWithInt: 5], nil]];
+    NSMutableArray *mutablearr = [NSMutableArray arrayWithArray: arr];
+    NSLog(@"%@", mutablearr);
+    [mutablearr removeLastObject];
+    NSLog(@"%@", mutablearr);
+    [mutablearr insertObjects: [NSArray arrayWithObjects: @"hello", @"xinyan", nil] atIndexes: [NSIndexSet indexSetWithIndexesInRange: NSMakeRange(1, 2)]];
+    NSLog(@"%@", mutablearr);
     return 0;
 }
-

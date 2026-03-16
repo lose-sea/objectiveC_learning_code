@@ -156,11 +156,61 @@
 
 
 
-#import<Foundation/Foundation.h>
+//#import<Foundation/Foundation.h>
+//@interface FKUser : NSObject
+//+ (instancetype) shareInstance;
+//@end
+//
+//@implementation FKUser
+//static FKUser* _instance;
+//+ (instancetype) shareInstance {
+//    static dispatch_once_t tokenOnce;
+//    dispatch_once(&tokenOnce, ^ {
+//        _instance = [[super allocWithZone: NULL] init];
+//    });
+//    return _instance;
+//}
+//+ (instancetype) allocWithZone:(struct _NSZone *)zone {
+//    return [self shareInstance];
+//}
+//- (id) copyWithZone: (NSZone*) zone {
+//    return _instance;
+//}
+//- (id) mutableCopy: (NSZone*) zone {
+//    return _instance;
+//}
+//@end
+
+
+//@interface FKUser : NSObject
+//+ (instancetype) shareInstance;
+//@end
+//
+//@implementation FKUser
+//static FKUser* _instance = nil;
+//+ (instancetype) shareInstance {
+//    static dispatch_once_t tokenOnce;
+//    dispatch_once(&tokenOnce, ^ {
+//        _instance = [[super allocWithZone: NULL] init];
+//    });
+//    return _instance;
+//}
+//+ (instancetype) allocWithZone: (struct _NSZone*) zone {
+//    return [self shareInstance];
+//}
+//- (id) copyWithZone: (struct _NSZone*) zone {
+//    return _instance;
+//}
+//- (id) mutableCopy: (NSZone*) zone {
+//    return _instance;
+//}
+//@end
+
+
+
 @interface FKUser : NSObject
 + (instancetype) shareInstance;
 @end
-
 @implementation FKUser
 static FKUser* _instance;
 + (instancetype) shareInstance {
@@ -170,13 +220,15 @@ static FKUser* _instance;
     });
     return _instance;
 }
-+ (instancetype) allocWithZone:(struct _NSZone *)zone {
++ (instancetype) allocWithZone: (struct _NSZone*) zone {
     return [self shareInstance];
 }
-- (id) copyWithZone: (NSZone*) zone {
+- (id) copy: (NSZone*) zone {
     return _instance;
 }
 - (id) mutableCopy: (NSZone*) zone {
     return _instance;
 }
 @end
+
+
