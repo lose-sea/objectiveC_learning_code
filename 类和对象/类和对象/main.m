@@ -898,7 +898,7 @@
 //}
 
 
-#import<Foundation/Foundation.h>
+//#import<Foundation/Foundation.h>
  
 
 //@interface VarArgs : NSObject
@@ -938,3 +938,23 @@
 //}
 
 
+//#import "FKDog.h"
+//int main(int argc, char* argv[]) {
+//    FKDog* dog = [[FKDog alloc] init];
+//    [dog jump]; 
+//    return 0;
+//}
+
+
+
+#import"FKUser.h"
+
+int main(int argc, char* argv[]) {
+    FKUser* user = [[FKUser alloc] init];
+    NSMutableString* str = [NSMutableString stringWithString: @"hello"];
+    user.name = str;
+    NSLog(@"%@", user.name);
+    [str appendString: @" xinyan"];
+    NSLog(@"%@, %@", user.name, str); 
+    return 0;
+}

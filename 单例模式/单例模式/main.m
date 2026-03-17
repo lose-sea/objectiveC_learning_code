@@ -208,27 +208,27 @@
 
 
 
-@interface FKUser : NSObject
-+ (instancetype) shareInstance;
-@end
-@implementation FKUser
-static FKUser* _instance;
-+ (instancetype) shareInstance {
-    static dispatch_once_t tokenOnce;
-    dispatch_once(&tokenOnce, ^ {
-        _instance = [[super allocWithZone: NULL] init];
-    });
-    return _instance;
-}
-+ (instancetype) allocWithZone: (struct _NSZone*) zone {
-    return [self shareInstance];
-}
-- (id) copy: (NSZone*) zone {
-    return _instance;
-}
-- (id) mutableCopy: (NSZone*) zone {
-    return _instance;
-}
-@end
-
+//@interface FKUser : NSObject
+//+ (instancetype) shareInstance;
+//@end
+//@implementation FKUser
+//static FKUser* _instance;
+//+ (instancetype) shareInstance {
+//    static dispatch_once_t tokenOnce;
+//    dispatch_once(&tokenOnce, ^ {
+//        _instance = [[super allocWithZone: NULL] init];
+//    });
+//    return _instance;
+//}
+//+ (instancetype) allocWithZone: (struct _NSZone*) zone {
+//    return [self shareInstance];
+//}
+//- (id) copy: (NSZone*) zone {
+//    return _instance;
+//}
+//- (id) mutableCopy: (NSZone*) zone {
+//    return _instance;
+//}
+//@end
+//
 
