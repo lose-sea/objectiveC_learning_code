@@ -12,6 +12,6 @@
     NSLog(@"父类的base");
 }
 - (void) test {
-    NSLog(@"父类的say");
+    NSLog(@"父类的test");
 }
 @end
