@@ -18,13 +18,13 @@ int main(int argc, const char * argv[]) {
         [b test];
         [b sub];
         Base* c = [[Sub alloc] init];
-        [c test];
         [c base];
+        [c test];
+//         [c sub];   // 报错,编译器查看Base 的接口, Base里没有sub方法
         id d = c;
         [d sub];
         [d base];
-        d = (Base*)d;
-        [d test];
+        [(Base*)d test];
     }
     return EXIT_SUCCESS;
 }
