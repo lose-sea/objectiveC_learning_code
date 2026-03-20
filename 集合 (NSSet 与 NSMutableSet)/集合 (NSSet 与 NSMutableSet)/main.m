@@ -180,10 +180,38 @@
 //    return 0;
 //}
 
+//#import<Foundation/Foundation.h>
+//int main(int argc, char* argv[]) {
+//    @autoreleasepool {
+//        NSCountedSet* set = [[NSCountedSet alloc] initWithObjects: @"hello", @"xinyan", nil];
+//        NSLog(@"%@", set);
+//        [set addObject: @"hello"];
+//        NSLog(@"%@", set);
+//        NSLog(@"%ld", [set countForObject: @"hello"]);  // 2
+//        [set addObject: @"hello"];
+//        NSLog(@"%ld", [set countForObject: @"hello"]);  // 3
+//        [set removeObject: @"hello"];
+//        NSLog(@"%ld", [set countForObject: @"hello"]);  // 2
+//        NSLog(@"%@", set);
+//    }
+//    return 0;
+//}
+
+
 #import<Foundation/Foundation.h>
 int main(int argc, char* argv[]) {
     @autoreleasepool {
-        
+        NSOrderedSet* set = [[NSOrderedSet alloc] initWithSet: [NSSet setWithArray: [NSArray arrayWithObjects: @"hello", @"xinyan", nil]]];
+        NSLog(@"%@", [set objectAtIndex: 1]);   // 获取索引为 1 的元素
+        NSLog(@"%@", [set firstObject]);    // 获取第一个元素
+        NSLog(@"%@", [set lastObject]);     // 获取最后一个元素
+        NSLog(@"%ld", [set indexOfObject: @"xinyan"]); // 获取指定元素的索引
+        // 对元素进行过滤, 或去符合条件的元素的索引
+        NSIndexSet* indexSet = [set indexesOfObjectsPassingTest: ^(id obj, NSUInteger idx, BOOL* stop) {
+            return (BOOL)([obj length] > 5);
+        }];
+        NSLog(@"集合中长度大于 5 的元素的索引为%@", indexSet);
+        NSLog(@"%@", [set objectsAtIndexes: indexSet]); // 打印获取的索引的元素
     }
     return 0;
 }
