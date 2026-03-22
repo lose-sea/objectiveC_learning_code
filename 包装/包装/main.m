@@ -635,5 +635,12 @@
 //    return 0;
 //}
 
-
+#import "User.h"
+int main(int argc, char* argv[]) {
+    @autoreleasepool {
+        NSObject<Sayhello>* user = [[User alloc] init];
+        [user sayhello]; 
+    }
+    return 0;
+}
 

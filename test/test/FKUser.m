@@ -22,7 +22,15 @@
     }
     return NO;
 }
-//- (void) sayhello {
-//    NSLog(@"hello"); 
-//}
+
+
+static NSString* nation = nil;
++ (NSString*) nation {
+    return nation;
+}
++ (void) setNation: (NSString*) newNation {
+    if ((![nation isEqualToString: newNation])) {
+        nation = newNation; 
+    }
+}
 @end

@@ -15,6 +15,9 @@ NS_ASSUME_NONNULL_BEGIN
 @property NSString* name;
 - (BOOL) isEqual: Objectt;
 - (id) initWithId: (NSString*) idstr andName: (NSString*) name;
+
++ (NSString*) nation;
++ (void) setNation: (NSString*) newNation; 
 @end
 
 NS_ASSUME_NONNULL_END

@@ -148,5 +148,12 @@
 //    return EXIT_SUCCESS;
 //}
 
-
+#import<Foundation/Foundation.h>
+int main(int argc, char* argv[]) {
+    @autoreleasepool {
+        [FKUser setNation: @"China"];
+        NSLog(@"FKUser 的nation 类变量为: %@", [FKUser nation]); 
+    }
+    return 0;
+}
 
