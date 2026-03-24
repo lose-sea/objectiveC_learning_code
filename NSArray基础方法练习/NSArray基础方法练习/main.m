@@ -113,7 +113,16 @@ int main(int argc, char* argv[]) {
             NSLog(@"%@", object);
         }
         
+        en = [arr objectEnumerator];
+        object = [en nextObject];
+        object = [en nextObject];
+        object = [en allObjects];
+        NSLog(@"%@", object);
         
+        NSMutableArray* arr8 =[[NSMutableArray alloc] initWithArray: arr];
+        NSLog(@"%@", arr8);
+        [arr8 addObject: @"chick"];
+        NSLog(@"%@", arr8);
     }
     return 0;
 }
