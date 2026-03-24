@@ -69,8 +69,10 @@ int main(int argc, char* argv[]) {
         [arr enumerateObjectsAtIndexes: [NSIndexSet indexSetWithIndexesInRange: NSMakeRange(5, 3)] options: 0 usingBlock: ^ (id obj, NSUInteger idx, BOOL *stop) {
             NSLog(@"正在处理第 %ld 个元素%@", idx, obj);
         }];
+    
         
         
+        // 排序
         NSArray* arr7 = [[NSArray alloc] initWithObjects: [NSNumber numberWithInt: 2],
                          [NSNumber numberWithInt: 4],
                          [NSNumber numberWithInt: 1],
@@ -96,6 +98,20 @@ int main(int argc, char* argv[]) {
             }
         }];
         NSLog(@"%@", arr7);
+        
+        
+        // 枚举器
+        NSEnumerator* en = [arr objectEnumerator];
+        id object;
+        while (object = [en nextObject]) {
+            NSLog(@"%@", object);
+        }
+        NSLog(@"\n\n");
+        // 反向遍历
+        en = [arr reverseObjectEnumerator];
+        while (object = [en nextObject]) {
+            NSLog(@"%@", object);
+        }
         
         
     }
