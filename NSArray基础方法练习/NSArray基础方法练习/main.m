@@ -123,6 +123,29 @@ int main(int argc, char* argv[]) {
         NSLog(@"%@", arr8);
         [arr8 addObject: @"chick"];
         NSLog(@"%@", arr8);
+        
+        // 追加, 插入
+        NSMutableArray* arr9 = [NSMutableArray arrayWithArray: arr8];
+        NSLog(@"%@", arr9);
+        [arr9 addObject: @"dream"];
+        NSLog(@"%@", arr9);
+        [arr9 addObjectsFromArray: arr2];
+        NSLog(@"%@", arr9);
+        [arr9 insertObjects: [NSArray arrayWithObjects: @"rong", @"jin", nil] atIndexes: [NSIndexSet indexSetWithIndexesInRange: NSMakeRange(3, 2)]];
+        NSLog(@"%@", arr9);
+        
+        // 删除
+        [arr9 removeLastObject];
+        NSLog(@"%@", arr9);
+        [arr9 removeObjectAtIndex: 4];
+        [arr9 removeObjectsInRange: NSMakeRange(3, 4)];
+        NSLog(@"%@", arr9);
+        
+        [arr9 replaceObjectAtIndex: 3 withObject: @"hello"];
+        NSLog(@"%@", arr9);
+        
+        
+        
     }
     return 0;
 }
