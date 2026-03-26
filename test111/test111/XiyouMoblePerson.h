@@ -12,7 +12,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface XiyouMoblePerson : Person <Demand>
 {
-    @private
+    @protected
     int _iOS;
     int _web;
     NSString* _android;

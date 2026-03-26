@@ -13,8 +13,9 @@
                          [NSArray arrayWithObjects:
                           [NSNumber numberWithInt: self->_iOS],
                           [NSNumber numberWithInt: self->_web],
-                          [NSString stringWithString: self->_android],
-                          [NSString stringWithString: self->_serve], nil]
+                          self->_android,
+                          self->_serve,
+                          nil]
                                                     forKeys:
                          [NSArray arrayWithObjects: @"iOS", @"web", @"android", @"serve", nil]];
     return dic;
