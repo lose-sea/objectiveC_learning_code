@@ -12,7 +12,7 @@
 - (instancetype) init {
     self = [super init];
     if (self) {
-        _xiyouMobileArray = [NSArray array];
+        _xiyouMobileArray = [NSMutableArray array];
     }
     return self;
 }

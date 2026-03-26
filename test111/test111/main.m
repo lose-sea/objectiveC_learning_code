@@ -27,26 +27,29 @@ int main(int argc, const char * argv[]) {
                                [[XiyouMobilePerson alloc] initWithIos: 234 web: 43 android: @"hello" serve: @"ios"],
                                [[XiyouMobilePerson alloc] initWithIos: 213 web: 43 android: @"hello" serve: @"ios"],
                                [[XiyouMobilePerson alloc] initWithIos: 23 web: 43 android: @"hello" serve: @"ios"],
+                               [[XiyouMobilePerson alloc] initWithIos: 263 web: 43 android: @"hello" serve: @"ios"],
                                
         nil];
         
-//        [m1.xiyouMobileArray removeObjectsInRange: NSMakeRange(2, 3)];
-//        NSLog(@"%d, %d, %@, %@", [m1.xiyouMobileArray[0]]);
-//
-//        
-//        
-//
-//        
-        int a = 1;
-        NSNumber* a1 = [NSNumber numberWithInt: a];
+        [m1.xiyouMobileArray removeObjectsInRange: NSMakeRange(2, 3)];
         
-        float b = 1;
-        NSNumber* b1 = [NSNumber numberWithFloat: b];
         
-        char* string = "hello";
-        NSString* c1 =[[NSString alloc] initWithUTF8String: string];
         
-        NSLog(@"%@", c1); 
+
+        
+        
+
+        
+//        int a = 1;
+//        NSNumber* a1 = [NSNumber numberWithInt: a];
+//        
+//        float b = 1;
+//        NSNumber* b1 = [NSNumber numberWithFloat: b];
+//        
+//        char* string = "hello";
+//        NSString* c1 =[[NSString alloc] initWithUTF8String: string];
+//        
+//        NSLog(@"%@", c1); 
         
 //        Person* p1 = [[Person alloc] initWithName: @"je" andAge: 3];
 //        NSLog(@"%@ %@", [p1 descriptionName], [p1 descriptionAge]); 
