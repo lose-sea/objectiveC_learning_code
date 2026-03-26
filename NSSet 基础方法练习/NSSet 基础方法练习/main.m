@@ -62,8 +62,31 @@ int main(int argc, char* argv[]) {
         [set3 removeObject: @"xinyan"];
         NSLog(@"%@", NSCollectionToString(set3));
         
-        NSSet* set4 = 
-        [set3 unionSet: ]
+        // 并集, 交集, 差集
+        NSSet* set4 = [NSSet setWithObjects: @"cat", @"hello", @"pig", nil];
+        [set3 unionSet: set4];
+        NSLog(@"%@", NSCollectionToString(set3));
+        
+        [set3 intersectSet: set4];
+        NSLog(@"%@", NSCollectionToString(set3));
+        
+        [set3 minusSet: set1];
+        NSLog(@"%@", NSCollectionToString(set3));
+        
+        
+        NSCountedSet* set5 = [[NSCountedSet alloc] initWithObjects: @"hello", @"xinyan", @"world", nil];
+        [set5 addObject: @"hello"];
+        NSLog(@"%lu", (unsigned long)[set5 countForObject: @"hello"]);
+        
+        NSOrderedSet* set6 = [NSOrderedSet orderedSetWithSet: set5];
+        NSLog(@"%@", [set6 objectAtIndex: 1]);
+        
+        NSLog(@"%lu", [set6 indexOfObject: @"hello"]);
+        
+        NSIndexSet* indexset = [set6 indexesOfObjectsPassingTest: ^ (id obj, NSUInteger idx, BOOL* stop) {
+            return (BOOL)([obj length] > 4);
+        }];
+        NSLog(@"%@", indexset);
     }
     return 0;
 }
