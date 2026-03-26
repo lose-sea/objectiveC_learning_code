@@ -6,12 +6,13 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "XiyouMoblePerson.h"
+#import "XiyouMobilePerson.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface XiyouMoblePerson (Category)
+@interface XiyouMobilePerson (Category)
 - (NSDictionary*) dabao;
+- (NSDictionary*) toDictionary; 
 @end
 
 NS_ASSUME_NONNULL_END

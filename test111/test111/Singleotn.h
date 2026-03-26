@@ -9,7 +9,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface instance : NSObject
+@interface Singleton : NSObject
 + (instancetype) shareInstance; 
 @end
 

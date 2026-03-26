@@ -7,28 +7,30 @@
 
 #import <Foundation/Foundation.h>
 #import "Person.h"
-#import "XiyouMoblePerson.h"
+#import "XiyouMobilePerson.h"
 #import "XiyouMobilePersonCategory.h"
 #import "Model.h"
 
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
-        XiyouMoblePerson* x1 = [[XiyouMoblePerson alloc] init];
+        XiyouMobilePerson* x1 = [[XiyouMobilePerson alloc] init];
         x1.iOS = 1;
         x1.web = 0;
+        x1.android = @"android";
+        x1.serve = @"serve";
         [x1 dabao];
-//        NSLog(@"%@", [x1 dabao]); 
+        NSLog(@"%@", [x1 dabao]); 
         
         Model* m1 = [[Model alloc] init];
         m1.xiyouMobileArray = [NSMutableArray arrayWithObjects:
-                               [[XiyouMoblePerson alloc] initWithIos: 25 web: 43 android: @"hello" serve: @"ios"],
-                               [[XiyouMoblePerson alloc] initWithIos: 234 web: 43 android: @"hello" serve: @"ios"],
-                               [[XiyouMoblePerson alloc] initWithIos: 213 web: 43 android: @"hello" serve: @"ios"],
-                               [[XiyouMoblePerson alloc] initWithIos: 23 web: 43 android: @"hello" serve: @"ios"],
+                               [[XiyouMobilePerson alloc] initWithIos: 25 web: 43 android: @"hello" serve: @"ios"],
+                               [[XiyouMobilePerson alloc] initWithIos: 234 web: 43 android: @"hello" serve: @"ios"],
+                               [[XiyouMobilePerson alloc] initWithIos: 213 web: 43 android: @"hello" serve: @"ios"],
+                               [[XiyouMobilePerson alloc] initWithIos: 23 web: 43 android: @"hello" serve: @"ios"],
                                
         nil];
         
-        [m1.xiyouMobileArray removeObjectsInRange: NSMakeRange(2, 3)];
+//        [m1.xiyouMobileArray removeObjectsInRange: NSMakeRange(2, 3)];
 //        NSLog(@"%d, %d, %@, %@", [m1.xiyouMobileArray[0]]);
 //
 //        

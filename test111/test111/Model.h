@@ -6,17 +6,17 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "XiyouMoblePerson.h"
+#import "XiyouMobilePerson.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 
 @interface Model : NSObject
-@property (nonatomic, copy) NSMutableArray<XiyouMoblePerson*>* xiyouMobileArray;
+@property (nonatomic, strong) NSMutableArray<XiyouMobilePerson*>* xiyouMobileArray;
 @end
 
 @interface Model ()
-@property (nonatomic, copy) NSMutableDictionary* xiyouMobileDictionary;
+@property (nonatomic, strong) NSMutableDictionary* xiyouMobileDictionary;
 @end
 
 // 使用nonatomic 是在单线程的情况下,可以提高程序运行的效率

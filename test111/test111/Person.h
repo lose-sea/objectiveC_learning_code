@@ -12,9 +12,9 @@ NS_ASSUME_NONNULL_BEGIN
 @interface Person : NSObject
 @property (nonatomic, copy) NSString* name;
 @property (nonatomic, assign) int age;
-- (id) initWithName: (NSString*) Name andAge: (int)Age;
+- (instancetype) initWithName: (NSString*) Name andAge: (int)Age;
 - (NSString *) descriptionName;
-- (NSString *) descriptionAge; 
+- (NSString *) descriptionAge;
 @end
 
 NS_ASSUME_NONNULL_END

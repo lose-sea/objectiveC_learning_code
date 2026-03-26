@@ -9,5 +9,12 @@
 
 
 @implementation Model
+- (instancetype) init {
+    self = [super init];
+    if (self) {
+        _xiyouMobileArray = [NSArray array];
+    }
+    return self;
+}
 
 @end

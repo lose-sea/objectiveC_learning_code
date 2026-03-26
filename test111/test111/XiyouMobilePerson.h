@@ -1,8 +1,8 @@
 //
-//  XiyouMoblePerson.h
+//  XiyouMobilePerson.h
 //  test111
 //
-//  Created by lose_sea on 2026/3/26.
+//  Created by lose_sea on 2026/3/27.
 //
 
 #import <Foundation/Foundation.h>
@@ -10,20 +10,27 @@
 #import "Demand.h"
 NS_ASSUME_NONNULL_BEGIN
 
-@interface XiyouMoblePerson : Person <Demand>
+@interface XiyouMobilePerson : Person <Demand>
 {
     @protected
     int _iOS;
     int _web;
     NSString* _android;
-    NSString* _serve; 
+    NSString* _serve;
 }
 - (void) setIOS: (int) ios;
-- (void) setWeb: (int) web;
-- (void) setAndroid: (NSString*) android;
-- (void) setServe: (NSString*) serve;
+- (int) iOS;
 
-- (id) initWithIos: (int) ios web: (int) web android: (NSString*) android serve: (NSString*) serve;
+- (void) setWeb: (int) web;
+- (int) web;
+
+- (void) setAndroid: (NSString*) android;
+- (NSString*) android;
+
+- (void) setServe: (NSString*) serve;
+- (NSString*) serve;
+
+- (instancetype) initWithIos: (int) ios web: (int) web android: (NSString*) android serve: (NSString*) serve;
 //@property (assign, nonatomic) int iOS;
 //@property (assign, nonatomic) int web;
 //@property (copy, nonatomic) NSString* android;

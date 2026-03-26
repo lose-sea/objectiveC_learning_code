@@ -21,9 +21,9 @@
 3. 分类不能添加成员变量和属性, 扩展能添加成员变量和属性
 
 4. NSString 内部有三种类型
-        _NSCFContentstring 字符串常量
-        _NSCFing        存放在堆区的字符串
-        _NSToggedPointString    通过stringFormat 方式创建且无中文字符, 字符串长度 <= 9
+        _NSCFConstantString 字符串常量
+        _NSCFString        存放在堆区的字符串
+        NSTaggedPointString    通过stringFormat 方式创建且无中文字符, 字符串长度 <= 9
 
 5. 空指针是指 nil, 野指针是指在创建指针后没有设置指向, 悬空指针是指所指向的内存释放之后没有置为空
 

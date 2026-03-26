@@ -5,10 +5,10 @@
 //  Created by lose_sea on 2026/3/26.
 //
 
-#import "instance.h"
+#import "Singleotn.h"
 
-@implementation instance
-static instance* _instance;
+@implementation Singleton
+static Singleton* _instance;
 + (instancetype) shareInstance {
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
