@@ -48,10 +48,10 @@
     return self;
 }
 
-
-
-
 - (void) calculate {
     NSLog(@"iOS + web = %d", self->_iOS + self->_web);
+}
+- (NSString*) description {
+    return [NSString stringWithFormat: @"name = %@, age = %d, ios = %d, web = %d, android = %@, serve = %@", self.name, self.age, _iOS, _web, _android, _serve];
 }
 @end

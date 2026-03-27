@@ -31,14 +31,27 @@ int main(int argc, const char * argv[]) {
                                
         nil];
         
+
+        
+        [m1.xiyouMobileArray sortUsingComparator: ^ (XiyouMobilePerson* obj1, XiyouMobilePerson* obj2) {
+            if (obj1.iOS > obj2.iOS) {
+                return NSOrderedAscending;
+            } else if (obj1.iOS > obj2.iOS) {
+                return NSOrderedDescending;
+            } else {
+                return NSOrderedSame;
+            }
+        }];
+        NSLog(@"%@", m1.xiyouMobileArray[0]);
+        
+        
         [m1.xiyouMobileArray removeObjectsInRange: NSMakeRange(2, 3)];
-        
-        
-        
 
         
         
-
+        NSDictionary* temp = @{@"iOS": @"吴桐", @"Android": @"乌萨奇", @"Serve": @"奶龙"};
+        m1.xiyouMobileDictionary = [NSMutableDictionary dictionaryWithDictionary: temp];
+        NSLog(@"%@", m1.xiyouMobileDictionary); 
         
 //        int a = 1;
 //        NSNumber* a1 = [NSNumber numberWithInt: a];
