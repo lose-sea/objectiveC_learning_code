@@ -8,7 +8,7 @@
 #import "ViewController.h"
 
 @interface ViewController ()
-
+@property (nonatomic, weak) UILabel *lb;
 @end
 
 @implementation ViewController
@@ -24,7 +24,8 @@
     label.font = [UIFont systemFontOfSize: 24];     // 字体大小
     label.frame = CGRectMake(100, 300, 200, 44);    // 位置, 距左 100, 距上 300, 宽 200, 高 44
     [self.view addSubview: label];      // 加入到页面
-    
+    self.lb = label;
+    //label.hidden = YES;
     // 加入一个按钮
     UIButton* button = [[UIButton alloc] init];     // 创建按钮
     [button setTitle: @"点我" forState: UIControlStateNormal];    //设置文字, UIControlStateNormal 是正常状态
@@ -36,7 +37,14 @@
     
 }
 - (void) buttonTapped {
-    NSLog(@"按钮被点击了");
+    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(50, 50, 200, 200)];
+    view.backgroundColor = [UIColor systemCyanColor];
+    [self.view addSubview:view];
+    UILabel *lable = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 200, 200)];
+    lable.text = @"按钮被按了";
+    lable.center = CGPointMake(100, 100);
+    [view addSubview:lable];
+    self.lb.hidden = YES;
 }
 
 
