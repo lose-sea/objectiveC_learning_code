@@ -20,7 +20,8 @@
     
     UILabel* label = [[UILabel alloc] init];        // 创建文字标签
     label.text = @"hello";                  // 设置文字内容
-    label.textColor = [UIColor whiteColor];     // 文字颜色
+    label.backgroundColor = [UIColor whiteColor];
+    label.textColor = [UIColor systemBlueColor];     // 文字颜色
     label.font = [UIFont systemFontOfSize: 24];     // 字体大小
     label.frame = CGRectMake(100, 300, 200, 44);    // 位置, 距左 100, 距上 300, 宽 200, 高 44
     [self.view addSubview: label];      // 加入到页面
@@ -49,3 +50,4 @@
 
 
 @end
+
