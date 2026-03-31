@@ -6,6 +6,8 @@
 //
 
 #import "SceneDelegate.h"
+#import "MyWindow.h"
+
 
 @interface SceneDelegate ()
 
@@ -15,9 +17,28 @@
 
 
 - (void)scene:(UIScene *)scene willConnectToSession:(UISceneSession *)session options:(UISceneConnectionOptions *)connectionOptions {
-    // Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.
-    // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
-    // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
+//            MyWindow* vc = [[MyWindow alloc] init];
+//            UINavigationController* nav = [[UINavigationController alloc] initWithRootViewController: vc];
+//            self.window.rootViewController = nav;
+//            [self.window makeKeyAndVisible];
+    
+    
+//    // 创建一个UIWindow对象
+//    // 整个程序只有一个UIWindow 对象
+//    // 在程序基本上表示屏幕窗口
+//    // UIWindow 也继承于UIView
+//    // 是一种特殊的UIView
+//    
+//    // UIScreen 表示屏幕硬件表示类
+//    // mainScreen 获取主屏幕设备信息
+//    // bounds 表示屏幕的宽高值
+//    self.window = [[UIWindow alloc] initWithFrame: [UIScreen mainScreen].bounds];
+//    
+//    self.window.rootViewController = [[UIViewController alloc] init];
+//    
+//    self.window.backgroundColor = [UIColor blueColor];
+//    // 使window有效并显示
+//    [self.window makeKeyAndVisible];
 }
 
 
