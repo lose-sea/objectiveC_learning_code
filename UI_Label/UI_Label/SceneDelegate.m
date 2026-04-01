@@ -1,13 +1,11 @@
 //
 //  SceneDelegate.m
-//  UI_test
+//  UI_Label
 //
-//  Created by lose_sea on 2026/3/30.
+//  Created by lose_sea on 2026/4/1.
 //
 
 #import "SceneDelegate.h"
-#import "MyWindow.h"
-
 
 @interface SceneDelegate ()
 
@@ -17,47 +15,9 @@
 
 
 - (void)scene:(UIScene *)scene willConnectToSession:(UISceneSession *)session options:(UISceneConnectionOptions *)connectionOptions {
-    
-    // 设置根视图
-//            MyWindow* vc = [[MyWindow alloc] init];
-//            UINavigationController* nav = [[UINavigationController alloc] initWithRootViewController: vc];
-//            self.window.rootViewController = nav;
-//            [self.window makeKeyAndVisible];
-    
-
-////    // 对窗口的根视图控制器进行赋值操作
-////    // 整个UIKit中只有一个根视图控制器， 属于window属性
-////    // 用来管理界面和处理界面的逻辑对象
-// // // UIViewController* vcRoot = [[UIViewController alloc] init];
-//    self.window.rootViewController = vcRoot;
-//    // 将window作为主视图并显示出来
-//    [self.window makeKeyAndVisible];
-//    self.window.backgroundColor = [UIColor blueColor]; 
-    
-    
-//    // 创建一个UIWindow对象
-//    // 整个程序只有一个UIWindow 对象
-//    // 在程序基本上表示屏幕窗口
-//    // UIWindow 也继承于UIView
-//    // 是一种特殊的UIView
-//    
-//    // UIScreen 表示屏幕硬件表示类
-//    // mainScreen 获取主屏幕设备信息
-//    // bounds 表示屏幕的宽高值
-//    self.window = [[UIWindow alloc] initWithFrame: [UIScreen mainScreen].bounds];
-//    
-//    self.window.rootViewController = [[UIViewController alloc] init];
-//    
-//    self.window.backgroundColor = [UIColor blueColor];
-//    // 使window有效并显示
-//    [self.window makeKeyAndVisible];
-    
-    // 将window作为主视图并显示
-//    [self.window makeKeyAndVisible];
-    
-    // 设置根视图
-//    MyWindow* vc = [[MyWindow alloc] init];
-//    self.window.rootViewController = vc;
+    // Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.
+    // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
+    // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
 }
 
 
