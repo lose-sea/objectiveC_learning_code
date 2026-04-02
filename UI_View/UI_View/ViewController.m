@@ -6,12 +6,32 @@
 //
 
 #import "ViewController.h"
+#import "view02.h"
 
 @interface ViewController ()
 
 @end
 
 @implementation ViewController
+
+// 当屏幕被点击的时候调用此函数
+- (void) touchesBegan: (NSSet<UITouch*> *) touches withEvent: (UIEvent*) event {
+    // 创建视图控制器二
+    view02* vc = [[view02 alloc] init];
+    
+    // 显示一个新的视图控制器到屏幕上
+    // p1: 新的视图控制器对象
+    // p2: 使用动画切换动画效果
+    // p3: 切换结束之后调用, 不需要传 nil 即可
+    
+    // 不保留顶部安全区域, 使新视图覆盖全屏幕
+    vc.modalPresentationStyle = UIModalPresentationFullScreen;
+    
+    
+    [self presentViewController: vc animated: YES completion: nil];
+}
+
+
 
 // // UIView
 

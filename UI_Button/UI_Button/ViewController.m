@@ -54,6 +54,25 @@
 
 
 
+// 创建一个可以显示图片的按钮
+- (void) createImageBtn {
+    // 创建一个自定义类型的Btn
+    UIButton* btnImage = [UIButton buttonWithType: UIButtonTypeCustom];
+    btnImage.frame = CGRectMake(100, 200, 100, 100);
+    UIImage* icon01 = [UIImage imageNamed: @"btn01.png"];
+    UIImage* icon02 = [UIImage imageNamed: @"btn02.png"];
+    
+    // 设置按钮图片
+    // p1: 显示的图片对象
+    // p2: 控件的状态
+    [btnImage setImage: icon01 forState: (UIControlStateNormal)];
+    [btnImage setImage: icon02 forState :UIControlStateHighlighted];
+    [self.view addSubview: btnImage];
+    
+}
+
+
+
 
 - (void)btntarget {
     //    // 圆角类型, UIButtonRoundedRect
@@ -104,6 +123,7 @@
 //    
 //
     [self createUIRectButton];
+    [self createImageBtn];
 }
 
 
