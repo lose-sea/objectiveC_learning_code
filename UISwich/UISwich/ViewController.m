@@ -61,11 +61,12 @@
     [self.view addSubview: _mySwitch];
 }
 
+// 这里的状态是指操作之后开关的状态
 - (void) swChange: (UISwitch*) sw {
     if (sw.on == YES) {
         NSLog(@"开关被打开");
     } else {
-        NSLog(@"开关被关闭"); 
+        NSLog(@"开关被关闭");
     }
     NSLog(@"开关状态发生变化");
 }
