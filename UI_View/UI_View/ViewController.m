@@ -56,6 +56,7 @@
     [self.view addSubview: view];
     
     self.view.backgroundColor = [UIColor systemRedColor];
+    
     // 是否显示视图对象
     // YES: 隐藏
     // NO: 不隐藏
@@ -68,7 +69,7 @@
     view.alpha = 0.5;
     
     
-    // 是否显示不透明
+    // 是否显示不透明(不会影响透明度)
     view.opaque = NO;
     
     // 将自己从父亲视图删除
@@ -116,19 +117,8 @@
     }
 }
 
-//-(void)
-// 第一次程序加载视图时调用
-- (void)viewDidLoad {
-    [super viewDidLoad];
-    
-    NSLog(@"第一次加载视图");
-    // Do any additional setup after loading the view.
-//    [self createUI];
-//    [self createUIRectBotton];
-//    [self createView];
-//    [self viewStage];
 
-    
+-(void) createUIView {
     UIView* view = [[UIView alloc] init];
     view.frame = CGRectMake(100, 100, 100, 200);
     [self.view addSubview: view];
@@ -145,6 +135,20 @@
     
     // 设置按钮事件
     [btn addTarget: self action: @selector(pressBtn) forControlEvents: UIControlEventTouchDown];
+}
+// 第一次程序加载视图时调用
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    
+    NSLog(@"第一次加载视图");
+    // Do any additional setup after loading the view.
+//    [self createUI];
+//    [self createUIRectBotton];
+//    [self createView];
+    [self viewStage];
+
+    
+
 }
 
 - (void) pressBtn {

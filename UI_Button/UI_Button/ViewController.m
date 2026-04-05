@@ -65,9 +65,48 @@
     // 设置按钮图片
     // p1: 显示的图片对象
     // p2: 控件的状态
-    [btnImage setImage: icon01 forState: (UIControlStateNormal)];
-    [btnImage setImage: icon02 forState :UIControlStateHighlighted];
+    [btnImage setImage: icon01 forState: UIControlStateNormal];
+    [btnImage setImage: icon02 forState: UIControlStateHighlighted];
     [self.view addSubview: btnImage];
+}
+
+
+
+- (void) createButton {
+    // 系统类型按钮
+    UIButton* btn = [UIButton buttonWithType: UIButtonTypeSystem];
+    btn.frame = CGRectMake(100, 400, 100, 100);
+    // 自定义类型
+    UIButton* btn02 = [UIButton buttonWithType: UIButtonTypeCustom];
+    btn02.frame = CGRectMake(150, 200, 100, 100);
+    
+    btn.backgroundColor = [UIColor systemCyanColor];
+    
+    [btn setTitle: @"点击我" forState: UIControlStateNormal];
+    [btn addTarget: self action: @selector(pressBtn01) forControlEvents: UIControlEventTouchDown];
+    [btn setTitle: @"按下" forState: UIControlStateHighlighted];
+    
+    UIImage* img01 = [UIImage imageNamed: @"btn01.png"];
+    UIImage* img02 = [UIImage imageNamed: @"btn02.png"];
+    
+    
+    [btn02 setImage: img01 forState: UIControlStateNormal];
+    [btn02 setImage: img02 forState: UIControlStateHighlighted];
+    
+    [btn setTitleColor: [UIColor greenColor] forState: UIControlStateNormal];
+    
+    // 设置按钮风格颜色
+    [btn setTintColor: [UIColor blackColor]];
+    
+    // 按钮文字大小
+    btn.titleLabel.font = [UIFont systemFontOfSize: 18];
+
+    // 按钮背景颜色
+    // 这里不是按钮的颜色,只是包裹按钮文字的Label的颜色
+    btn.titleLabel.backgroundColor = [UIColor redColor]; 
+    
+    [self.view addSubview: btn];
+    [self.view addSubview: btn02];
     
 }
 
@@ -122,35 +161,10 @@
 //    // Do any additional setup after loading the view.
 //    
 //
-    [self createUIRectButton];
-    [self createImageBtn];
+//    [self createUIRectButton];
+//    [self createImageBtn];
+    [self createButton];
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
