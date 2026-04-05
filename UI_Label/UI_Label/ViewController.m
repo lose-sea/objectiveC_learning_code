@@ -12,6 +12,7 @@
 @end
 
 @implementation ViewController
+
 - (void) createUILabel {
     // 定义创建一个UILable对象
     UILabel* label = [[UILabel alloc] init];
@@ -87,12 +88,43 @@
     
 }
 
+- (void) createUILabel03 {
+    UILabel* label = [[UILabel alloc] init];
+    label.backgroundColor = [UIColor systemCyanColor];
+    label.frame = CGRectMake(100, 100, 200, 100);
+    
+    label.text = @"hello world xxxxxxxxxxxxx";
+    label.textColor = [UIColor systemRedColor];
+    // 字体大小
+    label.font = [UIFont systemFontOfSize: 24];
+    // 居中对齐
+    label.textAlignment = NSTextAlignmentCenter;
+    
+    label.shadowColor = [UIColor blackColor];
+    // 阴影偏移  左, 下
+    label.shadowOffset = CGSizeMake(10, 10);
+    
+    // 文字行数
+    // 设为 0 自适应, 默认为 1
+    label.numberOfLines = 0;
+    
+    // 行数不够时候自动缩小字体适应Label宽度
+    label.adjustsFontSizeToFitWidth = YES;
+    
+    [self.view addSubview: label];
+}
+
+
+
+
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
 //    [self createUILabel];
-    [self createUILabel02];
+//    [self createUILabel02];
+    [self createUILabel03];
+
 }
 
 

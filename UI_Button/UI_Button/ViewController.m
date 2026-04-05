@@ -151,7 +151,40 @@
         
 }
 
+- (void) createButton01 {
+    // 系统类型按钮
+    UIButton* btn = [UIButton buttonWithType: UIButtonTypeSystem];
+    btn.backgroundColor = [UIColor systemCyanColor];
+    btn.frame = CGRectMake(100, 200, 200, 40);
+    
+    [btn setTitle: @"Button" forState: UIControlStateNormal];
+    [btn setTitle: @"Button is pressed" forState: UIControlStateHighlighted];
+    
+    [btn setTitleColor: [UIColor systemOrangeColor] forState: UIControlStateHighlighted];
+    [btn setTintColor: [UIColor systemRedColor]];
+    
+    btn.titleLabel.font = [UIFont systemFontOfSize: 24];
+    
+    btn.titleLabel.backgroundColor = [UIColor systemGreenColor];
+    
+    [btn addTarget: self action: @selector(pressBtn01) forControlEvents: UIControlEventTouchUpInside];
+    
+    btn.tag = 101; 
+        
+    [self.view addSubview: btn];
+}
 
+- (void) createImageButton {
+    UIButton* btn = [UIButton buttonWithType: UIButtonTypeCustom];
+    btn.frame = CGRectMake(100, 200, 200, 200);
+    UIImage* img01 = [UIImage imageNamed: @"btn01.png"];
+    UIImage* img02 = [UIImage imageNamed: @"btn02.png"];
+    [btn setImage: img01 forState: UIControlStateNormal];
+    [btn setImage: img02 forState: UIControlStateHighlighted];
+    
+    
+    [self.view addSubview: btn];
+}
 
 
 
@@ -160,10 +193,12 @@
     [super viewDidLoad];
 //    // Do any additional setup after loading the view.
 //    
-//
+//    [self createButton];
 //    [self createUIRectButton];
 //    [self createImageBtn];
-    [self createButton];
+//    [self createButton01];
+    [self createImageButton];
+
 }
 
 

@@ -19,15 +19,15 @@
     // 创建视图控制器二
     view02* vc = [[view02 alloc] init];
     
+
+    
+    // 切换后不保留顶部安全区域, 使新视图覆盖全屏幕
+    vc.modalPresentationStyle = UIModalPresentationFullScreen;
+    
     // 显示一个新的视图控制器到屏幕上
     // p1: 新的视图控制器对象
     // p2: 使用动画切换动画效果
     // p3: 切换结束之后调用, 不需要传 nil 即可
-    
-    // 不保留顶部安全区域, 使新视图覆盖全屏幕
-    vc.modalPresentationStyle = UIModalPresentationFullScreen;
-    
-    
     [self presentViewController: vc animated: YES completion: nil];
 }
 
@@ -136,6 +136,42 @@
     // 设置按钮事件
     [btn addTarget: self action: @selector(pressBtn) forControlEvents: UIControlEventTouchDown];
 }
+
+
+- (void) createUIView01 {
+    UIView* view01 = [[UIView alloc] init];
+    view01.backgroundColor = [UIColor systemPinkColor];
+    view01.frame = CGRectMake(100,  100,  100,  100);
+     
+    UIView* view02 = [[UIView alloc] init];
+    view02.backgroundColor = [UIColor systemGrayColor];
+    view02.frame = CGRectMake(150,  150,  100,  100);
+    
+    UIView* view03 = [[UIView alloc] init];
+    view03.backgroundColor = [UIColor systemGreenColor];
+    view03.frame = CGRectMake(200,  200,  100,  100);
+    
+    // 根据添加次序依次绘制
+    [self.view addSubview: view01];
+    [self.view addSubview: view02];
+    [self.view addSubview: view03];
+    
+//    [self.view bringSubviewToFront: view01];
+//    [self.view sendSubviewToBack: view03];
+    
+    UIView* viewBack = self.view.subviews[0];
+    UIView* viewFront = self.view.subviews[2];
+    
+    if (viewBack == view01) {
+        NSLog(@"相等");
+    }
+    if (viewFront == view03) {
+        NSLog(@"相等"); 
+    }
+
+}
+    
+
 // 第一次程序加载视图时调用
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -145,10 +181,10 @@
 //    [self createUI];
 //    [self createUIRectBotton];
 //    [self createView];
-    [self viewStage];
-
+//    [self viewStage];
+//    [self createUIView01];
     
-
+    
 }
 
 - (void) pressBtn {

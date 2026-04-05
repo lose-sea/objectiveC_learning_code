@@ -13,11 +13,7 @@
 
 @implementation ViewController
 
-
-- (void)viewDidLoad {
-    [super viewDidLoad];
-    // Do any additional setup after loading the view.
-    
+- (void) createSwitch {
     // 创建一个开关对象
     // 继承于UIKit的
     _mySwitch = [[UISwitch alloc] init];
@@ -61,7 +57,53 @@
     [self.view addSubview: _mySwitch];
 }
 
+- (void) createSwitch01 {
+    _mySwitch = [[UISwitch alloc] init];
+    _mySwitch.frame = CGRectMake(100, 200, 100, 100);
+    
+    // 开关背景颜色
+    _mySwitch.backgroundColor = [UIColor blueColor];
+    
+    
+    _mySwitch.on = YES;
+    
+    [_mySwitch setOn: NO animated: YES];
+    
+    // 开启状态风格颜色
+    [_mySwitch setOnTintColor: [UIColor orangeColor]];
+    
+    // 开关圆点颜色
+    [_mySwitch setThumbTintColor: [UIColor redColor]];
+    
+    [_mySwitch setTintColor: [UIColor yellowColor]];
+    
+    // 事件响应
+    [_mySwitch addTarget: self action: @selector(swChange:) forControlEvents: UIControlEventValueChanged];
+    
+    
+    [self.view addSubview: _mySwitch];
+    
+}
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    // Do any additional setup after loading the view.
+    [self createSwitch01];
+
+    
+    
+}
+
 // 这里的状态是指操作之后开关的状态
+//- (void) swChange: (UISwitch*) sw {
+//    if (sw.on == YES) {
+//        NSLog(@"开关被打开");
+//    } else {
+//        NSLog(@"开关被关闭");
+//    }
+//    NSLog(@"开关状态发生变化");
+//}
+
 - (void) swChange: (UISwitch*) sw {
     if (sw.on == YES) {
         NSLog(@"开关被打开");
