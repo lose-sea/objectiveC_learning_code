@@ -114,7 +114,26 @@
     [self.view addSubview: label];
 }
 
+- (void) createUILabel04 {
+    UILabel* label = [[UILabel alloc] init];
+//    label.backgroundColor = [UIColor systemBlueColor];
+    label.frame = CGRectMake(100, 100, 140, 50);
+    label.text = @"hello xinyan ";
+    
+//    [label sizeToFit];
+    
+//    label.textColor = [UIColor systemRedColor];
 
+//    label.adjustsFontSizeToFitWidth = YES;
+    // 调节字体大小
+    label.font = [UIFont systemFontOfSize: 24];
+    label.textAlignment = NSTextAlignmentLeft;  //左对齐
+    label.textColor = [UIColor greenColor];
+    label.shadowColor = [UIColor blueColor];
+    label.shadowOffset = CGSizeMake(5, 4);
+    
+    [self.view addSubview: label];
+}
 
 
 
@@ -123,8 +142,8 @@
     // Do any additional setup after loading the view.
 //    [self createUILabel];
 //    [self createUILabel02];
-    [self createUILabel03];
-
+//    [self createUILabel03];
+    [self createUILabel04];
 }
 
 

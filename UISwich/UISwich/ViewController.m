@@ -85,11 +85,29 @@
     
 }
 
+- (void) createSwitch02 {
+    self.view.backgroundColor = [UIColor systemCyanColor];
+    _mySwitch = [[UISwitch alloc] init];
+//    _mySwitch.backgroundColor = [UIColor redColor];
+    _mySwitch.frame = CGRectMake(100, 100, 100, 200);
+    
+    _mySwitch.backgroundColor = [UIColor systemGrayColor];
+    _mySwitch.on = YES;
+    
+    [_mySwitch setOnTintColor: [UIColor redColor]];
+    
+    [_mySwitch setThumbTintColor: [UIColor greenColor]];
+    
+    [_mySwitch addTarget: self action: @selector(swChange:)forControlEvents: UIControlEventValueChanged]; 
+    
+    [self.view addSubview: _mySwitch];
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    [self createSwitch01];
-
+//    [self createSwitch01];
+    [self createSwitch02];
     
     
 }

@@ -65,11 +65,41 @@
     [self.view addSubview: _slider];
 }
 
+- (void) createProgressViewAndSlider01 {
+    _progressView = [[UIProgressView alloc] init];
+    _progressView.frame = CGRectMake(100, 100, 200, 100);
+    _progressView.progress = 0.6;
+    
+    _progressView.progressTintColor = [UIColor redColor];
+    _progressView.trackTintColor = [UIColor blueColor];
+    // 设置进度条的风格特征
+    _progressView.progressViewStyle = UIProgressViewStyleDefault;
+    
+    // 滑动条
+    _slider = [[UISlider alloc] init];
+    _slider.frame = CGRectMake(100, 300, 200, 100);
+    _slider.minimumValue = 0;
+    _slider.maximumValue = 100;
+    
+    _slider.value = 40;
+    _slider.thumbTintColor = [UIColor redColor];
+    _slider.tintColor = [UIColor systemBrownColor];
+    _slider.minimumTrackTintColor = [UIColor systemBlueColor];
+    _slider.maximumTrackTintColor = [UIColor systemGrayColor];
+    
+    [_slider addTarget: self action: @selector(pressSlider) forControlEvents: UIControlEventValueChanged];
+    
+    
+    [self.view addSubview: _slider];
+    [self.view addSubview: _progressView];
+}
+
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    [self createProgressViewAndSlider];
-
+//    [self createProgressViewAndSlider];
+    [self createProgressViewAndSlider01];
 }
 
 - (void) pressSlider {

@@ -10,7 +10,7 @@
 @interface ViewController : UIViewController
 // 定义步进器
 @property (nonatomic, strong) UIStepper* stepper;
-@property (nonatomic, strong) UISegmentedControl* _segControl; 
+@property (nonatomic, strong) UISegmentedControl* segControl; 
 
 @end
 

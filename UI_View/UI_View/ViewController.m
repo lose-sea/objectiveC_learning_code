@@ -15,21 +15,21 @@
 @implementation ViewController
 
 // 当屏幕被点击的时候调用此函数
-- (void) touchesBegan: (NSSet<UITouch*> *) touches withEvent: (UIEvent*) event {
-    // 创建视图控制器二
-    view02* vc = [[view02 alloc] init];
-    
-
-    
-    // 切换后不保留顶部安全区域, 使新视图覆盖全屏幕
-    vc.modalPresentationStyle = UIModalPresentationFullScreen;
-    
-    // 显示一个新的视图控制器到屏幕上
-    // p1: 新的视图控制器对象
-    // p2: 使用动画切换动画效果
-    // p3: 切换结束之后调用, 不需要传 nil 即可
-    [self presentViewController: vc animated: YES completion: nil];
-}
+//- (void) touchesBegan: (NSSet<UITouch*> *) touches withEvent: (UIEvent*) event {
+//    // 创建视图控制器二
+//    view02* vc = [[view02 alloc] init];
+//    
+//
+//    
+//    // 切换后不保留顶部安全区域, 使新视图覆盖全屏幕
+//    vc.modalPresentationStyle = UIModalPresentationFullScreen;
+//    
+//    // 显示一个新的视图控制器到屏幕上
+//    // p1: 新的视图控制器对象
+//    // p2: 使用动画切换动画效果
+//    // p3: 切换结束之后调用, 不需要传 nil 即可
+//    [self presentViewController: vc animated: YES completion: nil];
+//}
 
 
 
@@ -172,6 +172,19 @@
 }
     
 
+- (void) createUIView02 {
+    UIView* view = [[UIView alloc] init];
+    view.backgroundColor = [UIColor blueColor]; 
+    view.frame = CGRectMake(100, 100, 200, 600);
+    
+    UIButton* btn = [UIButton buttonWithType: UIButtonTypeSystem];
+    btn.frame = CGRectMake(100, 100, 50, 40);
+    btn.backgroundColor = [UIColor redColor];
+    
+    [view addSubview: btn];
+    [self.view addSubview: view];
+}
+
 // 第一次程序加载视图时调用
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -183,6 +196,7 @@
 //    [self createView];
 //    [self viewStage];
 //    [self createUIView01];
+    [self createUIView02];
     
     
 }

@@ -37,20 +37,97 @@
     [_stepper addTarget: self action: @selector(stepChange) forControlEvents: UIControlEventValueChanged];
     
     
+    _segControl = [[UISegmentedControl alloc] init];
+    
+    // 宽度可变， 高度不可变
+    _segControl.frame = CGRectMake(10, 200, 300, 40);
+    // 添加一个按钮元素
+    // 参数一: 按钮选项文字
+    // p2: 按钮的索引位置
+    // p3: 是否插入动画效果
+    [_segControl insertSegmentWithTitle: @"0元" atIndex: 0 animated: NO];
+    [_segControl insertSegmentWithTitle: @"5元" atIndex: 1 animated: NO];
+    [_segControl insertSegmentWithTitle: @"10元" atIndex: 2 animated: NO];
+    
+    [_segControl addTarget: self action: @selector(segChange) forControlEvents: UIControlEventValueChanged];
+    
+    // 当前默认按钮索引设置
+    _segControl.selectedSegmentIndex = 0;
+    
+    
     [self.view addSubview: _stepper];
+    [self.view addSubview: _segControl];
 }
-
-
+- (void) UIStepperAndUISegmentControl {
+    _stepper = [[UIStepper alloc] init];
+    _stepper.frame = CGRectMake(100, 100, 100, 100);
+//    _stepper.backgroundColor = [UIColor redColor];
+    
+    _stepper.minimumValue = 0;
+    _stepper.maximumValue =30;
+    // _stepper.value --> float类型
+    _stepper.value = 15;
+    
+    _stepper.autorepeat = YES;
+    _stepper.continuous = YES;
+    
+    [_stepper addTarget: self action: @selector(stepChange) forControlEvents: UIControlEventValueChanged];
+    
+    _segControl = [[UISegmentedControl alloc] init];
+    _segControl.backgroundColor = [UIColor systemCyanColor];
+    _segControl.frame = CGRectMake(100, 300, 200, 50);
+    
+    [_segControl insertSegmentWithTitle: @"0元" atIndex: 0 animated: NO];
+    [_segControl insertSegmentWithTitle: @"2元" atIndex: 1 animated: NO];
+    [_segControl insertSegmentWithTitle: @"4元" atIndex: 2 animated: NO];
+    // 设置默认索引
+    _segControl.selectedSegmentIndex = 2;
+    // 设置滑块的颜色
+    _segControl.selectedSegmentTintColor = [UIColor greenColor];
+    
+//    UISegmentedControl* seg01 = [[UISegmentedControl alloc] init];
+//    seg01.frame = CGRectMake(100, 400, 200, 200);
+//    seg01.backgroundColor = [UIColor systemGrayColor];
+//    [seg01 insertSegmentWithTitle: @"5元" atIndex: 0 animated: NO];
+//    [seg01 insertSegmentWithTitle: @"5元" atIndex: 1 animated: NO];
+//    [seg01 insertSegmentWithTitle: @"10元" atIndex: 2 animated: NO];
+     
+    
+    [_segControl addTarget: self action: @selector(segChange) forControlEvents: UIControlEventValueChanged];
+    
+    
+    [self.view addSubview: _stepper];
+    [self.view addSubview: _segControl];
+//    [self.view addSubview: seg01];
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    [self stepperAndUISegmentControl];
-    
+//    [self stepperAndUISegmentControl];
+    [self UIStepperAndUISegmentControl];
+}
+- (void) stepChange {
+    NSLog(@"%g", _stepper.value);
 }
 
-- (void) stepChange {
-    NSLog(@"stepper.value = %g", _stepper.value);
+- (void) segChange {
+    // 打印索引
+    NSLog(@"%lu", _segControl.selectedSegmentIndex);
+    NSString* title = [_segControl titleForSegmentAtIndex: _segControl.selectedSegmentIndex];
+    NSLog(@"%@", title); 
 }
+
+//- (void) segChange {
+//    // 打印索引
+//    NSLog(@"%lu", _segControl.selectedSegmentIndex);
+//    // 打印标签
+//    NSString* title = [_segControl titleForSegmentAtIndex: _segControl.selectedSegmentIndex];
+//    NSLog(@"%@", title);
+//}
+//
+//- (void) stepChange {
+//    NSLog(@"stepper.value = %g", _stepper.value);
+//}
 
 
 @end

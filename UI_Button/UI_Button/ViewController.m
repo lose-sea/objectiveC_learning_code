@@ -186,6 +186,21 @@
     [self.view addSubview: btn];
 }
 
+- (void) createButton02 {
+    UIButton* btn = [UIButton buttonWithType: UIButtonTypeSystem];
+    btn.frame = CGRectMake(100, 200, 100, 100);
+    btn.backgroundColor = [UIColor systemRedColor];
+    [btn setTitle: @"按钮" forState: UIControlStateNormal];
+    [btn setTitle: @"按下" forState: UIControlStateHighlighted];
+    btn.titleLabel.font = [UIFont systemFontOfSize: 24];
+    btn.titleLabel.backgroundColor = [UIColor blueColor];
+    
+    [btn addTarget: self action: @selector(pressBtn) forControlEvents: UIControlEventTouchUpInside];
+    
+    [btn setTitleColor: [UIColor redColor] forState: UIControlStateHighlighted]; 
+    [self.view addSubview: btn];
+}
+
 
 
 // 第一次加载时调用
@@ -197,12 +212,15 @@
 //    [self createUIRectButton];
 //    [self createImageBtn];
 //    [self createButton01];
-    [self createImageButton];
+//    [self createImageButton];
+    [self createButton02];
 
 }
 
 
-
+- (void) pressBtn {
+    NSLog(@"btn is pressed");
+}
 
 
 - (void) touchDown {
