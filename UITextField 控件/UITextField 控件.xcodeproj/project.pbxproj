@@ -7,32 +7,32 @@
 	objects = {
 
 /* Begin PBXFileReference section */
-		54188E6E2F83F80100AB4CB5 /* 警告对话框和等待提示器.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "警告对话框和等待提示器.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		549F86B62F85471400F5FEE3 /* UITextField 控件.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "UITextField 控件.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
-		54188E852F83F80200AB4CB5 /* Exceptions for "警告对话框和等待提示器" folder in "警告对话框和等待提示器" target */ = {
+		549F86CD2F85471600F5FEE3 /* Exceptions for "UITextField 控件" folder in "UITextField 控件" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
 				Info.plist,
 			);
-			target = 54188E6D2F83F80100AB4CB5 /* 警告对话框和等待提示器 */;
+			target = 549F86B52F85471400F5FEE3 /* UITextField 控件 */;
 		};
 /* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
-		54188E702F83F80100AB4CB5 /* 警告对话框和等待提示器 */ = {
+		549F86B82F85471400F5FEE3 /* UITextField 控件 */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			exceptions = (
-				54188E852F83F80200AB4CB5 /* Exceptions for "警告对话框和等待提示器" folder in "警告对话框和等待提示器" target */,
+				549F86CD2F85471600F5FEE3 /* Exceptions for "UITextField 控件" folder in "UITextField 控件" target */,
 			);
-			path = "警告对话框和等待提示器";
+			path = "UITextField 控件";
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		54188E6B2F83F80100AB4CB5 /* Frameworks */ = {
+		549F86B32F85471400F5FEE3 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -42,18 +42,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		54188E652F83F80100AB4CB5 = {
+		549F86AD2F85471400F5FEE3 = {
 			isa = PBXGroup;
 			children = (
-				54188E702F83F80100AB4CB5 /* 警告对话框和等待提示器 */,
-				54188E6F2F83F80100AB4CB5 /* Products */,
+				549F86B82F85471400F5FEE3 /* UITextField 控件 */,
+				549F86B72F85471400F5FEE3 /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		54188E6F2F83F80100AB4CB5 /* Products */ = {
+		549F86B72F85471400F5FEE3 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				54188E6E2F83F80100AB4CB5 /* 警告对话框和等待提示器.app */,
+				549F86B62F85471400F5FEE3 /* UITextField 控件.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -61,63 +61,63 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		54188E6D2F83F80100AB4CB5 /* 警告对话框和等待提示器 */ = {
+		549F86B52F85471400F5FEE3 /* UITextField 控件 */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 54188E862F83F80200AB4CB5 /* Build configuration list for PBXNativeTarget "警告对话框和等待提示器" */;
+			buildConfigurationList = 549F86CE2F85471600F5FEE3 /* Build configuration list for PBXNativeTarget "UITextField 控件" */;
 			buildPhases = (
-				54188E6A2F83F80100AB4CB5 /* Sources */,
-				54188E6B2F83F80100AB4CB5 /* Frameworks */,
-				54188E6C2F83F80100AB4CB5 /* Resources */,
+				549F86B22F85471400F5FEE3 /* Sources */,
+				549F86B32F85471400F5FEE3 /* Frameworks */,
+				549F86B42F85471400F5FEE3 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			fileSystemSynchronizedGroups = (
-				54188E702F83F80100AB4CB5 /* 警告对话框和等待提示器 */,
+				549F86B82F85471400F5FEE3 /* UITextField 控件 */,
 			);
-			name = "警告对话框和等待提示器";
+			name = "UITextField 控件";
 			packageProductDependencies = (
 			);
-			productName = "警告对话框和等待提示器";
-			productReference = 54188E6E2F83F80100AB4CB5 /* 警告对话框和等待提示器.app */;
+			productName = "UITextField 控件";
+			productReference = 549F86B62F85471400F5FEE3 /* UITextField 控件.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		54188E662F83F80100AB4CB5 /* Project object */ = {
+		549F86AE2F85471400F5FEE3 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastUpgradeCheck = 2600;
 				TargetAttributes = {
-					54188E6D2F83F80100AB4CB5 = {
+					549F86B52F85471400F5FEE3 = {
 						CreatedOnToolsVersion = 26.0.1;
 					};
 				};
 			};
-			buildConfigurationList = 54188E692F83F80100AB4CB5 /* Build configuration list for PBXProject "警告对话框和等待提示器" */;
+			buildConfigurationList = 549F86B12F85471400F5FEE3 /* Build configuration list for PBXProject "UITextField 控件" */;
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
 				Base,
 			);
-			mainGroup = 54188E652F83F80100AB4CB5;
+			mainGroup = 549F86AD2F85471400F5FEE3;
 			minimizedProjectReferenceProxies = 1;
 			preferredProjectObjectVersion = 77;
-			productRefGroup = 54188E6F2F83F80100AB4CB5 /* Products */;
+			productRefGroup = 549F86B72F85471400F5FEE3 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				54188E6D2F83F80100AB4CB5 /* 警告对话框和等待提示器 */,
+				549F86B52F85471400F5FEE3 /* UITextField 控件 */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		54188E6C2F83F80100AB4CB5 /* Resources */ = {
+		549F86B42F85471400F5FEE3 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -127,7 +127,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		54188E6A2F83F80100AB4CB5 /* Sources */ = {
+		549F86B22F85471400F5FEE3 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -137,7 +137,7 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
-		54188E872F83F80200AB4CB5 /* Debug */ = {
+		549F86CF2F85471600F5FEE3 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -145,19 +145,18 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "警告对话框和等待提示器/Info.plist";
+				INFOPLIST_FILE = "UITextField 控件/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "ggg.-----------";
+				PRODUCT_BUNDLE_IDENTIFIER = "ggg.UITextField---";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -165,7 +164,7 @@
 			};
 			name = Debug;
 		};
-		54188E882F83F80200AB4CB5 /* Release */ = {
+		549F86D02F85471600F5FEE3 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -173,19 +172,18 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "警告对话框和等待提示器/Info.plist";
+				INFOPLIST_FILE = "UITextField 控件/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "ggg.-----------";
+				PRODUCT_BUNDLE_IDENTIFIER = "ggg.UITextField---";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -193,7 +191,7 @@
 			};
 			name = Release;
 		};
-		54188E892F83F80200AB4CB5 /* Debug */ = {
+		549F86D12F85471600F5FEE3 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -254,7 +252,7 @@
 			};
 			name = Debug;
 		};
-		54188E8A2F83F80200AB4CB5 /* Release */ = {
+		549F86D22F85471600F5FEE3 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -312,25 +310,25 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		54188E692F83F80100AB4CB5 /* Build configuration list for PBXProject "警告对话框和等待提示器" */ = {
+		549F86B12F85471400F5FEE3 /* Build configuration list for PBXProject "UITextField 控件" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				54188E892F83F80200AB4CB5 /* Debug */,
-				54188E8A2F83F80200AB4CB5 /* Release */,
+				549F86D12F85471600F5FEE3 /* Debug */,
+				549F86D22F85471600F5FEE3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		54188E862F83F80200AB4CB5 /* Build configuration list for PBXNativeTarget "警告对话框和等待提示器" */ = {
+		549F86CE2F85471600F5FEE3 /* Build configuration list for PBXNativeTarget "UITextField 控件" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				54188E872F83F80200AB4CB5 /* Debug */,
-				54188E882F83F80200AB4CB5 /* Release */,
+				549F86CF2F85471600F5FEE3 /* Debug */,
+				549F86D02F85471600F5FEE3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = 54188E662F83F80100AB4CB5 /* Project object */;
+	rootObject = 549F86AE2F85471400F5FEE3 /* Project object */;
 }
