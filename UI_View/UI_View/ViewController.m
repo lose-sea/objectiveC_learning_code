@@ -196,7 +196,12 @@
 //    [self createView];
 //    [self viewStage];
 //    [self createUIView01];
-    [self createUIView02];
+//    [self createUIView02];
+    
+//    UIView* view = [[UIView alloc] initWithFrame: [UIScreen mainScreen].bounds];
+//    view.backgroundColor = [UIColor systemCyanColor];
+//    [self.view addSubview: view];
+    
     
     
 }
