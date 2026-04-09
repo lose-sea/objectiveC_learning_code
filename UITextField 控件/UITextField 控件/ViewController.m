@@ -48,8 +48,10 @@
     
     // 是否作为密码输入
     // 会用 * 隐藏输入
-    self.textField.secureTextEntry = YES;
+    self.textField.secureTextEntry = NO;
     
+    // 设置代理对象
+    _textField.delegate = self;
     
     
     [self.view addSubview: _textField];
@@ -62,5 +64,28 @@
     [self createTextField];
 }
 
+- (void) textFieldDidBeginEditing:(UITextField *)textField {
+    NSLog(@"开始输入");
+}
 
+
+- (void) textFieldDidEndEditing:(UITextField *)textField {
+    NSLog(@"结束输入");
+}
+// 是否可以开始输入
+- (BOOL) textFieldShouldBeginEditing:(UITextField *)textField {
+    return YES;
+}
+
+// 是否可以结束输入
+- (BOOL) textFieldShouldEndEditing:(UITextField *)textField {
+    return YES;
+}
+
+
+// 点击屏幕空白处调用此函数
+- (void) touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
+    // 使虚拟键盘回收, 不再作为第一消息响应
+    [self.textField resignFirstResponder];
+}
 @end
