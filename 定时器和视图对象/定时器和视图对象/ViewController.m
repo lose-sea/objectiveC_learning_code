@@ -135,13 +135,13 @@
 //    if (_timerView != nil) {
 //        return;
 //    }
-//    // 使用NSTimer类方法创建一个定时器并启动这个定时器
-//    // p1: 每隔多长时间调用定时器函数 (以秒为单位)
-//    // p2: 表示实现定时器函数的对象 (指针)
-//    // p3: 定时器函数对象
-//    // p4: 可以传定时器函数中一个参数, 无参数可以传: nil
-//    // p5: 定时器是否重复  YES: 重复,  NO: 只完成一次
-//    // 返回值为一个新建好的定时器对象
+//     使用NSTimer类方法创建一个定时器并启动这个定时器
+//     p1: 每隔多长时间调用定时器函数 (以秒为单位)
+//     p2: 表示实现定时器函数的对象 (指针)
+//     p3: 定时器函数对象
+//     p4: 可以传定时器函数中一个参数, 无参数可以传: nil
+//     p5: 定时器是否重复  YES: 重复,  NO: 只完成一次
+//     返回值为一个新建好的定时器对象
 ////    _timerView = [NSTimer scheduledTimerWithTimeInterval: 0.2 target: self selector: @selector(updateTimer:) userInfo: @"小明" repeats: YES];
 //    
 //    _timerView = [NSTimer scheduledTimerWithTimeInterval: 0.1 target: self selector: @selector(updateTimer:) userInfo: @"xinyan" repeats: YES];
