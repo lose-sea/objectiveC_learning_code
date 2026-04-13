@@ -21,15 +21,24 @@
     // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
     
 //    self.window = [[UIWindow alloc] initWithWindowScene: (UIWindowScene*)scene];
+//    self.window = [[UIWindow alloc] initWithWindowScene: (UIWindowScene*)scene];
+//    // 创建根视图控制器
+//    VCRoot* root = [[VCRoot alloc] init];
+//    
+//    // 创建导航控制器
+//    // 导航控制器
+//    UINavigationController* nav = [[UINavigationController alloc] initWithRootViewController: root];
+//    
+//    self.window.rootViewController = nav;
+//    
+////    self.window.backgroundColor = [UIColor systemCyanColor]; 
+//    
+//    [self.window makeKeyAndVisible];
+    
+    
     self.window = [[UIWindow alloc] initWithWindowScene: (UIWindowScene*)scene];
-    // 创建根视图控制器
-    VCRoot* root = [[VCRoot alloc] init];
     
-    // 创建导航控制器
-    // 导航控制器
-    UINavigationController* nav = [[UINavigationController alloc] initWithRootViewController: root];
-    
-    self.window.rootViewController = nav;
+    self.window.rootViewController = [[UINavigationController alloc] initWithRootViewController: [[VCRoot alloc] init]];
     
 //    self.window.backgroundColor = [UIColor systemCyanColor]; 
     

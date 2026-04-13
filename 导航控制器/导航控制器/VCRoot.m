@@ -12,10 +12,7 @@
 @end
 
 @implementation VCRoot
-
-- (void)viewDidLoad {
-    [super viewDidLoad];
-    // Do any additional setup after loading the view.
+- (void) test01 {
     self.view.backgroundColor = [UIColor systemYellowColor];
     
     // 设置导航栏的标题
@@ -47,6 +44,31 @@
     NSArray* arrayBtn = [NSArray arrayWithObjects: rightBtn, item03, nil];
     
     self.navigationItem.rightBarButtonItems = arrayBtn;
+}
+
+- (void) test02 {
+    
+    // 设置导航度透明度
+    // 默认 YES : 透明
+    self.navigationController.navigationBar.translucent = NO;
+    self.view.backgroundColor = [UIColor systemCyanColor];
+    
+    
+    
+    self.title = @"hello";
+    
+    
+}
+
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    // Do any additional setup after loading the view.
+//    [self test01];
+    [self test02];
+ 
+    
+    
 }
 
 - (void) pressLeft {
