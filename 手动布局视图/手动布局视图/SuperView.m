@@ -34,10 +34,10 @@
 - (void) layoutSubviews {
     
     [UIView animateWithDuration: 1 animations: ^ {
-        _view01.backgroundColor = [UIColor systemRedColor];
-        _view02.frame = CGRectMake(self.bounds.size.width - 40, 0, 40, 40);
-        _view03.frame = CGRectMake(0, self.bounds.size.height - 40, 40, 40);
-        _view04.frame = CGRectMake(self.bounds.size.width - 40, self.bounds.size.height - 40, 40, 40);
+        self.view01.backgroundColor = [UIColor systemRedColor];
+        self.view02.frame = CGRectMake(self.bounds.size.width - 40, 0, 40, 40);
+        self->_view03.frame = CGRectMake(0, self.bounds.size.height - 40, 40, 40);
+        self->_view04.frame = CGRectMake(self.bounds.size.width - 40, self.bounds.size.height - 40, 40, 40);
     }];
     
     

@@ -1,12 +1,12 @@
 //
 //  SceneDelegate.m
-//  UIWIndow
+//  导航控制器
 //
-//  Created by lose_sea on 2026/4/12.
+//  Created by lose_sea on 2026/4/13.
 //
 
 #import "SceneDelegate.h"
-#import "ViewController.h"
+#import "VCRoot.h"
 
 @interface SceneDelegate ()
 
@@ -16,44 +16,25 @@
 
 
 - (void)scene:(UIScene *)scene willConnectToSession:(UISceneSession *)session options:(UISceneConnectionOptions *)connectionOptions {
-    
-    // 获取 windowScene
-    UIWindowScene* windowScene = (UIWindowScene*)scene;
-    
-    // 创建 UIWindow
-    self.window = [[UIWindow alloc] initWithWindowScene: windowScene];
-    
-    self.window = [[UIWindow alloc] initWithFrame: [UIScreen mainScreen].bounds];
-    
-    // 设置背景颜色
-    self.window.backgroundColor = [UIColor systemCyanColor];
-    // 设置根视图控制器
-    ViewController* vc = [[ViewController alloc] init];
-    self.window.rootViewController = vc;
-
-    
-    UIView* view = [[UIView alloc] init];
-    view.backgroundColor = [UIColor orangeColor];
-    view.frame = CGRectMake(20, 20, 80, 80);
-    
-    UIView* backView = [[UIView alloc] init];
-    backView.frame = CGRectMake(20, 590, 200, 200);
-    backView.backgroundColor = [UIColor greenColor];
-    
-    
-    // 将backView 作为view 的父视图
-    [backView addSubview: view];
-    
-    [self.window addSubview: backView];
-    
-    
-    [self.window makeKeyAndVisible];
-    
-    
-    
     // Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.
     // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
     // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
+    
+//    self.window = [[UIWindow alloc] initWithWindowScene: (UIWindowScene*)scene];
+    self.window = [[UIWindow alloc] initWithWindowScene: (UIWindowScene*)scene];
+    // 创建根视图控制器
+    VCRoot* root = [[VCRoot alloc] init];
+    
+    // 创建导航控制器
+    // 导航控制器
+    UINavigationController* nav = [[UINavigationController alloc] initWithRootViewController: root];
+    
+    self.window.rootViewController = nav;
+    
+//    self.window.backgroundColor = [UIColor systemCyanColor]; 
+    
+    [self.window makeKeyAndVisible];
+    
 }
 
 
