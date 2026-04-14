@@ -28,7 +28,7 @@
     [appearance configureWithOpaqueBackground];
     
     // 背景颜色
-    appearance.backgroundColor = [UIColor redColor]; 
+    appearance.backgroundColor = [UIColor redColor];
     
     // 标题颜色
     appearance.titleTextAttributes = @{
@@ -45,13 +45,34 @@
     navbar.standardAppearance = appearance;
     navbar.scrollEdgeAppearance = appearance;
     navbar.compactAppearance = appearance;
+    
+    // 工具栏
+    // 默认工具栏是隐藏的
+    
+    [self.navigationController setToolbarHidden: NO animated: YES];
+    // 设置不透明
+    self.navigationController.toolbar.translucent = NO;
+    
+    
+    // 添加按钮
+    UIBarButtonItem* item1 = [[UIBarButtonItem alloc] initWithTitle: @"点赞" style: UIBarButtonItemStylePlain target: self action: @selector(like)];
+    
+    UIBarButtonItem* item2 = [[UIBarButtonItem alloc] initWithTitle: @"关注" style: UIBarButtonItemStylePlain target: self action: @selector(like)];
+    
+    UIBarButtonItem* item3 = [[UIBarButtonItem alloc] initWithTitle: @"忘记" style: UIBarButtonItemStylePlain target: self action: @selector(like)];
+    
+    // 加入工具栏
+    // 参数要求是NSArray
+    self.toolbarItems = @[item1, item2, item3];
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     [self test01];
 }
-
+- (void) like {
+    NSLog(@"点赞");
+}
 /*
 #pragma mark - Navigation
 
