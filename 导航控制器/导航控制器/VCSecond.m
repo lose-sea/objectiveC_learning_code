@@ -6,6 +6,7 @@
 //
 
 #import "VCSecond.h"
+#import "VCThird.h"
 
 @interface VCSecond ()
 
@@ -13,9 +14,26 @@
 
 @implementation VCSecond
 
+- (void) test01 {
+    self.view.backgroundColor = [UIColor systemRedColor];
+    
+    self.navigationItem.title = @"视图二";
+    
+    UIBarButtonItem* next = [[UIBarButtonItem alloc] initWithTitle: @"下一级" style: UIBarButtonItemStylePlain target: self action: @selector(pressNext)];
+    
+    self.navigationItem.rightBarButtonItem = next;
+}
+
+    
+-(void) pressNext {
+    VCThird* vcThird = [[VCThird alloc] init];
+    
+    [self.navigationController pushViewController: vcThird animated:  YES];
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    [self test01]; 
 }
 
 /*

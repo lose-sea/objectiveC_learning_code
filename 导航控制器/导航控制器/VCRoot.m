@@ -6,6 +6,7 @@
 //
 
 #import "VCRoot.h"
+#import "VCSecond.h"
 
 @interface VCRoot ()
 
@@ -48,16 +49,30 @@
 
 - (void) test02 {
     
-    // 设置导航度透明度
-    // 默认 YES : 透明
-    self.navigationController.navigationBar.translucent = NO;
+//     设置导航度透明度
+//     默认 YES : 透明
+//    self.navigationController.navigationBar.translucent = NO;
     self.view.backgroundColor = [UIColor systemCyanColor];
     
+//    // 导航栏风格设置
+//    self.navigationController.navigationBar.barStyle = UIBarStyleBlack;
+
+    self.title = @"根视图";
     
+//    self.navigationItem.title = @"hello";
+
     
-    self.title = @"hello";
+    UIBarButtonItem* next = [[UIBarButtonItem alloc] initWithTitle: @"下一页" style: UIBarButtonItemStylePlain target: self action: @selector(pressNext)];
     
+    self.navigationItem.rightBarButtonItem = next;
+}
+
+- (void) pressNext {
+    // 创建新的视图控制器
+    VCSecond* vcSecond = [[VCSecond alloc] init];
     
+    // 使用当前导航栏的导航器对象
+    [self.navigationController pushViewController: vcSecond animated: YES];
 }
 
 

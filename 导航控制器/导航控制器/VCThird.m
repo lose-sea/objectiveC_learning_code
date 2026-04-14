@@ -13,11 +13,30 @@
 
 @implementation VCThird
 
+-(void) test01 {
+    self.view.backgroundColor = [UIColor greenColor];
+//    self.navigationController.navigationBar.tintColor = [UIColor redColor];
+    
+    self.title = @"视图三";
+    
+    UIBarButtonItem* btnLeft = [[UIBarButtonItem alloc] initWithTitle: @"上一级" style: UIBarButtonItemStylePlain target: self action: @selector(pressLeft)];
+    
+    self.navigationItem.leftBarButtonItem = btnLeft;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    [self test01];
 }
 
+- (void) pressLeft {
+    // 返回到上一级
+    [self.navigationController popViewControllerAnimated:YES];
+    
+    // 直接返回到根视图
+    [self.navigationController popToRootViewControllerAnimated: YES];
+}
 /*
 #pragma mark - Navigation
 
