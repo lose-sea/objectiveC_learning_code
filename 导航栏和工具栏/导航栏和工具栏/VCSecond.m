@@ -13,11 +13,22 @@
 
 @implementation VCSecond
 
+- (void) test01 {
+    self.view.backgroundColor = [UIColor greenColor];
+    
+    UIBarButtonItem* back = [[UIBarButtonItem alloc] initWithTitle: @"back" style: UIBarButtonItemStylePlain target: self action: @selector(back)];
+    
+    self.toolbarItems = @[back];
+    
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    [self test01];
 }
-
+- (void) back {
+    [self.navigationController popViewControllerAnimated: YES]; 
+}
 /*
 #pragma mark - Navigation
 

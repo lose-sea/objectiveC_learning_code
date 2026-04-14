@@ -6,6 +6,7 @@
 //
 
 #import "VCRoot.h"
+#import "VCSecond.h"
 
 @interface VCRoot ()
 
@@ -48,7 +49,6 @@
     
     // 工具栏
     // 默认工具栏是隐藏的
-    
     [self.navigationController setToolbarHidden: NO animated: YES];
     // 设置不透明
     self.navigationController.toolbar.translucent = NO;
@@ -59,11 +59,19 @@
     
     UIBarButtonItem* item2 = [[UIBarButtonItem alloc] initWithTitle: @"关注" style: UIBarButtonItemStylePlain target: self action: @selector(like)];
     
-    UIBarButtonItem* item3 = [[UIBarButtonItem alloc] initWithTitle: @"忘记" style: UIBarButtonItemStylePlain target: self action: @selector(like)];
+    UIBarButtonItem* item3 = [[UIBarButtonItem alloc] initWithTitle: @"next" style: UIBarButtonItemStylePlain target: self action: @selector(next)];
+    
+    
+    // 设置按钮固定间距
+    UIBarButtonItem* space = [[UIBarButtonItem alloc] initWithBarButtonSystemItem: UIBarButtonSystemItemFixedSpace target: nil action: nil];
+    space.width = 100;
+    
+    // 设置弹性间距
+    UIBarButtonItem* flex = [[UIBarButtonItem alloc] initWithBarButtonSystemItem: UIBarButtonSystemItemFlexibleSpace target: nil action: nil];
     
     // 加入工具栏
     // 参数要求是NSArray
-    self.toolbarItems = @[item1, item2, item3];
+    self.toolbarItems = @[item1, flex, item2, flex, item3];
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -72,6 +80,10 @@
 }
 - (void) like {
     NSLog(@"点赞");
+}
+- (void) next {
+    VCSecond* vc = [[VCSecond alloc] init];
+    [self.navigationController pushViewController: vc animated: YES]; 
 }
 /*
 #pragma mark - Navigation
