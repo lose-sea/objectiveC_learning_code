@@ -6,6 +6,12 @@
 //
 
 #import "SceneDelegate.h"
+#import "VCFirst.h"
+#import "VCSecond.h"
+#import "VCThird.h"
+#import "VCFourth.h"
+#import "VCFifth.h"
+#import "VCSixth.h"
 
 @interface SceneDelegate ()
 
@@ -18,7 +24,104 @@
     // Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.
     // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
     // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
+    
+    self.window = [[UIWindow alloc] initWithWindowScene: (UIWindowScene*)scene];
+//    UINavigationController* nav =[[UINavigationController alloc] initWithRootViewController: [[VCFirst alloc] init]];
+    [self.window makeKeyAndVisible];
+    
+    VCFirst* vcFirst = [[VCFirst alloc] init];
+    vcFirst.view.backgroundColor = [UIColor yellowColor];
+    
+    VCSecond* vcSecond = [[VCSecond alloc] init];
+    vcSecond.view.backgroundColor = [UIColor greenColor];
+    
+    VCThird* vcThird = [[VCThird alloc] init];
+    vcThird.view.backgroundColor = [UIColor systemCyanColor];
+    
+    VCFourth* vcFourth = [[VCFourth alloc] init];
+    vcFourth.view.backgroundColor = [UIColor orangeColor];
+    
+    VCFifth* vcFifth = [[VCFifth alloc] init];
+    vcFifth.view.backgroundColor = [UIColor redColor];
+    
+    VCSixth* vcSixth = [[VCSixth alloc] init];
+    vcSixth.view.backgroundColor = [UIColor systemBrownColor];
+    
+    
+    
+    
+    vcFirst.title = @"view first";
+    vcSecond.title = @"view second";
+    vcThird.title = @"view third";
+    vcFourth.title = @"view fourth";
+    vcFifth.title = @"view fifth";
+    vcSixth.title = @"viwe sixth";
+    
+
+
+    // 创建分栏控制器对象
+    UITabBarController* tbController = [[UITabBarController alloc] init];
+    
+    // 控制器数组
+    NSArray* arrayVC = @[vcFirst, vcSecond, vcThird, vcFourth, vcFifth, vcSixth];
+    
+    tbController.viewControllers = arrayVC;
+    
+    // 改变工具栏的颜色 废弃
+    // 在iOS13 之后,统一使用Apperance
+//    tbController.tabBar.barTintColor = [UIColor yellowColor];
+//    UITabBarAppearance* appearance = [[UITabBarAppearance alloc] init];
+//
+//    [appearance configureWithOpaqueBackground];
+
+    //干掉系统默认背景
+//    appearance.backgroundEffect = nil;
+//
+//    appearance.backgroundColor = [UIColor blueColor];
+//
+//    tbController.tabBar.standardAppearance = appearance;
+//    tbController.tabBar.scrollEdgeAppearance = appearance;
+//
+//    tbController.tabBar.translucent = NO; // 再保险
+    
+    
+
+    
+    self.window.rootViewController = tbController;
+    
+
+    
+    // 设置选中的视图控制器的索引
+    // 通过索引来决定显示哪一个控制器
+    tbController.selectedIndex = 2;
+    
+    tbController.delegate = self;
+    
 }
+//开始编辑前调用
+- (void) tabBarController: (UITabBarController*) tabBarController willBeginCustomizingViewControllers:(nonnull NSArray<__kindof UIViewController *> *)viewControllers {
+    NSLog(@"开始编辑前");
+}
+
+// 即将结束
+- (void) tabBarController:(UITabBarController *)tabBarController willEndCustomizingViewControllers:(NSArray<__kindof UIViewController *> *)viewControllers changed:(BOOL)changed {
+    NSLog(@"即将结束前");
+}
+
+// 已经结束
+- (void) tabBarController:(UITabBarController *)tabBarController didEndCustomizingViewControllers:(NSArray<__kindof UIViewController *> *)viewControllers changed:(BOOL)changed {
+    if (changed) {
+        NSLog(@"顺序发生改变"); 
+    }
+    NSLog(@"已经结束编辑");
+}
+
+//选中控制器
+- (void) tabBarController:(UITabBarController *)tabBarController didSelectViewController:(UIViewController *)viewController {
+    NSLog(@"选中控制器"); 
+}
+
+
 
 
 - (void)sceneDidDisconnect:(UIScene *)scene {
