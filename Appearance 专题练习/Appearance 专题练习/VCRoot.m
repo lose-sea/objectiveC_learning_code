@@ -42,13 +42,40 @@
 //    };
     
     appearance.buttonAppearance.normal.titleTextAttributes = @{
-        NSForegroundColorAttributeName: [UIColor redColor]
+        NSForegroundColorAttributeName: [UIColor blackColor]
     };
     
     UINavigationBar* navbar = self.navigationController.navigationBar;
     navbar.standardAppearance = appearance;
     navbar.scrollEdgeAppearance = appearance;
     
+    // 工具栏
+    // 工具栏默认隐藏, 设置不隐藏
+    [self.navigationController setToolbarHidden: NO animated: YES];
+    
+//    self.navigationController.toolbar.translucent = NO;
+    
+    UIToolbarAppearance* toolAppearance = [[UIToolbarAppearance alloc] init];
+    // 设置不透明
+    [toolAppearance configureWithOpaqueBackground];
+    
+    toolAppearance.backgroundColor = [UIColor yellowColor];
+    
+
+    
+    toolAppearance.shadowColor = [UIColor whiteColor];
+    
+    UIToolbar* toolBar = self.navigationController.toolbar;
+    toolBar.standardAppearance = toolAppearance;
+    toolBar.scrollEdgeAppearance = toolAppearance;
+    
+    UIBarButtonItem* item1 = [[UIBarButtonItem alloc] initWithTitle: @"工具栏btn" style: UIBarButtonItemStylePlain target: self action: @selector(pressTap)];
+    
+    self.toolbarItems = @[item1];
+    
+
+//    toolappearance.backgroundColor = [UIColor ]
+
     
 }
 - (void)viewDidLoad {
@@ -56,7 +83,11 @@
     // Do any additional setup after loading the view.
     [self test01];
 }
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
 
+    [self.navigationController setToolbarHidden:NO animated:animated];
+}
 
 - (void) pressTap {
     NSLog(@"btn is pressed");
