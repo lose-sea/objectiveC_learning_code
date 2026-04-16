@@ -9,7 +9,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface VCRoot : UIViewController
+@interface VCRoot : UIViewController <UISearchControllerDelegate>
 
 @end
 

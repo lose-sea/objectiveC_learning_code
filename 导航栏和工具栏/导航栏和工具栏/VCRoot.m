@@ -53,6 +53,8 @@
     // 设置不透明
     self.navigationController.toolbar.translucent = NO;
     
+    self.navigationController.toolbarHidden = NO;
+    
     
     // 添加按钮
     UIBarButtonItem* item1 = [[UIBarButtonItem alloc] initWithTitle: @"点赞" style: UIBarButtonItemStylePlain target: self action: @selector(like)];

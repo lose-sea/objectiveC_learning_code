@@ -49,6 +49,9 @@
     navbar.standardAppearance = appearance;
     navbar.scrollEdgeAppearance = appearance;
     
+    
+    
+    
     // 工具栏
     // 工具栏默认隐藏, 设置不隐藏
     [self.navigationController setToolbarHidden: NO animated: YES];
@@ -56,24 +59,27 @@
 //    self.navigationController.toolbar.translucent = NO;
     
     UIToolbarAppearance* toolAppearance = [[UIToolbarAppearance alloc] init];
+    self.navigationController.toolbarHidden = NO;
     // 设置不透明
     [toolAppearance configureWithOpaqueBackground];
     
     toolAppearance.backgroundColor = [UIColor yellowColor];
     
-
-    
-    toolAppearance.shadowColor = [UIColor whiteColor];
-    
     UIToolbar* toolBar = self.navigationController.toolbar;
     toolBar.standardAppearance = toolAppearance;
     toolBar.scrollEdgeAppearance = toolAppearance;
-    
-    UIBarButtonItem* item1 = [[UIBarButtonItem alloc] initWithTitle: @"工具栏btn" style: UIBarButtonItemStylePlain target: self action: @selector(pressTap)];
-    
-    self.toolbarItems = @[item1];
+    toolBar.compactAppearance = toolAppearance;
     
 
+    
+//    toolBar.tintColor = [UIColor redColor];
+    
+    UIBarButtonItem* item1 = [[UIBarButtonItem alloc] initWithTitle: @"item1" style: UIBarButtonItemStylePlain target: self action: @selector(pressTap)];
+    UIBarButtonItem* item2 = [[UIBarButtonItem alloc] initWithTitle: @"item2" style: UIBarButtonItemStylePlain target: self action: @selector(pressTap)];
+    
+    self.toolbarItems = @[item1, item2];
+    [self.navigationController setToolbarHidden:NO animated:NO];
+    
 //    toolappearance.backgroundColor = [UIColor ]
 
     
@@ -83,15 +89,13 @@
     // Do any additional setup after loading the view.
     [self test01];
 }
-- (void)viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:animated];
-
-    [self.navigationController setToolbarHidden:NO animated:animated];
-}
 
 - (void) pressTap {
     NSLog(@"btn is pressed");
 }
+
+
+
 /*
 #pragma mark - Navigation
 
