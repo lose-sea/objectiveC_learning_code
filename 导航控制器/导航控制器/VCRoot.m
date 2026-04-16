@@ -53,7 +53,7 @@
 //     默认 YES : 透明
 //    self.navigationController.navigationBar.translucent = NO;
     self.view.backgroundColor = [UIColor systemCyanColor];
-    
+
 //    // 导航栏风格设置
 //    self.navigationController.navigationBar.barStyle = UIBarStyleBlack;
 

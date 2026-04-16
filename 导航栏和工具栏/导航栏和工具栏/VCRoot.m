@@ -31,7 +31,7 @@
     // 背景颜色
     appearance.backgroundColor = [UIColor redColor];
     
-    // 标题颜色
+    // 标题颜色  
     appearance.titleTextAttributes = @{
         NSForegroundColorAttributeName: [UIColor greenColor]
     };
@@ -96,3 +96,4 @@
 */
 
 @end
+
