@@ -20,6 +20,56 @@
     [self test04];
 }
 
+- (void) test04 {
+    _tableView = [[UITableView alloc] initWithFrame: self.view.bounds style: UITableViewStylePlain];
+    
+    // 自动调整子视图大小
+    _tableView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+    
+    // 设置代理
+    _tableView.dataSource = self;
+    _tableView.delegate = self;
+    _tableView.backgroundColor = [UIColor systemCyanColor];
+    
+    [self.view addSubview: _tableView];
+    _arrayData = [[NSMutableArray alloc] init];
+        
+    for (int i = 0; i < 20; i++) {
+        NSString* str = [NSString stringWithFormat: @"%d 号数据", i + 1];
+        [_arrayData addObject: str];
+//        [_tableView reloadData];
+    }
+    
+    [self.tableView registerClass: [UITableViewCell class] forCellReuseIdentifier: @"cell"];
+}
+   
+// 每组数据的行数
+- (NSInteger) tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return 1000;
+}
+
+// 配置cell
+//- (UITableViewCell*) tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+//    NSString* strName = @"cell";
+//    UITableViewCell* cell = [_tableView dequeueReusableCellWithIdentifier: strName];
+//    if (cell == nil) {
+//        cell = [[UITableViewCell alloc] initWithStyle: UITableViewCellStyleDefault reuseIdentifier: strName];
+//    }
+////    cell.textLabel.text = _arrayData[indexPath.row];
+//    if (indexPath.row <= 12) {
+//        cell.textLabel.text = [NSString stringWithFormat: @"hello"];
+//    }
+//    return cell;
+//}
+
+
+- (UITableViewCell*) tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    UITableViewCell* cell = [_tableView dequeueReusableCellWithIdentifier: @"cell" forIndexPath: indexPath];
+    cell.textLabel.text = @"hello";
+    
+    return cell;
+}
+ 
 - (void) test01 {
     // 创建视图的位置
     // 数据视图的风格
@@ -29,7 +79,7 @@
     
     _tableView.delegate = self;
     _tableView.dataSource = self;
-    _tableView.backgroundColor = [UIColor systemCyanColor]; 
+    _tableView.backgroundColor = [UIColor systemCyanColor];
     
     [self.view addSubview: _tableView];
 }
@@ -47,14 +97,12 @@
     
     // 创建一个可变数组
     _arrayData = [[NSMutableArray alloc] init];
-    
+         
     for (int i = 'A'; i <= 'Z'; i++) {
         NSMutableArray* arraySmall = [[NSMutableArray alloc] init];
         for (int j = 0; j <= 5; j++) {
             NSString* str  =[NSString stringWithFormat: @"%c%d", i, j];
-            
             [arraySmall addObject: str];
-            
         }
         [_arrayData addObject: arraySmall];
     }
@@ -98,7 +146,7 @@
 //    _btnEdit = [[UIBarButtonItem alloc] initWithTitle: @"Edit" style: UIBarButtonItemStylePlain target: self action: @selector(pressEdit)];
 //    _btnFinish = [[UIBarButtonItem alloc] initWithTitle: @"Finish" style: UIBarButtonItemStylePlain target: self action: @selector(pressFinish)];
 //    _btnDelete = [[UIBarButtonItem alloc] initWithTitle: @"Delete" style: UIBarButtonItemStylePlain target: self action: @selector(pressDelete)];
-//    
+//
 //    self.navigationItem.rightBarButtonItem = _btnEdit;
 //}
 //
@@ -117,7 +165,7 @@
 //}
 //
 //- (void) pressDelete {
-//    
+//
 //}
 
 
@@ -230,11 +278,11 @@
 
 //- (UITableViewCell*) tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
 //    NSString* str = @"cell";
-//    
+//
 //    // 尝试获取可以复用的单元格
 //    // 如果得不到, 返回 nil
 //    UITableViewCell* cell = [_tableView dequeueReusableCellWithIdentifier: str];
-//    
+//
 //    if (cell == nil) {
 //        cell = [[UITableViewCell alloc] initWithStyle: UITableViewCellStyleDefault reuseIdentifier:  str];
 //    }
@@ -273,13 +321,13 @@
 //
 //- (UITableViewCell*) tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
 //    NSString* str = @"cell";
-//    
+//
 //    UITableViewCell* cell = [_tableView dequeueReusableCellWithIdentifier: str];
 //    if (cell == nil) {
 //        cell = [[UITableViewCell alloc] initWithStyle: UITableViewCellStyleDefault reuseIdentifier: str];
 //    }
 //    cell.textLabel.text = _arrayData[indexPath.section][indexPath.row];
-//    
+//
 //    return cell;
 //}
 //
@@ -321,71 +369,8 @@
 //    return cell;
 //}
 
-- (void) test05 {
-    _tableView = [[UITableView alloc] initWithFrame: self.view.bounds style: UITableViewStylePlain];
-    
-    // 自动调整子视图到的大小
-    _tableView.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
-    
-    // 设置代理
-    _tableView.delegate = self;
-    _tableView.dataSource = self;
-    
-    // 数据视图头部视图的设定
-    _tableView.tableHeaderView = nil;
-    // 数据视图尾部视图的设定
-    _tableView.tableFooterView = nil;
-    
-    [self.view addSubview: _tableView];
-    
-    _arrayData = [[NSMutableArray alloc] init];
-    for (int i = 1; i <= 20; i++) {
-        NSString* str = [NSString stringWithFormat: @"%d 号数据", i];
-        
-        [_arrayData addObject: str];
-    }
-    // 当数据视图的数据发生变化时
-    // 更新数据视图, 重新加载数据
-    [_tableView reloadData];
-    
-    // 注册cell
-}
 
-- (void) test04 {
-    _tableView = [[UITableView alloc] initWithFrame: self.view.bounds style: UITableViewStylePlain];
-    
-    // 自动调整子视图大小
-    _tableView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
-    
-    // 设置代理
-    _tableView.dataSource = self;
-    _tableView.delegate = self;
-    
-    [self.view addSubview: _tableView];
-    
-    for (int i = 0; i < 6; i++) {
-        NSString* str = [NSString stringWithFormat: @"%d 号数据", i + 1];
-        [_arrayData addObject: str];
-    }
-}
-// 每组数据的行数
-- (NSInteger) tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return _arrayData.count;
-}
 
-// 创建cell
-- (UITableViewCell*) tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    NSString* strName = @"cell";
-    UITableViewCell* cell = [_tableView dequeueReusableCellWithIdentifier: strName];
-    if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle: UITableViewCellStyleDefault reuseIdentifier: strName];
-    }
-//    cell.textLabel.text = _arrayData[indexPath.row];
-    for (int i = 0; i < 10; i++) {
-        cell.textLabel.text = [NSString stringWithFormat: @"%d 号数据", i + 1];
-    }
-    return cell;
-}
 
 
 @end
