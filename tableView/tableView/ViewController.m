@@ -16,7 +16,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    [self test03];
+//    [self test03];
+    [self test04];
 }
 
 - (void) test01 {
@@ -320,7 +321,60 @@
 //    return cell;
 //}
 
+- (void) test05 {
+    _tableView = [[UITableView alloc] initWithFrame: self.view.bounds style: UITableViewStylePlain];
+    
+    // 自动调整子视图到的大小
+    _tableView.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
+    
+    // 设置代理
+    _tableView.delegate = self;
+    _tableView.dataSource = self;
+    
+    // 数据视图头部视图的设定
+    _tableView.tableHeaderView = nil;
+    // 数据视图尾部视图的设定
+    _tableView.tableFooterView = nil;
+    
+    [self.view addSubview: _tableView];
+    
+    _arrayData = [[NSMutableArray alloc] init];
+    for (int i = 1; i <= 20; i++) {
+        NSString* str = [NSString stringWithFormat: @"%d 号数据", i];
+        
+        [_arrayData addObject: str];
+    }
+    // 当数据视图的数据发生变化时
+    // 更新数据视图, 重新加载数据
+    [_tableView reloadData];
+    
+    // 注册cell
+    
+    
+    [self createBtn];
+}
 
+- (void) test04 {
+    _tableView = [[UITableView alloc] initWithFrame: self.view.bounds style: UITableViewStylePlain];
+    
+    // 自动调整子视图大小
+    _tableView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+    
+    // 设置代理
+    _tableView.dataSource = self;
+    _tableView.delegate = self;
+    
+    [self.view addSubview: _tableView];
+    
+    for (int i = 0; i < 6; i++) {
+        NSString* str = [NSString stringWithFormat: @"%d 号数据", i + 1];
+        [_arrayData addObject: str];
+    }
+}
+// 每组数据的行数
+- (NSInteger) tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    
+}
 
 
 @end
