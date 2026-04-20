@@ -6,6 +6,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "imageShow.h"
+#import "VCImageShow.h"
 
 NS_ASSUME_NONNULL_BEGIN
 

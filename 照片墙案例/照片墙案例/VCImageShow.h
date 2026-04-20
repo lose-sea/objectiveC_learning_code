@@ -10,7 +10,12 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface VCImageShow : UIViewController
-
+// 视图对象的tag
+@property (nonatomic, assign) NSInteger imageTag;
+// 图像对象
+@property (nonatomic, strong) UIImage* image;
+// 图像视图对象
+@property (nonatomic, strong) UIImageView* imageView;
 @end
 
 NS_ASSUME_NONNULL_END

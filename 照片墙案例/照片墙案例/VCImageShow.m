@@ -12,10 +12,18 @@
 @end
 
 @implementation VCImageShow
-
+- (void) test01 {
+    self.title = @"图片展示";
+    _imageView = [[UIImageView alloc] init];
+    _imageView.frame = CGRectMake(0, 0, 320, 480);
+    _imageView.image = [UIImage imageNamed: [NSString stringWithFormat: @"%ld.jpg", _imageTag - 100]]; 
+    
+    [self.view addSubview: _imageView];
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    [self test01]; 
 }
 
 /*

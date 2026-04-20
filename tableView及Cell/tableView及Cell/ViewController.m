@@ -126,7 +126,7 @@
     }
     
     return cell;
-}  
+}
  
 // 可以显示编辑状态, 当手指在单元格上移动时会调用此方法
 - (void) tableView: (UITableView*) tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
@@ -134,9 +134,18 @@
     [_arrayData removeObjectAtIndex: indexPath.row];
 
     // 当数据发生变化, 重新加载数据
-    [_tableView reloadData];
+//    [_tableView reloadData];
     NSLog(@"delete");
 }
+
+
+
+
+
+
+
+
+
 
 
 
