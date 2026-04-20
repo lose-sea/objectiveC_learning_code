@@ -40,12 +40,62 @@
 //        [_tableView reloadData];
     }
     
-    [self.tableView registerClass: [UITableViewCell class] forCellReuseIdentifier: @"cell"];
+    [_tableView registerClass: [UITableViewCell class] forCellReuseIdentifier: @"cell"];
+    
+    [self createBtn];
 }
-   
+
+//选中单元格时调用
+- (void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    NSLog(@"选中 %ld 区 的 %ld", indexPath.section, indexPath.row);
+}
+// 取消选中时调用
+- (void) tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath {
+    NSLog(@"取消选中 %ld 区的 %ld", indexPath.section, indexPath.row);
+}
+- (void) createBtn {
+    _btnEdit = [[UIBarButtonItem alloc] initWithTitle: @"Edit" style: UIBarButtonItemStylePlain target: self action: @selector(pressEdit)];
+    self.navigationItem.rightBarButtonItem = _btnEdit;
+    
+    _btnDelete = [[UIBarButtonItem alloc] initWithTitle: @"删除" style: UIBarButtonItemStylePlain target: self action: @selector(pressDelete)];
+    
+    _btnFinish = [[UIBarButtonItem alloc] initWithTitle: @"完成" style: UIBarButtonItemStylePlain target: self action: @selector(pressFinish)];
+    
+    self.navigationItem.rightBarButtonItem = _btnEdit;
+}
+
 // 每组数据的行数
 - (NSInteger) tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return 1000;
+}
+
+- (void) pressEdit {
+    _isEdit = YES;
+    self.navigationItem.rightBarButtonItem = _btnFinish;
+    [_tableView setEditing:YES animated: YES];
+    self.navigationItem.leftBarButtonItem = _btnDelete;
+}
+- (void) pressDelete {
+    NSLog(@"press the delete");
+}
+
+- (void) pressFinish {
+    self.navigationItem.rightBarButtonItem = _btnEdit;
+    [_tableView setEditing: NO];
+    self.navigationItem.leftBarButtonItem = nil;
+}
+
+// 设置单元格的效果
+- (UITableViewCellEditingStyle) tableView:(UITableView *)tableView editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath {
+    //    return UITableViewCellEditingStyleDelete;
+    //    return UITableViewCellEditingStyleInsert;
+    //    return UITableViewCellEditingStyleDelete | UITableViewCellEditingStyleInsert;
+    return UITableViewCellEditingStyleDelete;
+}
+
+// 设置单元格的高度
+- (CGFloat) tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return 60;
 }
 
 // 配置cell
@@ -53,23 +103,44 @@
 //    NSString* strName = @"cell";
 //    UITableViewCell* cell = [_tableView dequeueReusableCellWithIdentifier: strName];
 //    if (cell == nil) {
-//        cell = [[UITableViewCell alloc] initWithStyle: UITableViewCellStyleDefault reuseIdentifier: strName];
+//        cell = [[UITableViewCell alloc] initWithStyle: UITableViewCellStyleSubtitle reuseIdentifier: strName];
 //    }
 ////    cell.textLabel.text = _arrayData[indexPath.row];
-//    if (indexPath.row <= 12) {
+//    if (indexPath.row == 0) {
 //        cell.textLabel.text = [NSString stringWithFormat: @"hello"];
 //    }
+//    cell.detailTextLabel.text = @"子标题";
 //    return cell;
 //}
 
-
+// 配置cell
 - (UITableViewCell*) tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+
     UITableViewCell* cell = [_tableView dequeueReusableCellWithIdentifier: @"cell" forIndexPath: indexPath];
-    cell.textLabel.text = @"hello";
+    if (indexPath.row == 0) {
+        cell.textLabel.text = @"hello ";
+    } else {
+        if (indexPath.row < _arrayData.count) {
+            cell.textLabel.text = _arrayData[indexPath.row];
+        }
+    }
     
     return cell;
-}
+}  
  
+// 可以显示编辑状态, 当手指在单元格上移动时会调用此方法
+- (void) tableView: (UITableView*) tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
+    // 删除数据对应的数据源
+    [_arrayData removeObjectAtIndex: indexPath.row];
+
+    // 当数据发生变化, 重新加载数据
+    [_tableView reloadData];
+    NSLog(@"delete");
+}
+
+
+
+
 - (void) test01 {
     // 创建视图的位置
     // 数据视图的风格
@@ -260,7 +331,7 @@
 //- (void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
 ////    NSLog(@"选中单元格: %ld %ld", indexPath.section, indexPath.row);
 //}
-
+//
 //// 取消选中(切换选中时调用)
 //- (void) tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
 //    NSLog(@"取消选中单元格: %ld %ld", indexPath.section, indexPath.row);
