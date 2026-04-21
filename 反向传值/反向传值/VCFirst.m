@@ -20,10 +20,32 @@
 }
 
 - (void) test01 {
+    self.title = @"视图一";
+    self.view.backgroundColor = [UIColor systemCyanColor]; 
+    
     UIBarButtonItem* btn = [[UIBarButtonItem alloc] initWithTitle: @"next" style: UIBarButtonItemStylePlain target: self action: @selector(pressBtn)];
     self.navigationItem.rightBarButtonItem = btn;
     
+    
+    UILabel* label = [[UILabel alloc] init];
+    label.frame = CGRectMake(100, 100, 200, 40);
+    label.backgroundColor = [UIColor systemRedColor];
+    label.text = _text;
+
+    [self.view addSubview: label];
 }
+
+- (void) pressBtn {
+    VCSecond* vc = [[VCSecond alloc] init];
+    vc.delegate = self;
+
+    [self.navigationController pushViewController: vc animated: YES];
+}
+
+- (void) vcSecond:(id)vcSecond didSendText:(NSString *)text {
+    self.text = text;
+}
+
 
 /*
 #pragma mark - Navigation

@@ -9,8 +9,16 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface VCSecond : UIViewController
+// 定义协议
+@protocol VCSecondDelegate <NSObject>
+// 协议方法
+- (void) vcSecond: (id)vcSecond didSendText: (NSString*) text; 
 
+@end
+
+@interface VCSecond : UIViewController
+@property (nonatomic) UITextField* textField; 
+@property (nonatomic, weak) id<VCSecondDelegate> delegate;
 @end
 
 NS_ASSUME_NONNULL_END

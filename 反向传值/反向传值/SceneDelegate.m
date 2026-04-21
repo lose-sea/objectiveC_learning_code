@@ -23,7 +23,9 @@
     self.window = [[UIWindow alloc] initWithWindowScene: myscene];
     
     UINavigationController* nav = [[UINavigationController alloc] initWithRootViewController: [[VCFirst alloc] init]];
-    self.window.rootViewController = nav; 
+    self.window.rootViewController = nav;
+    
+    [self.window makeKeyAndVisible]; 
 }
 
 

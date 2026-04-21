@@ -6,11 +6,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "VCSecond.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface VCFirst : UIViewController
-@property (nonatomic) UITextField* textField; 
+@interface VCFirst : UIViewController <VCSecondDelegate> 
+@property (nonatomic) NSString* text; 
 @end
 
 NS_ASSUME_NONNULL_END

@@ -16,6 +16,32 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    [self test01];
+}
+
+- (void) test01 {
+    self.view.backgroundColor = [UIColor greenColor]; 
+    
+    _textField = [[UITextField alloc] init];
+    _textField.borderStyle = UITextBorderStyleLine;
+    _textField.frame = CGRectMake(100, 100, 200, 40);
+    _textField.backgroundColor = [UIColor systemCyanColor];
+    [self.view addSubview: _textField];
+    
+    UIBarButtonItem* btn = [[UIBarButtonItem alloc] initWithTitle: @"返回" style: UIBarButtonItemStylePlain target: self action: @selector(pressBack)];
+    self.navigationItem.rightBarButtonItem = btn;
+}
+
+- (void) pressBack {
+    if ([self.delegate respondsToSelector: @selector(vcSecond:didSendText:)]) {
+        [self.delegate vcSecond: self didSendText: _textField.text];
+    }
+    
+    [self.navigationController popViewControllerAnimated: YES];
+} 
+
+- (void) touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
+    [self.textField resignFirstResponder];
 }
 
 /*
