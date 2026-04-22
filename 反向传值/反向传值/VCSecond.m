@@ -26,24 +26,30 @@
     _textField.borderStyle = UITextBorderStyleLine;
     _textField.frame = CGRectMake(100, 100, 200, 40);
     _textField.backgroundColor = [UIColor systemCyanColor];
+    _textField.placeholder = @"请输入你要输入的内容";
+    _textField.text = self.TextField_Text;
     [self.view addSubview: _textField];
     
-    UIBarButtonItem* btn = [[UIBarButtonItem alloc] initWithTitle: @"返回" style: UIBarButtonItemStylePlain target: self action: @selector(pressBack)];
-    self.navigationItem.rightBarButtonItem = btn;
+  UIBarButtonItem* item = [[UIBarButtonItem alloc] initWithTitle: @"传值并返回" style: UIBarButtonItemStylePlain target: self action: @selector(pressChange)];
+    self.navigationItem.leftBarButtonItems = @[item];
 }
 
-- (void) pressBack {
+
+
+- (void) pressChange {
     if ([self.delegate respondsToSelector: @selector(vcSecond:didSendText:)]) {
         [self.delegate vcSecond: self didSendText: _textField.text];
     }
-    
     [self.navigationController popViewControllerAnimated: YES];
-} 
-
+}
 - (void) touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
     [self.textField resignFirstResponder];
 }
+ 
 
+- (void) textFieldDidEndEditing:(UITextField *)textField {
+    [self.delegate vcSecond: self didSendText: _textField.text]; 
+}
 /*
 #pragma mark - Navigation
 

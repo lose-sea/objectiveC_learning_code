@@ -11,7 +11,8 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface VCFirst : UIViewController <VCSecondDelegate> 
-@property (nonatomic) NSString* text; 
+@property (nonatomic) UILabel* label;
+//@property (nonatomic) NSString* text; 
 @end
 
 NS_ASSUME_NONNULL_END

@@ -16,8 +16,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 @end
 
-@interface VCSecond : UIViewController
-@property (nonatomic) UITextField* textField; 
+@interface VCSecond : UIViewController <UITextFieldDelegate>
+@property (nonatomic) NSString* TextField_Text;
+@property (nonatomic) UITextField* textField;
 @property (nonatomic, weak) id<VCSecondDelegate> delegate;
 @end
 

@@ -13,6 +13,7 @@
 
 @implementation VCFirst
 
+// 只会在第一次加载的时候调用
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
@@ -27,23 +28,26 @@
     self.navigationItem.rightBarButtonItem = btn;
     
     
-    UILabel* label = [[UILabel alloc] init];
-    label.frame = CGRectMake(100, 100, 200, 40);
-    label.backgroundColor = [UIColor systemRedColor];
-    label.text = _text;
+    _label = [[UILabel alloc] init];
+    self.label.frame = CGRectMake(100, 100, 200, 40);
+    self.label.backgroundColor = [UIColor systemRedColor];
+//    _label.text = _text;
 
-    [self.view addSubview: label];
+    [self.view addSubview: _label];
 }
 
 - (void) pressBtn {
     VCSecond* vc = [[VCSecond alloc] init];
     vc.delegate = self;
+    vc.TextField_Text = self.label.text;
 
     [self.navigationController pushViewController: vc animated: YES];
 }
 
+// 实现协议方法
 - (void) vcSecond:(id)vcSecond didSendText:(NSString *)text {
-    self.text = text;
+    _label.text = text;
+//    self.text = text;
 }
 
 
