@@ -96,8 +96,15 @@
     
     UIImageView* iView = [[UIImageView alloc] initWithImage: self.array[indexPath.item]];
     iView.frame = cell.contentView.bounds;
-    iView.contentMode = UIViewContentModeScaleAspectFill;
-    iView.clipsToBounds = YES;
+    
+    
+////    保持图片的宽高比不变
+////    让图片填满整个 UIImageView，哪怕超出 bounds 也没关系
+////    超出部分需要配合 clipsToBounds = YES 来裁剪掉，否则会显示在 cell 外面
+//
+//    iView.contentMode = UIViewContentModeScaleAspectFill;
+////    开启裁剪，让超出 UIImageView 边界的内容不显示
+//    iView.clipsToBounds = YES;
     
     
     [cell.contentView addSubview: iView];
