@@ -2,7 +2,7 @@
 //  AppDelegate.m
 //  UI_test
 //
-//  Created by lose_sea on 2026/3/30.
+//  Created by lose_sea on 2026/4/24.
 //
 
 #import "AppDelegate.h"
@@ -13,36 +13,9 @@
 
 @implementation AppDelegate
 
-// 当程序框架初始化成功后调用此函数
-// 用来初始化整个程序框架结构
-// 整个程序对iOS开发工程师的入口函数
+
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
-    // 创建一个UIWindow对象
-    // 整个程序只有一个UIWindow 对象
-    // 在程序基本上表示屏幕窗口
-    // UIWindow 也继承于UIView
-    // 是一种特殊的UIView
-    
-    // UIScreen 表示屏幕硬件表示类
-    // mainScreen 获取主屏幕设备信息
-    // bounds 表示屏幕的宽高值
-//    self.window = [[UIWindow alloc] initWithFrame: [UIScreen mainScreen].bounds];
-//    
-//    self.window.rootViewController = [[UIViewController alloc] init];
-//    
-//    self.window.backgroundColor = [UIColor blueColor];
-//
-//
-//    UIView* view = [[UIView alloc] initWithFrame: CGRectMake(100, 100, 150, 150)];
-//    view.backgroundColor = [UIColor orangeColor];
-//    
-//    [self.window addSubview: view];
-//    
-//    
-//    // 使window有效并显示
-//    [self.window makeKeyAndVisible];
-    
     return YES;
 }
 
