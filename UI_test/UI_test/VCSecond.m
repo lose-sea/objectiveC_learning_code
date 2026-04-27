@@ -24,7 +24,7 @@
     self.title = @"VCSecond";
     self.view.backgroundColor = [UIColor yellowColor];
     _textField = [[UITextField alloc] init];
-//    _textField.backgroundColor = [UIColor whiteColor];
+    _textField.backgroundColor = [UIColor whiteColor];
     self.textField.placeholder = @"请输入内容";
     _textField.text = self.recesiveText;
     [self.view addSubview: _textField];
@@ -36,6 +36,9 @@
     }];
     UIBarButtonItem* item = [[UIBarButtonItem alloc] initWithTitle: @"back" style: UIBarButtonItemStylePlain target: self action: @selector(pressBack)];
     self.navigationItem.leftBarButtonItem = item;
+    
+    UIBarButtonItem* item01 = [[UIBarButtonItem alloc] initWithTitle: @"传值" style: UIBarButtonItemStylePlain target: self action: @selector(pressSend)];
+    self.navigationItem.rightBarButtonItem = item01; 
 }
 
 - (void) pressBack {
@@ -44,6 +47,13 @@
     }
     [self.navigationController popViewControllerAnimated: YES];
 }
+
+- (void) pressSend {
+    if ([self.delegate respondsToSelector: @selector(vcSecond:didSendText:)]) {
+        [self.delegate vcSecond: self didSendText: self.textField.text];
+    }
+}
+
 
 - (void) test01 {
     self.title = @"VCSecond";

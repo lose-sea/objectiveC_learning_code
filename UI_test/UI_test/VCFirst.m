@@ -17,7 +17,12 @@
     [super viewDidLoad];
 //    [self test01];
     [self test02];
+    
+//    [self test03];
     // Do any additional setup after loading the view.
+}
+- (void) test03 {
+//    创建一个头部视图
 }
 
 - (void) test02 {
@@ -41,8 +46,7 @@
 - (void) pressNext {
     VCSecond* vc = [[VCSecond alloc] init];
     vc.delegate = self;
-    vc.recesiveText = self.label.text; 
-//    vc.view.backgroundColor = [UIColor purpleColor];
+    vc.recesiveText = self.label.text;
     [self.navigationController pushViewController: vc animated: YES];
 }
 
@@ -50,7 +54,6 @@
 - (void) vcSecond:(id)vcSecond didSendText:(NSString *)text {
     self.label.text = text;
 //    self.receiveText = text;
-    
 }
 
 

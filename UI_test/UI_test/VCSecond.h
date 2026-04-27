@@ -15,7 +15,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 @interface VCSecond : UIViewController
-@property (nonatomic) id<VCSecondDeleagate> delegate; 
+@property (nonatomic, weak) id<VCSecondDeleagate> delegate;
 @property (nonatomic) NSString* recesiveText;
 @property (nonatomic) UITextField* textField;
 @end
