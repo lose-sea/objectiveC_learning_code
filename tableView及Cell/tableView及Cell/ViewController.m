@@ -98,6 +98,10 @@
     return 60;
 }
 
+- (NSString*) tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
+    return @"This title";
+}
+
 // 配置cell
 //- (UITableViewCell*) tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
 //    NSString* strName = @"cell";
