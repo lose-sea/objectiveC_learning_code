@@ -17,6 +17,30 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
 }
+ 
+// 实现单例
++ (instancetype)shareManager {
+    static DataManager *instance = nil;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        instance = [[super allocWithZone: NULL] init];
+    });
+    return instance;
+}
+
+
+
++ (instancetype) allocWithZone: (struct _NSZone*) zone {
+    return [self shareManager];
+}
+
+- (id) copyWithZone: (NSZone*) zone {
+    return self;
+}
+
+- (id) mutableCopy: (NSZone*) zone {
+    return self;
+}
 
 /*
 #pragma mark - Navigation
@@ -27,5 +51,7 @@
     // Pass the selected object to the new view controller.
 }
 */
+
+
 
 @end

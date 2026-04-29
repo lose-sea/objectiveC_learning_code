@@ -6,6 +6,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "DataManager.h"
 
 NS_ASSUME_NONNULL_BEGIN
 

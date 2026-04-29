@@ -10,7 +10,11 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface DataManager : UIViewController
+// 获取单例的方法
++ (instancetype) shareManager;
 
+// 要共享的数据
+@property (nonatomic, copy) NSString* shareText;
 @end
 
 NS_ASSUME_NONNULL_END
