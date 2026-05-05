@@ -23,8 +23,6 @@
     // 默认是 YES, 透明
     self.navigationController.navigationBar.translucent = YES;
     
-    // 设置导航栏的背景颜色
-    self.navigationController.navigationBar.barTintColor = [UIColor redColor];
     
     UINavigationBarAppearance* appearance = [[UINavigationBarAppearance alloc] init];
 //    [appearance configureWithOpaqueBackground];

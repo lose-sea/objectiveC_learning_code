@@ -10,9 +10,9 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface VCFirst : UIViewController
-@property (nonatomic) UIScrollView* scrollView; 
-
+@interface VCFirst : UIViewController <UICollectionViewDelegate, UICollectionViewDataSource>
+@property (nonatomic) UIScrollView* scrollView;
+@property (nonatomic) NSMutableArray* array;
 @end
 
 NS_ASSUME_NONNULL_END
