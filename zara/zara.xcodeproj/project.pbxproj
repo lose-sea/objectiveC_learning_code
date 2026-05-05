@@ -6,8 +6,15 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		553F699CF3034E3A06D201AD /* libPods-zara.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B4116FBBD0AA8E8EABFC21D9 /* libPods-zara.a */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXFileReference section */
 		54E5215B2FA9E1CA002766E8 /* zara.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = zara.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		B4116FBBD0AA8E8EABFC21D9 /* libPods-zara.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-zara.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		EFD2FE764E201A4E43473837 /* Pods-zara.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-zara.release.xcconfig"; path = "Target Support Files/Pods-zara/Pods-zara.release.xcconfig"; sourceTree = "<group>"; };
+		F16BE795582B5FC432153991 /* Pods-zara.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-zara.debug.xcconfig"; path = "Target Support Files/Pods-zara/Pods-zara.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
@@ -36,17 +43,29 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				553F699CF3034E3A06D201AD /* libPods-zara.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0573B3D9585FA9D4EA611452 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				F16BE795582B5FC432153991 /* Pods-zara.debug.xcconfig */,
+				EFD2FE764E201A4E43473837 /* Pods-zara.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		54E521522FA9E1CA002766E8 = {
 			isa = PBXGroup;
 			children = (
 				54E5215D2FA9E1CA002766E8 /* zara */,
 				54E5215C2FA9E1CA002766E8 /* Products */,
+				0573B3D9585FA9D4EA611452 /* Pods */,
+				99C31666F3FF87173F5D8189 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -58,6 +77,14 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		99C31666F3FF87173F5D8189 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				B4116FBBD0AA8E8EABFC21D9 /* libPods-zara.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -65,6 +92,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 54E521732FA9E1CC002766E8 /* Build configuration list for PBXNativeTarget "zara" */;
 			buildPhases = (
+				A0DFDA1010E1261AA1BF2398 /* [CP] Check Pods Manifest.lock */,
 				54E521572FA9E1CA002766E8 /* Sources */,
 				54E521582FA9E1CA002766E8 /* Frameworks */,
 				54E521592FA9E1CA002766E8 /* Resources */,
@@ -77,8 +105,6 @@
 				54E5215D2FA9E1CA002766E8 /* zara */,
 			);
 			name = zara;
-			packageProductDependencies = (
-			);
 			productName = zara;
 			productReference = 54E5215B2FA9E1CA002766E8 /* zara.app */;
 			productType = "com.apple.product-type.application";
@@ -126,6 +152,31 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		A0DFDA1010E1261AA1BF2398 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-zara-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		54E521572FA9E1CA002766E8 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -139,6 +190,7 @@
 /* Begin XCBuildConfiguration section */
 		54E521742FA9E1CC002766E8 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F16BE795582B5FC432153991 /* Pods-zara.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -166,6 +218,7 @@
 		};
 		54E521752FA9E1CC002766E8 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = EFD2FE764E201A4E43473837 /* Pods-zara.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;

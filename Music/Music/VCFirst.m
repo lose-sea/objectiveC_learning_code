@@ -19,7 +19,8 @@
     // 添加导航栏按钮
     [self addButtonToNavigationBar];
     // 每日推荐
-    [self dailyRecommendation];
+//    [self dailyRecommendation];
+    [self hot01]; 
 
 }
 
@@ -179,6 +180,7 @@
         NSString* strName = [NSString stringWithFormat: @"%d.jpg", i + 1];
         UIImage* image = [UIImage imageNamed: strName];
         UIImageView* iView = [[UIImageView alloc] initWithImage: image];
+        
         [self.scrollView addSubview: iView];
         [iView mas_makeConstraints:^(MASConstraintMaker *make) {
             make.top.mas_equalTo(self.scrollView);

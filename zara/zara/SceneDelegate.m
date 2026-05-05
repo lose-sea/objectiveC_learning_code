@@ -24,11 +24,22 @@
 
     [self.window makeKeyAndVisible];
     
+    [self setTabBarController];
+    
+}
+
+- (void) setTabBarController {
     Homepage* homepage = [[Homepage alloc] init];
     Searchpage* searchpage = [[Searchpage alloc] init];
     Shoppage* shoppage = [[Shoppage alloc] init];
     Mypage* mypage = [[Mypage alloc] init];
     
+    
+    // 为每个页面分别创建导航控制器
+    UINavigationController* homeNav = [[UINavigationController alloc] initWithRootViewController:homepage];
+    UINavigationController* searchNav = [[UINavigationController alloc] initWithRootViewController:searchpage];
+    UINavigationController* shopNav = [[UINavigationController alloc] initWithRootViewController:shoppage];
+    UINavigationController* myNav = [[UINavigationController alloc] initWithRootViewController: mypage];
     
     
 //    // 在这里统一设置 TabBarItem (分栏控制器)
@@ -40,7 +51,7 @@
     // magnifyingglass  放大镜
     searchpage.tabBarItem = [[UITabBarItem alloc] initWithTitle: @"搜索" image:[UIImage systemImageNamed: @"magnifyingglass"] selectedImage:[UIImage systemImageNamed: @"magnifyingglass.fill"]];
     
-    searchpage.tabBarItem = [[UITabBarItem alloc] initWithTabBarSystemItem: UITabBarSystemItemSearch tag: 1];
+//    searchpage.tabBarItem = [[UITabBarItem alloc] initWithTabBarSystemItem: UITabBarSystemItemSearch tag: 1];
     
     // 购物, 按钮为一个购物车形状
     shoppage.tabBarItem = [[UITabBarItem alloc] initWithTitle: @"购物" image: [UIImage systemImageNamed: @"cart"] selectedImage: [UIImage systemImageNamed: @"cart.fill"]];
@@ -51,12 +62,10 @@
         
     // 3. 创建 TabBarController 并设置控制器数组
     UITabBarController* tabbarController = [[UITabBarController alloc] init];
-    tabbarController.viewControllers = @[homepage, searchpage, shoppage, mypage];
+    tabbarController.viewControllers = @[homeNav, searchNav, shopNav, myNav];
     
     self.window.rootViewController = tabbarController;
-    [self.window makeKeyAndVisible];
 }
-
 
 
 
