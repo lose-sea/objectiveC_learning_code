@@ -15,18 +15,16 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    self.view.backgroundColor = [UIColor blackColor];
     self.title = @"首页";
+    self.view.backgroundColor = [UIColor blackColor];
     
-//    self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
+//    self.view.backgroundColor = [UIColor systemCyanColor];
+    
+    // 导航栏颜色设置
+//    self.navigationController.navigationBar.backgroundColor = [UIColor blueColor];
     
     [self setNavigationController];
     
-    // 往导航栏中添加一个搜索按钮
-    UIBarButtonItem* search = [[UIBarButtonItem alloc] initWithBarButtonSystemItem: UIBarButtonSystemItemSearch target: self action: @selector(pressSearch)];
-    
-    self.navigationItem.rightBarButtonItem = search;
     
     // 设置界面
     [self setInterface];
@@ -34,7 +32,6 @@
 
 // 设置界面
 - (void) setInterface {
-    
     // 设置标签
     UIImage* imaegZara = [UIImage imageNamed: @"1"];
     UIImageView* ZaraView = [[UIImageView alloc] initWithImage: imaegZara];
@@ -100,8 +97,10 @@
     self.navigationController.navigationBar.translucent = YES;
 //    self.navigationController.navigationBar.backgroundColor = [UIColor blackColor];
     
+    // 往导航栏中添加一个搜索按钮
+    UIBarButtonItem* search = [[UIBarButtonItem alloc] initWithBarButtonSystemItem: UIBarButtonSystemItemSearch target: self action: @selector(pressSearch)];
     
-    
+    self.navigationItem.rightBarButtonItem = search;
 }
 
 // 按钮事件
