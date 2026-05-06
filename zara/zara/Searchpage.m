@@ -8,7 +8,7 @@
 #import "Searchpage.h"
 
 @interface Searchpage ()
-
+@property (nonatomic, strong) UISegmentedControl* segmentedControl;
 @end
 
 @implementation Searchpage
@@ -16,7 +16,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = @"搜索";
-    self.view.backgroundColor = [UIColor systemCyanColor];
+    self.view.backgroundColor = [UIColor blackColor];
     
     [self setNavigationController];
    
@@ -32,37 +32,74 @@
 
 // 设置导航控制器
 - (void) setNavigationController {
+
+    
+//    _segControl = [[UISegmentedControl alloc] init];
+//    _segControl.backgroundColor = [UIColor systemCyanColor];
+//    _segControl.frame = CGRectMake(100, 300, 200, 50);
+//    
+//    [_segControl insertSegmentWithTitle: @"0元" atIndex: 0 animated: NO];
+//    [_segControl insertSegmentWithTitle: @"2元" atIndex: 1 animated: NO];
+//    [_segControl insertSegmentWithTitle: @"4元" atIndex: 2 animated: NO];
+//    // 设置默认索引
+//    _segControl.selectedSegmentIndex = 2;
+//    // 设置滑块的颜色
+//    _segControl.selectedSegmentTintColor = [UIColor greenColor];
+//    
+//    
+////    UISegmentedControl* seg01 = [[UISegmentedControl alloc] init];
+////    seg01.frame = CGRectMake(100, 400, 200, 200);
+////    seg01.backgroundColor = [UIColor systemGrayColor];
+////    [seg01 insertSegmentWithTitle: @"5元" atIndex: 0 animated: NO];
+////    [seg01 insertSegmentWithTitle: @"5元" atIndex: 1 animated: NO];
+////    [seg01 insertSegmentWithTitle: @"10元" atIndex: 2 animated: NO];
+//     
+//    
+////    [_segControl addTarget: self action: @selector(segChange) forControlEvents: UIControlEventValueChanged];
+//    
+//    [self.view addSubview: _segControl];
+    
+    
+    
+    
+    
+    
     // 在导航栏设置分栏控制器
     NSArray *items = @[@"女士", @"儿童", @"男士"];
-        UISegmentedControl *segmentControl = [[UISegmentedControl alloc] initWithItems:items];
-        
-        // 设置默认选中
-        segmentControl.selectedSegmentIndex = 0;
-        
-        // 设置样式
-        segmentControl.backgroundColor = [UIColor clearColor];
-        segmentControl.selectedSegmentTintColor = [UIColor systemBlueColor];
-        
-        // 设置文字颜色
-        NSDictionary *normalAttr = @{
-            NSForegroundColorAttributeName: [UIColor grayColor],
-            NSFontAttributeName: [UIFont systemFontOfSize:16]
-        };
-        NSDictionary *selectedAttr = @{
-            NSForegroundColorAttributeName: [UIColor whiteColor],
-            NSFontAttributeName: [UIFont systemFontOfSize:16 weight:UIFontWeightMedium]
-        };
-        [segmentControl setTitleTextAttributes:normalAttr forState:UIControlStateNormal];
-        [segmentControl setTitleTextAttributes:selectedAttr forState:UIControlStateSelected];
-        
-        // 添加事件
-        [segmentControl addTarget:self
-                           action:@selector(segmentChanged)
-                 forControlEvents:UIControlEventValueChanged];
-        segmentControl.frame = CGRectMake(0, 0, self.view.bounds.size.width, 80);
-        
-        // 设置为导航栏标题视图（关键代码）
-        self.navigationItem.titleView = segmentControl;
+    
+    self.segmentedControl = [[UISegmentedControl alloc] initWithItems: items];
+    
+    // 背景颜色
+    self.segmentedControl.backgroundColor = [UIColor whiteColor];
+    
+    // 设置默认选中的索引
+    self.segmentedControl.selectedSegmentIndex = 0;
+    
+    // 分栏控件的宽度可变, 高度不可变
+    self.segmentedControl.frame = CGRectMake(0, 20, self.view.bounds.size.width, 40);
+    
+//    // 1. 设置【没选中】的文字颜色 → 黑色
+//    [self.segmentedControl setTitleTextAttributes:@{
+//        NSForegroundColorAttributeName: [UIColor whiteColor]
+//    } forState: UIControlStateNormal];
+//
+//    // 2. 设置【选中】的文字颜色 → 白色
+//    [self.segmentedControl setTitleTextAttributes:@{
+//        NSForegroundColorAttributeName: [UIColor redColor]
+//    } forState: UIControlStateSelected];
+//    
+    // 设置滑块颜色
+    self.segmentedControl.selectedSegmentTintColor = [UIColor greenColor];
+    
+    
+    // 设置分栏控件的文字颜色
+    self.segmentedControl.backgroundColor = [UIColor blackColor];
+    
+//    // 设置导航栏标题视图
+//    self.navigationItem.titleView = self.segmentedControl;
+    self.segmentedControl.frame = CGRectMake(100, 200, 200, 40);
+    [self.view addSubview: self.segmentedControl]; 
+    
 }
 
 - (void) segmentChanged {
