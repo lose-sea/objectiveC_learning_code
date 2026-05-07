@@ -6,144 +6,118 @@
 	objectVersion = 77;
 	objects = {
 
-/* Begin PBXBuildFile section */
-		553F699CF3034E3A06D201AD /* libPods-zara.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B4116FBBD0AA8E8EABFC21D9 /* libPods-zara.a */; };
-/* End PBXBuildFile section */
-
 /* Begin PBXFileReference section */
-		54E5215B2FA9E1CA002766E8 /* zara.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = zara.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		B4116FBBD0AA8E8EABFC21D9 /* libPods-zara.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-zara.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		EFD2FE764E201A4E43473837 /* Pods-zara.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-zara.release.xcconfig"; path = "Target Support Files/Pods-zara/Pods-zara.release.xcconfig"; sourceTree = "<group>"; };
-		F16BE795582B5FC432153991 /* Pods-zara.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-zara.debug.xcconfig"; path = "Target Support Files/Pods-zara/Pods-zara.debug.xcconfig"; sourceTree = "<group>"; };
+		543C20C72FACDB890021F6DE /* self_cell.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = self_cell.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
-		54E521722FA9E1CC002766E8 /* Exceptions for "zara" folder in "zara" target */ = {
+		543C20DE2FACDB8B0021F6DE /* Exceptions for "self_cell" folder in "self_cell" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
 				Info.plist,
 			);
-			target = 54E5215A2FA9E1CA002766E8 /* zara */;
+			target = 543C20C62FACDB890021F6DE /* self_cell */;
 		};
 /* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
-		54E5215D2FA9E1CA002766E8 /* zara */ = {
+		543C20C92FACDB890021F6DE /* self_cell */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			exceptions = (
-				54E521722FA9E1CC002766E8 /* Exceptions for "zara" folder in "zara" target */,
+				543C20DE2FACDB8B0021F6DE /* Exceptions for "self_cell" folder in "self_cell" target */,
 			);
-			path = zara;
+			path = self_cell;
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		54E521582FA9E1CA002766E8 /* Frameworks */ = {
+		543C20C42FACDB890021F6DE /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				553F699CF3034E3A06D201AD /* libPods-zara.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		0573B3D9585FA9D4EA611452 /* Pods */ = {
+		543C20BE2FACDB890021F6DE = {
 			isa = PBXGroup;
 			children = (
-				F16BE795582B5FC432153991 /* Pods-zara.debug.xcconfig */,
-				EFD2FE764E201A4E43473837 /* Pods-zara.release.xcconfig */,
-			);
-			path = Pods;
-			sourceTree = "<group>";
-		};
-		54E521522FA9E1CA002766E8 = {
-			isa = PBXGroup;
-			children = (
-				54E5215D2FA9E1CA002766E8 /* zara */,
-				54E5215C2FA9E1CA002766E8 /* Products */,
-				0573B3D9585FA9D4EA611452 /* Pods */,
-				99C31666F3FF87173F5D8189 /* Frameworks */,
+				543C20C92FACDB890021F6DE /* self_cell */,
+				543C20C82FACDB890021F6DE /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		54E5215C2FA9E1CA002766E8 /* Products */ = {
+		543C20C82FACDB890021F6DE /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				54E5215B2FA9E1CA002766E8 /* zara.app */,
+				543C20C72FACDB890021F6DE /* self_cell.app */,
 			);
 			name = Products;
-			sourceTree = "<group>";
-		};
-		99C31666F3FF87173F5D8189 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				B4116FBBD0AA8E8EABFC21D9 /* libPods-zara.a */,
-			);
-			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		54E5215A2FA9E1CA002766E8 /* zara */ = {
+		543C20C62FACDB890021F6DE /* self_cell */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 54E521732FA9E1CC002766E8 /* Build configuration list for PBXNativeTarget "zara" */;
+			buildConfigurationList = 543C20DF2FACDB8B0021F6DE /* Build configuration list for PBXNativeTarget "self_cell" */;
 			buildPhases = (
-				A0DFDA1010E1261AA1BF2398 /* [CP] Check Pods Manifest.lock */,
-				54E521572FA9E1CA002766E8 /* Sources */,
-				54E521582FA9E1CA002766E8 /* Frameworks */,
-				54E521592FA9E1CA002766E8 /* Resources */,
+				543C20C32FACDB890021F6DE /* Sources */,
+				543C20C42FACDB890021F6DE /* Frameworks */,
+				543C20C52FACDB890021F6DE /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			fileSystemSynchronizedGroups = (
-				54E5215D2FA9E1CA002766E8 /* zara */,
+				543C20C92FACDB890021F6DE /* self_cell */,
 			);
-			name = zara;
-			productName = zara;
-			productReference = 54E5215B2FA9E1CA002766E8 /* zara.app */;
+			name = self_cell;
+			packageProductDependencies = (
+			);
+			productName = self_cell;
+			productReference = 543C20C72FACDB890021F6DE /* self_cell.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		54E521532FA9E1CA002766E8 /* Project object */ = {
+		543C20BF2FACDB890021F6DE /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastUpgradeCheck = 2600;
 				TargetAttributes = {
-					54E5215A2FA9E1CA002766E8 = {
+					543C20C62FACDB890021F6DE = {
 						CreatedOnToolsVersion = 26.0.1;
 					};
 				};
 			};
-			buildConfigurationList = 54E521562FA9E1CA002766E8 /* Build configuration list for PBXProject "zara" */;
+			buildConfigurationList = 543C20C22FACDB890021F6DE /* Build configuration list for PBXProject "self_cell" */;
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
 				Base,
 			);
-			mainGroup = 54E521522FA9E1CA002766E8;
+			mainGroup = 543C20BE2FACDB890021F6DE;
 			minimizedProjectReferenceProxies = 1;
 			preferredProjectObjectVersion = 77;
-			productRefGroup = 54E5215C2FA9E1CA002766E8 /* Products */;
+			productRefGroup = 543C20C82FACDB890021F6DE /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				54E5215A2FA9E1CA002766E8 /* zara */,
+				543C20C62FACDB890021F6DE /* self_cell */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		54E521592FA9E1CA002766E8 /* Resources */ = {
+		543C20C52FACDB890021F6DE /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -152,33 +126,8 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
-/* Begin PBXShellScriptBuildPhase section */
-		A0DFDA1010E1261AA1BF2398 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-zara-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-/* End PBXShellScriptBuildPhase section */
-
 /* Begin PBXSourcesBuildPhase section */
-		54E521572FA9E1CA002766E8 /* Sources */ = {
+		543C20C32FACDB890021F6DE /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -188,16 +137,15 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
-		54E521742FA9E1CC002766E8 /* Debug */ = {
+		543C20E02FACDB8B0021F6DE /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = F16BE795582B5FC432153991 /* Pods-zara.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = zara/Info.plist;
+				INFOPLIST_FILE = self_cell/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -208,7 +156,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = ggg.zara;
+				PRODUCT_BUNDLE_IDENTIFIER = "ggg.self-cell";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -216,16 +164,15 @@
 			};
 			name = Debug;
 		};
-		54E521752FA9E1CC002766E8 /* Release */ = {
+		543C20E12FACDB8B0021F6DE /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = EFD2FE764E201A4E43473837 /* Pods-zara.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = zara/Info.plist;
+				INFOPLIST_FILE = self_cell/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -236,7 +183,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = ggg.zara;
+				PRODUCT_BUNDLE_IDENTIFIER = "ggg.self-cell";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -244,7 +191,7 @@
 			};
 			name = Release;
 		};
-		54E521762FA9E1CC002766E8 /* Debug */ = {
+		543C20E22FACDB8B0021F6DE /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -302,11 +249,10 @@
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
-				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 			};
 			name = Debug;
 		};
-		54E521772FA9E1CC002766E8 /* Release */ = {
+		543C20E32FACDB8B0021F6DE /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -357,7 +303,6 @@
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
-				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -365,25 +310,25 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		54E521562FA9E1CA002766E8 /* Build configuration list for PBXProject "zara" */ = {
+		543C20C22FACDB890021F6DE /* Build configuration list for PBXProject "self_cell" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				54E521762FA9E1CC002766E8 /* Debug */,
-				54E521772FA9E1CC002766E8 /* Release */,
+				543C20E22FACDB8B0021F6DE /* Debug */,
+				543C20E32FACDB8B0021F6DE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		54E521732FA9E1CC002766E8 /* Build configuration list for PBXNativeTarget "zara" */ = {
+		543C20DF2FACDB8B0021F6DE /* Build configuration list for PBXNativeTarget "self_cell" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				54E521742FA9E1CC002766E8 /* Debug */,
-				54E521752FA9E1CC002766E8 /* Release */,
+				543C20E02FACDB8B0021F6DE /* Debug */,
+				543C20E12FACDB8B0021F6DE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = 54E521532FA9E1CA002766E8 /* Project object */;
+	rootObject = 543C20BF2FACDB890021F6DE /* Project object */;
 }
