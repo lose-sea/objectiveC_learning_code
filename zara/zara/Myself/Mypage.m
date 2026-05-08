@@ -12,7 +12,7 @@
 
 // cell 的内容
 @property (nonatomic, strong) NSMutableArray* textArray;
-@property (nonatomic, strong) NSMutableArray* images;
+@property (nonatomic, strong) NSMutableArray* imageViews;
 
 @end
 
@@ -35,51 +35,61 @@
 
 - (void) setDataSource {
     self.textArray = [[NSMutableArray alloc] initWithObjects: @"服务", @"收藏", @"朋友圈", @"小店与卡包", @"表情", @"设置", nil];
-    self.images = [[NSMutableArray alloc] init];
+    self.imageViews = [[NSMutableArray alloc] init];
     
     // 添加图片
     // 服务
     UIImage* image = [UIImage systemImageNamed: @"checkmark.message"];
-    image = [image imageWithTintColor: [UIColor systemGreenColor]];
-    [self.images addObject: image];
+//    image = [image imageWithTintColor: [UIColor greenColor]];
+    UIImageView* iView = [[UIImageView alloc] initWithImage: image];
+    iView.tintColor = [UIColor greenColor];
+    [self.imageViews addObject: iView];
     
-    // 收藏
+    iView.tintColor = [UIColor greenColor];
+    
+    
+    // 收藏 (彩色方块)
     image = [UIImage systemImageNamed: @"cube"];
-    image = [image imageWithTintColor: [UIColor ]]
+//    image = [image imageWithTintColor: [UIColor greenColor]];
+    iView = [[UIImageView alloc] initWithImage: image];
+    iView.tintColor = [UIColor redColor];
+    [self.imageViews addObject: iView];
     
     
     
     
-
-    // 服务（绿色）
-    UIImage *image = [UIImage systemImageNamed:@"message.fill"];
-    image = [image imageWithTintColor:[UIColor systemGreenColor]];
-    [self.images addObject:image];
+    // 朋友圈
+    // 蓝色图片
+    image = [UIImage systemImageNamed: @"photo"];
+    iView = [[UIImageView alloc] initWithImage: image];
+    iView.tintColor = [UIColor blueColor];
+    [self.imageViews addObject: iView];
     
-    // 收藏（用立方体，可加渐变，这里先用彩色近似）
-    image = [UIImage systemImageNamed:@"cube"];
-    [self.images addObject:image];
     
-    // 朋友圈（蓝色图片）
-    image = [UIImage systemImageNamed:@"photo"];
-    image = [image imageWithTintColor:[UIColor systemBlueColor]];
-    [self.images addObject:image];
+    // 小店与卡包 (红色购物袋)
+    image = [UIImage systemImageNamed: @"bag"];
+    iView = [[UIImageView alloc] initWithImage: image];
+    iView.tintColor = [UIColor redColor];
+    [self.imageViews addObject: iView];
     
-    // 小店与卡包（红色购物袋）
-    image = [UIImage systemImageNamed:@"bag.fill"];
-    image = [image imageWithTintColor:[UIColor systemRedColor]];
-    [self.images addObject:image];
     
-    // 表情（黄色）
-    image = [UIImage systemImageNamed:@"face.smiling"];
-    image = [image imageWithTintColor:[UIColor systemYellowColor]];
-    [self.images addObject:image];
+    // 表情 (黄色笑脸)
+    image = [UIImage systemImageNamed: @"face.smiling"];
+    iView = [[UIImageView alloc] initWithImage: image];
+    iView.tintColor = [UIColor yellowColor];
+    [self.imageViews addObject: iView];
     
-    // 设置（蓝色齿轮）
-    image = [UIImage systemImageNamed:@"gear"];
-    image = [image imageWithTintColor:[UIColor systemBlueColor]];
-    [self.images addObject:image];
     
+    // 设置 (蓝色齿轮)
+    image = [UIImage systemImageNamed: @"gearshape"];
+    iView = [[UIImageView alloc] initWithImage: image];
+    iView.tintColor = [UIColor blueColor];
+    [self.imageViews addObject: iView];
+    
+    
+//    
+//    iView.frame = CGRectMake(200, 200, 200, 200);
+//    [self.view addSubview: iView];
     
 }
 
@@ -97,6 +107,8 @@
         make.left.mas_equalTo(self.view);
         make.right.mas_equalTo(self.view);
     }];
+    
+    
     // 注册cell
 //    [self.tableView registerClass: [UITableViewCell class] forCellReuseIdentifier: @"cellID"];
 }
@@ -107,7 +119,13 @@
 }
 
 - (NSInteger) tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 7;
+    if (section == 0) {
+        return 1;
+    } else if (section == 1) {
+        return 5;
+    } else {
+        return 1;
+    }
 }
 
 
@@ -118,15 +136,81 @@
     if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier: @"cellID"];
     }
-    cell.textLabel.text = @"主标题";
-    cell.detailTextLabel.text = @"副标题";
+    
+    
+//    cell.textLabel.text = @"主标题";
+//    cell.detailTextLabel.text = @"副标题";
     
     // 设置内容
+    if (indexPath.section == 2) {
+        cell.textLabel.text = @"设置";
+        cell.imageView.image = [UIImage systemImageNamed: @"gearshape"];
+        cell.imageView.tintColor = [UIColor blueColor];
+    } else if (indexPath.section == 1) {
+        cell.textLabel.text = self.textArray[indexPath.row];
+        cell.imageView.image = ((UIImageView* )self.imageViews[indexPath.row]).image;
+        if (indexPath.row == 0) {
+            cell.imageView.tintColor = [UIColor greenColor];
+        } else if (indexPath.row == 3) {
+            cell.imageView.tintColor = [UIColor redColor];
+        } else if (indexPath.row == 4) {
+            cell.imageView.tintColor = [UIColor yellowColor];
+        }
+    } else {
+        cell.textLabel.text = @"在下雨";
+        cell.detailTextLabel.text = @"微信号: xtzytpl";
+        cell.imageView.image = [UIImage imageNamed: @"1.jpg"];
+    }
+    
+    
+    // 在cell的后面加一个 >
+    // 样式: 点击查看详情指示器
+    cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+    
     
     
     return cell;
 }
 
+// 设置头标题高度
+- (CGFloat) tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
+    if (section == 1 || section == 2) {
+        return 5;
+    } else {
+        return 0;
+    }
+}
+
+// 设置头部标题
+- (UIView*) tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
+    if (section == 1 || section == 2) {
+        UIView* view = [[UIView alloc] init];
+        return view;
+    } else {
+        return nil;
+    }
+}
+
+// 设置选中行高度
+- (CGFloat) tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (indexPath.section == 0) {
+        return 80;
+    } else {
+        return 60;
+    }
+}
+
+// 设置点击事件
+- (void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (indexPath.section == 0) {
+        Personal_Information* vc = [[Personal_Information alloc] init];
+        vc.Nickname = [tableView cellForRowAtIndexPath: indexPath].textLabel.text;
+        vc.account = [tableView cellForRowAtIndexPath: indexPath].detailTextLabel.text;
+        vc.avatar = [tableView cellForRowAtIndexPath: indexPath].imageView.image;
+        
+        [self.navigationController pushViewController: vc animated: YES]; 
+    }
+}
 
 
 

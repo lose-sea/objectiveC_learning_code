@@ -154,7 +154,7 @@
 
 - (void) setTimer {
     // repeats: YES: 重复执行
-    self.timer = [NSTimer scheduledTimerWithTimeInterval: 0.5 target: self selector: @selector(nextPage) userInfo: nil repeats: YES];
+    self.timer = [NSTimer scheduledTimerWithTimeInterval: 2 target: self selector: @selector(nextPage) userInfo: nil repeats: YES];
 }
 
 // 定时器事件, 定时翻页
@@ -166,7 +166,7 @@
     self.segmentedControl.selectedSegmentIndex = nextIndex;
     
     // 需要手动改变滚动视图
-    [self segmentChanged: self.segmentedControl]; 
+    [self segmentChanged: self.segmentedControl];
 }
 
 // 分栏控件点击响应

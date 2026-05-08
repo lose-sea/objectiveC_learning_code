@@ -7,6 +7,7 @@
 
 #import <UIKit/UIKit.h>
 #import <Masonry/Masonry.h>
+#import "Personal_Information.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
