@@ -8,6 +8,7 @@
 #import "avatars.h"
 
 @interface avatars ()
+@property (nonatomic, strong) UICollectionView* collectionView;
 
 @end
 
@@ -16,7 +17,16 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    [self setCollectionView];
 }
+
+- (void) setCollectionView {
+    self.collectionView = [[UICollectionView alloc] init];
+    [self.view addSubview: self.collectionView];
+//    self.make
+}
+
 
 /*
 #pragma mark - Navigation

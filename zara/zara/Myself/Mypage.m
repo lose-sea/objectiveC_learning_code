@@ -168,7 +168,6 @@
     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     
     
-    
     return cell;
 }
 
@@ -205,7 +204,7 @@
     if (indexPath.section == 0) {
         Personal_Information* vc = [[Personal_Information alloc] init];
         vc.Nickname = [tableView cellForRowAtIndexPath: indexPath].textLabel.text;
-        vc.account = [tableView cellForRowAtIndexPath: indexPath].detailTextLabel.text;
+        vc.account = [tableView cellForRowAtIndexPath: indexPath].detailTextLabel.text ;
         vc.avatar = [tableView cellForRowAtIndexPath: indexPath].imageView.image;
         
         [self.navigationController pushViewController: vc animated: YES]; 

@@ -119,8 +119,12 @@
             make.bottom.mas_equalTo(self.view).offset(-80);
     }];
     
+    NSLog(@"%f", self.scrollView.bounds.size.width);
+    
     // 强制刷新视图, 使约束生效
     [self.view layoutIfNeeded];
+    
+    NSLog(@"%f", self.scrollView.bounds.size.width); 
     
     
     self.scrollView.backgroundColor = [UIColor whiteColor];
@@ -154,7 +158,7 @@
 
 - (void) setTimer {
     // repeats: YES: 重复执行
-    self.timer = [NSTimer scheduledTimerWithTimeInterval: 2 target: self selector: @selector(nextPage) userInfo: nil repeats: YES];
+    self.timer = [NSTimer scheduledTimerWithTimeInterval: 1 target: self selector: @selector(nextPage) userInfo: nil repeats: YES];
 }
 
 // 定时器事件, 定时翻页
@@ -194,6 +198,7 @@
 
 
 // 滑动时更新分栏控件
+// 在滑倒临时页面的时候进行跳转
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
 
 //    CGFloat page = self.scrollView.contentOffset.x / self.scrollView.bounds.size.width;
