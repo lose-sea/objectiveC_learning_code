@@ -53,6 +53,8 @@
     self.title = @"view first";
     self.view.backgroundColor = [UIColor systemCyanColor];
     self.array = [[NSMutableArray alloc] init];
+    
+    // 流式布局
     UICollectionViewFlowLayout* flowLayout = [[UICollectionViewFlowLayout alloc] init];
     // 每个cell的大小
     flowLayout.itemSize = CGSizeMake(100, 160);

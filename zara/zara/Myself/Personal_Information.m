@@ -62,6 +62,7 @@
         cell.textLabel.text = @"头像";
         // cell右侧的自定义视图
         UIImageView* iView = [[UIImageView alloc] initWithImage: self.avatar];
+        
         //  强制填充整个iView
         iView.contentMode = UIViewContentModeScaleAspectFill;
         // 裁剪超出的部分
@@ -88,9 +89,18 @@
     // 在cell的后面加一个 >
     // 样式: 点击查看详情指示器
     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-
     
     return cell;
+}
+
+- (void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    [tableView deselectRowAtIndexPath: indexPath animated: YES];
+    if (indexPath.row == 0) {
+        AvatarShow* vc = [[AvatarShow alloc] init];
+        UITableViewCell* cell = [tableView cellForRowAtIndexPath: indexPath];
+        vc.avatar = ((UIImageView*)cell.accessoryView).image; 
+        [self.navigationController pushViewController: vc animated: YES];
+    }
 }
 
 
