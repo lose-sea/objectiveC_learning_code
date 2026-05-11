@@ -17,6 +17,7 @@
 @property (nonatomic, strong) NSMutableArray* imageNames;
 
 
+
 //定时器, 使视图自动轮播
 @property (nonatomic, strong) NSTimer* timer;
 
@@ -161,6 +162,13 @@
     self.timer = [NSTimer scheduledTimerWithTimeInterval: 1 target: self selector: @selector(nextPage) userInfo: nil repeats: YES];
 }
 
+- (void) stopTimer {
+    // 停止定时器并从运行循环中移除
+    [self.timer invalidate];
+    // 置为空,防止多次创建
+    self.timer = nil;
+}
+
 // 定时器事件, 定时翻页
 - (void) nextPage {
     NSInteger nextIndex = self.segmentedControl.selectedSegmentIndex + 1;
@@ -175,6 +183,10 @@
 
 // 分栏控件点击响应
 - (void)segmentChanged:(UISegmentedControl *) sender {
+    
+    // 在滑动分栏控件的时候, 关闭定时器
+    [self stopTimer];
+    
     NSInteger index = sender.selectedSegmentIndex;
     
     // 当分栏控件的索引发生改变,滚动视图也跟随滚动到相对应的页面
@@ -184,6 +196,9 @@
     // 滑动到指定的坐标 (x, y)
     // YES: 带动画
     [self.scrollView setContentOffset: CGPointMake(left, 0)  animated: NO];
+    
+    // 在用户点击分栏控件切换视图后, 再开启定时器
+    [self setTimer];
 }
 
 
@@ -197,9 +212,9 @@
 
 
 
-// 滑动时更新分栏控件
+// 滑动完成后更新分栏控件
 // 在滑倒临时页面的时候进行跳转
-- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
+- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
 
 //    CGFloat page = self.scrollView.contentOffset.x / self.scrollView.bounds.size.width;
     
@@ -213,21 +228,18 @@
     }
     
     self.segmentedControl.selectedSegmentIndex = page;
+    
+    // 滑动完成后, 开启定时器
+    [self setTimer];
 }
 
 
 
 // 当用户滑动视图的时候, 关闭定时器
 - (void) scrollViewWillBeginDragging:(UIScrollView *)scrollView {
-    // 停止定时器并从运行循环中移除
-    [self.timer invalidate];
-    // 置为空,防止多次创建
-    self.timer = nil;
+    [self stopTimer];
 }
 
-- (void) scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
-    [self setTimer];
-}
 
 // 滑动过程中实时更新（可选）
 //- (void)scrollViewDidScroll:(UIScrollView *)scrollView {

@@ -13,10 +13,9 @@
 @property (nonatomic, strong) UITableView* tableView;
 
 
-
-
-
 @end
+
+static NSString* const AvatarNotification = @"AvatarNotification";
 
 @implementation Personal_Information
 
@@ -25,9 +24,19 @@
     self.title = @"个人信息";
     
     [self setTableView];
+    
+    // 注册通知监听
+    [[NSNotificationCenter defaultCenter] addObserver: self selector: @selector(receiveAvatar:) name: AvatarNotification object: nil];
 
 }
 
+// 接收通知
+- (void) receiveAvatar: (NSNotification*) notification {
+    self.avatar = notification.userInfo[@"avatar"];
+    [self.tableView reloadData];
+    
+    NSLog(@"接收到通知,更换头像"); 
+}
 
 - (void) setTableView {
     self.tableView = [[UITableView alloc] init];
@@ -70,6 +79,11 @@
         cell.accessoryView = iView;
         iView.frame = CGRectMake(0, 0, 40, 40);
         
+        // 把头像变成圆形
+        iView.layer.cornerRadius = 20;
+        // 裁剪超出范围的部分
+        iView.layer.masksToBounds = YES;
+        
         
     } else if (indexPath.row == 1) {
         cell.textLabel.text = @"昵称";
@@ -79,11 +93,15 @@
         cell.detailTextLabel.text = self.account;
     } else if (indexPath.row == 3) {
         cell.textLabel.text = @"个性签名";
-        UITextView* textView = [[UITextView alloc] init];
-        textView.text = @"这个家伙很懒, 什么也没有留下";
-        textView.frame = CGRectMake(0, 0, 150, 40); 
+        UILabel* label = [[UILabel alloc] init];
+        label.text = @"这个家伙很懒, 什么也没有留下";
+        label.frame = CGRectMake(0, 0, 150, cell.bounds.size.height - 10);
+        // 自动调整字体大小
+        label.adjustsFontSizeToFitWidth = YES;
+        // 允许换行
+        label.numberOfLines = 0;
         
-        cell.accessoryView = textView;
+        cell.accessoryView = label;
     }
     
     // 在cell的后面加一个 >
@@ -103,6 +121,11 @@
     }
 }
 
+
+// 移除观察者
+- (void)dealloc {
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
 
 /*
 #pragma mark - Navigation

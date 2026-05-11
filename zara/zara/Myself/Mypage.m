@@ -16,6 +16,10 @@
 
 @end
 
+
+
+static NSString* const AvatarNotification = @"AvatarNotification";
+
 @implementation Mypage
 
 - (void)viewDidLoad {
@@ -24,13 +28,24 @@
     self.view.backgroundColor = [UIColor whiteColor];
     self.title = @"我的";
     // Do any additional setup after loading the view.
-    
+        
     // 设置数据源
     [self setDataSource];
     
     // 设置TabelView
     [self setTableView];
     
+    // 注册监听
+    [[NSNotificationCenter defaultCenter] addObserver: self selector: @selector(receiveAvatar:) name: @"AvatarNotification" object: nil];
+    
+}
+
+// 接收消息
+- (void) receiveAvatar: (NSNotification*) notification {
+    UIImage* image = notification.userInfo[@"avatar"];
+    self.avatar = image;
+    [self.tableView reloadData];
+    NSLog(@"我的界面收到通知");
 }
 
 - (void) setDataSource {
@@ -86,6 +101,8 @@
     iView.tintColor = [UIColor blueColor];
     [self.imageViews addObject: iView];
     
+    
+    self.avatar = [UIImage imageNamed: @"1.jpg"];
     
 //    
 //    iView.frame = CGRectMake(200, 200, 200, 200);
@@ -146,6 +163,7 @@
         cell.textLabel.text = @"设置";
         cell.imageView.image = [UIImage systemImageNamed: @"gearshape"];
         cell.imageView.tintColor = [UIColor blueColor];
+        cell.detailTextLabel.text = nil;
     } else if (indexPath.section == 1) {
         cell.textLabel.text = self.textArray[indexPath.row];
         cell.imageView.image = ((UIImageView* )self.imageViews[indexPath.row]).image;
@@ -156,10 +174,17 @@
         } else if (indexPath.row == 4) {
             cell.imageView.tintColor = [UIColor yellowColor];
         }
+        cell.detailTextLabel.text = nil;
     } else {
         cell.textLabel.text = @"在下雨";
-        cell.detailTextLabel.text = @"微信号: xtzytpl";
-        cell.imageView.image = [UIImage imageNamed: @"1.jpg"];
+        cell.detailTextLabel.text = @"微信号: xtzytpl0508nrnd";
+        cell.imageView.image = self.avatar;
+        // 裁剪超出范围的部分
+        cell.imageView.layer.masksToBounds = YES;
+        // 裁剪
+        cell.imageView.clipsToBounds = YES;
+        // 填充
+        cell.imageView.contentMode = UIViewContentModeScaleAspectFill;
     }
     
     
@@ -201,6 +226,7 @@
 
 // 设置点击事件
 - (void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
     if (indexPath.section == 0) {
         Personal_Information* vc = [[Personal_Information alloc] init];
         vc.Nickname = [tableView cellForRowAtIndexPath: indexPath].textLabel.text;
@@ -211,7 +237,10 @@
     }
 }
 
-
+// 
+- (void) dealloc {
+    [[NSNotificationCenter defaultCenter] removeObserver: self];
+}
 
 /*
 #pragma mark - Navigation

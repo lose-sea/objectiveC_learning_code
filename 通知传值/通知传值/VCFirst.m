@@ -47,7 +47,7 @@ static NSString * const kTextFieldNotification = @"TextFieldNotification";
     
     
     // 注册通知监听
-        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(receiveText:) name:kTextFieldNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(receiveText:) name:kTextFieldNotification object:nil];
 }
 
 - (void) pushToSecond {
@@ -63,6 +63,12 @@ static NSString * const kTextFieldNotification = @"TextFieldNotification";
     
     // 更行label
     self.showLabel.text = [NSString stringWithFormat: @"收到: %@", text];
+}
+
+
+// 移除观察者
+- (void)dealloc {
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 

@@ -6,10 +6,13 @@
 //
 
 #import "AvatarWillChange.h"
-
+   
 @interface AvatarWillChange ()
-
+ 
 @end
+
+
+static NSString* const AvatarNotification = @"AvatarNotification";
 
 @implementation AvatarWillChange
 
@@ -38,6 +41,10 @@
 }
 
 - (void) changeAvatar {
+    // 发送通知
+    [[NSNotificationCenter defaultCenter] postNotificationName: AvatarNotification object: self userInfo: @{@"avatar": self.image}];
+    
+    // 跳转回信息页
     for (UIViewController* vc in self.navigationController.viewControllers) {
         if ([vc isKindOfClass: [Personal_Information class]]) {
             
@@ -46,7 +53,6 @@
         }
     }
 }
-
 
 
 

@@ -11,6 +11,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface ProductCell : UITableViewCell
 @property (nonatomic, strong) UILabel* titleLabel;
+@property (nonatomic, strong) UIButton* btn;
 @end
 
 NS_ASSUME_NONNULL_END

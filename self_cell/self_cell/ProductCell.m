@@ -16,7 +16,11 @@
         self.titleLabel.textColor = [UIColor redColor];
         self.titleLabel.frame = CGRectMake(0, 0, 200, self.bounds.size.height);
         // contentView 是UITableView内部的容器视图, 应该把所有的UI元素加入到它里面
+        self.btn = [[UIButton alloc] init];
+        _btn.frame = CGRectMake(100, 10, 40, 20);
+        _btn.backgroundColor = [UIColor blueColor];
         [self.contentView addSubview: self.titleLabel];
+        [self.contentView addSubview: self.btn];
     }
     return self;
 }
