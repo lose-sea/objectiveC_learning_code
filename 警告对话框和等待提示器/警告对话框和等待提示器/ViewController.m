@@ -44,12 +44,12 @@
         
         // 为警告对话框添加按钮
         UIAlertAction* okAction = [UIAlertAction actionWithTitle: @"OK" style: UIAlertActionStyleDefault  handler: ^(UIAlertAction* _Nonnull action) {
-            NSLog(@"取消");
+            NSLog(@"OK");
         }];
         [_alertController addAction: okAction];
         UIAlertAction* cacelAction = [UIAlertAction actionWithTitle: @"cacle" style: UIAlertActionStyleCancel  handler: ^ (UIAlertAction* _Nonnull action) {
             
-            NSLog(@"OK");
+            NSLog(@"取消");
         }];
         [_alertController addAction: cacelAction];
         
