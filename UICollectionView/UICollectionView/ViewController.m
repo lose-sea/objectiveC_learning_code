@@ -59,7 +59,7 @@
     // 每个cell的大小
     flowLayout.itemSize = CGSizeMake(100, 160);
     // 同一行中cell之间的间隔大小
-    flowLayout.minimumLineSpacing = 10;
+    flowLayout.minimumLineSpacing = 10;   
     // 行与行的间隔
     flowLayout.minimumInteritemSpacing = 10;
     
