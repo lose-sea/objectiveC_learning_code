@@ -9,7 +9,7 @@
 #import "MyViewController.h"
 
 
-@interface ViewController () <UITableViewDataSource, UISearchResultsUpdating, UITabBarDelegate>
+@interface ViewController () <UITableViewDataSource, UISearchResultsUpdating, UISearchBarDelegate, UITableViewDelegate>
 // ViewController.m
 
 @property (nonatomic, strong) UITableView *tableView;
@@ -28,35 +28,35 @@
     self.title = @"搜索";
     // Do any additional setup after loading the view.
     
-    // ① 准备数据
-    self.allData = @[@"Apple", @"Banana", @"Cherry", @"Date", @"Fig", @"Grape"];
-    self.filteredData = self.allData;
-    
+    [self setData];
     [self setupTableView];
     [self setupSearchController];
     
     if (@available(iOS 26.0, *)) {
-            self.navigationItem.preferredSearchBarPlacement = UINavigationItemSearchBarPlacementStacked;
-            self.navigationItem.searchBarPlacementAllowsToolbarIntegration = NO; // 设置不允许将UISearchController放在工具栏中,保证UISearchController在上方的导航栏中
-        }
+        self.navigationItem.preferredSearchBarPlacement = UINavigationItemSearchBarPlacementStacked;
+    // 设置不允许将UISearchController放在工具栏中,保证UISearchController在上方的导航栏中
+        self.navigationItem.searchBarPlacementAllowsToolbarIntegration = NO;
+    }
 }
 
+- (void) setData {
+    // ① 准备数据
+    self.allData = @[@"Apple", @"Banana", @"Cherry", @"Date", @"Fig", @"Grape"];
+    self.filteredData = self.allData;
+}
 
 - (void) setupSearchController {
-
-    
-    
     MyViewController* vc = [[MyViewController alloc] init];
     UISearchController *searchController = [[UISearchController alloc] initWithSearchResultsController: vc];
-    
+
     searchController.searchResultsUpdater = vc;               // 设置结果更新代理
-//    searchController.searchBar.delegate = self;
-    searchController.obscuresBackgroundDuringPresentation = NO; // 搜索时是否模糊背景（默认YES）
+    searchController.obscuresBackgroundDuringPresentation = YES; // 搜索时是否模糊背景（默认YES）
     searchController.hidesNavigationBarDuringPresentation = NO; // 搜索时是否隐藏导航栏（默认YES）
     searchController.searchBar.placeholder = @"搜索";            // 占位文字
-//    searchController.searchBar.delegate = self;                 // 可选：监听搜索栏事件
     searchController.searchBar.returnKeyType = UIReturnKeySearch;
     self.searchController = searchController;
+    
+    searchController.searchBar.delegate = self;                 // 可选：监听搜索栏事件
     
     // 将 searchBar 添加到导航栏
     self.navigationItem.searchController = searchController;
@@ -78,6 +78,7 @@
 - (void) setupTableView {
     self.tableView = [[UITableView alloc] initWithFrame:self.view.bounds];
     self.tableView.dataSource = self;
+    self.tableView.delegate = self;
     [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"cell"];
     [self.view addSubview:self.tableView];
 }
@@ -85,7 +86,6 @@
 // 用户输入时自动调用
 - (void)updateSearchResultsForSearchController:(UISearchController *)searchController {
     NSLog(@"搜索框结果更新");
-    
     
     NSString *text = searchController.searchBar.text;
     
@@ -97,7 +97,6 @@
         NSPredicate *predicate = [NSPredicate predicateWithFormat:@"SELF CONTAINS[cd] %@", text];
         self.filteredData = [self.allData filteredArrayUsingPredicate:predicate];
     }
-    
     // 刷新列表
     [self.tableView reloadData];
 }
@@ -116,6 +115,18 @@
 
 - (void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath: indexPath animated: YES];
-    
 }
+
+#pragma mark - 搜索栏事件监听
+
+// 询问是否允许开始编辑（返回 NO 可阻止键盘弹出）
+- (BOOL)searchBarShouldBeginEditing:(UISearchBar *)searchBar {
+    return YES;
+}
+
+// 已经开始编辑（键盘已弹出）
+- (void)searchBarTextDidBeginEditing:(UISearchBar *)searchBar {
+    NSLog(@"开始编辑"); 
+}
+
 @end

@@ -63,11 +63,11 @@
 //    self.searchController.searchBar.keyboardType = UIKeyboardTypeDefault;
     
     // 可选：滚动时保持 searchBar 在顶部
-    self.navigationItem.hidesSearchBarWhenScrolling = NO;
+    self.navigationItem.hidesSearchBarWhenScrolling = YES;
     self.navigationItem.searchController.searchResultsUpdater = self;
     
-//    UIBarButtonItem* item1 = [[UIBarButtonItem alloc] initWithTitle: @"back" style: UIBarButtonItemStylePlain target: self action: @selector(pressBtn)];
-//    self.navigationItem.rightBarButtonItem = item1;
+    UIBarButtonItem* item1 = [[UIBarButtonItem alloc] initWithTitle: @"back" style: UIBarButtonItemStylePlain target: self action: @selector(pressBtn)];
+    self.navigationItem.rightBarButtonItem = item1;
 }
 
 - (void) pressBtn {
@@ -77,6 +77,7 @@
 - (void) setupTableView {
     self.tableView = [[UITableView alloc] initWithFrame:self.view.bounds];
     self.tableView.dataSource = self;
+    self.tableView.delegate = self;
     [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"cell"];
     [self.view addSubview:self.tableView];
 }
