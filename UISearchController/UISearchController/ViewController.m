@@ -51,9 +51,10 @@
 
     searchController.searchResultsUpdater = vc;               // 设置结果更新代理
     searchController.obscuresBackgroundDuringPresentation = YES; // 搜索时是否模糊背景（默认YES）
-    searchController.hidesNavigationBarDuringPresentation = NO; // 搜索时是否隐藏导航栏（默认YES）
+    searchController.hidesNavigationBarDuringPresentation = YES; // 搜索时是否隐藏导航栏（默认YES）
     searchController.searchBar.placeholder = @"搜索";            // 占位文字
     searchController.searchBar.returnKeyType = UIReturnKeySearch;
+
     self.searchController = searchController;
     
     searchController.searchBar.delegate = self;                 // 可选：监听搜索栏事件
@@ -126,7 +127,38 @@
 
 // 已经开始编辑（键盘已弹出）
 - (void)searchBarTextDidBeginEditing:(UISearchBar *)searchBar {
-    NSLog(@"开始编辑"); 
+    NSLog(@"开始编辑");
+}
+
+// 询问是否允许结束编辑（返回 NO 可阻止收起键盘）
+- (BOOL)searchBarShouldEndEditing:(UISearchBar *)searchBar {
+    return YES;
+}
+
+// 已经结束编辑（键盘已收起）
+- (void)searchBarTextDidEndEditing:(UISearchBar *)searchBar {
+    NSLog(@"已经结束编辑");
+}
+
+// 搜索框内的文字每次改变时调用（实时输入）
+- (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText {
+    NSLog(@"遵守协议, 搜索框结果更新");
+}
+
+// 点击键盘上的“搜索”按钮（returnKeyType 为 UIReturnKeySearch）
+- (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar {
+    NSLog(@"点击了搜索按钮");
+}
+
+
+// 点击“书签”按钮（需要设置 showsBookmarkButton = YES）
+- (void)searchBarBookmarkButtonClicked:(UISearchBar *)searchBar {
+    NSLog(@"点击“书签”按钮");
+}
+
+// 点击“结果列表”按钮（需要设置 showsResultsListButton = YES，已废弃）
+- (void)searchBarResultsListButtonClicked:(UISearchBar *)searchBar {
+    NSLog(@"点击了结果列表");
 }
 
 @end
