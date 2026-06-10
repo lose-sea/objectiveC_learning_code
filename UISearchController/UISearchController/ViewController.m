@@ -40,7 +40,7 @@
 }
 
 - (void) setData {
-    // ① 准备数据
+    //  准备数据
     self.allData = @[@"Apple", @"Banana", @"Cherry", @"Date", @"Fig", @"Grape"];
     self.filteredData = self.allData;
 }
@@ -49,15 +49,21 @@
     MyViewController* vc = [[MyViewController alloc] init];
     UISearchController *searchController = [[UISearchController alloc] initWithSearchResultsController: vc];
 
-    searchController.searchResultsUpdater = vc;               // 设置结果更新代理
-    searchController.obscuresBackgroundDuringPresentation = YES; // 搜索时是否模糊背景（默认YES）
-    searchController.hidesNavigationBarDuringPresentation = YES; // 搜索时是否隐藏导航栏（默认YES）
-    searchController.searchBar.placeholder = @"搜索";            // 占位文字
+    searchController.searchResultsUpdater = vc;
+    // 设置结果更新代理
+    searchController.obscuresBackgroundDuringPresentation = YES;
+    // 搜索时是否模糊背景（默认YES）
+    searchController.hidesNavigationBarDuringPresentation = YES;
+    // 搜索时是否隐藏导航栏（默认YES）
+    searchController.searchBar.placeholder = @"搜索";
+    // 占位文字
+    
     searchController.searchBar.returnKeyType = UIReturnKeySearch;
 
     self.searchController = searchController;
     
-    searchController.searchBar.delegate = self;                 // 可选：监听搜索栏事件
+    // 监听搜索栏事件
+    searchController.searchBar.delegate = self;
     
     // 将 searchBar 添加到导航栏
     self.navigationItem.searchController = searchController;
@@ -65,7 +71,7 @@
     // 设置键盘样式
     self.searchController.searchBar.keyboardType = UIKeyboardTypeDefault;
     
-    // 可选：滚动时保持 searchBar 在顶部
+    // 滚动时保持 searchBar 在顶部
     self.navigationItem.hidesSearchBarWhenScrolling = NO;
     
     UIBarButtonItem* item1 = [[UIBarButtonItem alloc] initWithTitle: @"back" style: UIBarButtonItemStylePlain target: self action: @selector(pressBtn)];
