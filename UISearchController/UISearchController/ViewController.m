@@ -58,8 +58,6 @@
     searchController.searchBar.placeholder = @"搜索";
     // 占位文字
     
-    searchController.searchBar.returnKeyType = UIReturnKeySearch;
-
     self.searchController = searchController;
     
     // 监听搜索栏事件
@@ -71,7 +69,7 @@
     // 设置键盘样式
     self.searchController.searchBar.keyboardType = UIKeyboardTypeDefault;
     
-    // 滚动时保持 searchBar 在顶部
+    // 滚动时保持 searchBar 在顶部  
     self.navigationItem.hidesSearchBarWhenScrolling = NO;
     
     UIBarButtonItem* item1 = [[UIBarButtonItem alloc] initWithTitle: @"back" style: UIBarButtonItemStylePlain target: self action: @selector(pressBtn)];
