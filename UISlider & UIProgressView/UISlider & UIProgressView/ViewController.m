@@ -19,7 +19,7 @@
     // 进度条
     _progressView= [[UIProgressView alloc] init];
     // 进度条的高度是不能变化的
-    _progressView.frame = CGRectMake(100, 100, 200, 40);
+    _progressView.frame = CGRectMake(100, 100, 200, 90);
 //    _progressView.backgroundColor = [UIColor yellowColor];
     
     // 进度条的颜色风格
