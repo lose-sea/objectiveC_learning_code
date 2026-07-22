@@ -137,8 +137,8 @@
     // 删除数据对应的数据源
     [_arrayData removeObjectAtIndex: indexPath.row];
 
-    // 当数据发生变化, 重新加载数据
-//    [_tableView reloadData];
+//     当数据发生变化, 重新加载数据
+    [_tableView reloadData];
     NSLog(@"delete");
 }
 
