@@ -1,6 +1,0 @@
-platform:ios, '11.0'
- 
-target 'Masonry_test' do
-  pod 'Masonry' 
-  pod 'LookinServer', :configurations => ['Debug']
-end
