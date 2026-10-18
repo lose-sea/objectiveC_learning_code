@@ -133,21 +133,29 @@
 
 
 
-#import<Foundation/Foundation.h>
-    typedef void (^FKPrintBlock)(int);
-    // 使用FKPrintBlock定义最后一个参数类型为块
-    void processArray(int array[], unsigned int len, FKPrintBlock process) {
-        for (int i = 0; i < len; i++) {
-            process(array[i]);  // 将数组元素作为参数调用块
-        }
+//#import<Foundation/Foundation.h>
+//    typedef void (^FKPrintBlock)(int);
+//    // 使用FKPrintBlock定义最后一个参数类型为块
+//    void processArray(int array[], unsigned int len, FKPrintBlock process) {
+//        for (int i = 0; i < len; i++) {
+//            process(array[i]);  // 将数组元素作为参数调用块
+//        }
+//    }
+//    int main(int argc, const char* argv[]) {
+//        @autoreleasepool {
+//            int arr[] = {2, 3, 4};
+//            processArray(arr, 3, ^(int num) {
+//                NSLog(@"元素平方为: %d", num * num);
+//            });
+//        }
+//        return 0;
+//}
+
+#import <Foundation/Foundation.h>
+int main(int argc, const char* argv[]) {
+    typedef int(^sayHello)(int, int);
+    @autoreleasepool {
+        
     }
-    int main(int argc, const char* argv[]) {
-        @autoreleasepool {
-            int arr[] = {2, 3, 4};
-            processArray(arr, 3, ^(int num) {
-                NSLog(@"元素平方为: %d", num * num);
-            });
-        }
-        return 0;
 }
     
