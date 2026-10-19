@@ -28,6 +28,11 @@
 			path = "块";
 			sourceTree = "<group>";
 		};
+		546C24003085AA0000A80E7A /* User */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = User;
+			sourceTree = "<group>";
+		};
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -45,6 +50,7 @@
 			isa = PBXGroup;
 			children = (
 				54413B6F2F1BBFC70090EF6F /* 块 */,
+				546C24003085AA0000A80E7A /* User */,
 				54413B6E2F1BBFC70090EF6F /* Products */,
 			);
 			sourceTree = "<group>";
@@ -74,6 +80,7 @@
 			);
 			fileSystemSynchronizedGroups = (
 				54413B6F2F1BBFC70090EF6F /* 块 */,
+				546C24003085AA0000A80E7A /* User */,
 			);
 			name = "块";
 			packageProductDependencies = (
