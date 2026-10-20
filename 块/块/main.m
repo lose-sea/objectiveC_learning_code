@@ -1,161 +1,10 @@
-//
-//  main.m
-//  块
-//
-//  Created by lose_sea on 2026/1/17.
-//
-
-//#import <Foundation/Foundation.h>
-//
-//int main(int argc, const char * argv[]) {
-//    @autoreleasepool {
-//        // 定义不带参数, 无返回值的块
-//        void (^printStr)(void) = ^(void) {
-//            NSLog(@"我正在开始学习");
-//        };
-//        // 使用printStr调用块
-//        printStr();
-//        
-//        //  定义带参数, 有返回值的块
-//        double (^hypot)(double, double) = ^(double num1, double num2) {
-//            return sqrt(num1 * num1 + num2 * num2);
-//        };
-//        // 调用块,并输出块的返回值
-//        NSLog(@"%g", hypot(3, 4));
-//        
-//        // 也可以先只定义块变量, 定义带参数, 无返回值的块
-//        void (^print)(NSString* info);
-//        print = ^(NSString* info) {
-//            NSLog(@"info 的参数为: %@", info);
-//        };
-//        // 调用块
-//        print(@"hello");
-//    }
-//    return EXIT_SUCCESS;
-//}
-
-
-
-
-
-//#import<Foundation/Foundation.h>
-//int main(int argc, const char* argv[]) {
-//    @autoreleasepool {
-//        
-//        // 不带参数, 无返回值
-//        void (^printStr)(void) = ^void(void) {
-//            NSLog(@"hello world");
-//        };
-//        printStr();
-//        
-//        // 带参数, 有返回值
-//        double (^hypot)(double, double) = ^double(double a, double b) {
-//            return a + b;
-//        };
-//        NSLog(@"%g", hypot(3, 4));
-//        
-//        // 带参数, 无返回值
-//        void (^print)(NSString*);
-//        print = ^void (NSString* info) {
-//            NSLog(@"info 参数为 %@", info);
-//        };
-//        print(@"hello world");
-//    }
-//    return 0;
-//}
-
-
-//#import<Foundation/Foundation.h>
-//int main(int argc, const char* argv[]) {
-//    @autoreleasepool {
-//        int my = 20;    // 定义局部变量
-//        void (^printmy)(void) = ^void(void) {
-//            // my = 30;
-//            NSLog(@"%d", my);
-//        };
-//        printmy();
-//    }
-//    return 0;
-//}
-
-
-//#import<Foundation/Foundation.h>
-//int main(int argc, const char* argv[]) {
-//    @autoreleasepool {
-//        int my = 20;    // 定义局部变量
-//        void (^printmy)(void) = ^void(void) {
-//            NSLog(@"%d", my);
-//        };
-//        my = 30;
-//        printmy();
-//    }
-//    return 0;
-//}
-
-
-
-
-//#import<Foundation/Foundation.h>
-//int main(int argc, const char* argv[]) {
-//    @autoreleasepool {
-//        // 用__block修饰局部变量
-//        __block int my = 20;
-//        void (^printmy)(void) = ^void (void) {
-//            NSLog(@"%d", my);
-//        };
-//        printmy();
-//        my = 45;
-//        printmy();
-//    }
-//    return 0;
-//}
-
-
-
-//#import<Foundation/Foundation.h>
-//int main(int argc, const char* argv[]) {
-//    @autoreleasepool {
-//        typedef void (^FKPrintBlock) (NSString*);
-//        FKPrintBlock print = ^void(NSString* info) {
-//            NSLog(@"%@", info);
-//        };
-//        
-//        FKPrintBlock loopPrint = ^void(NSString* info) {
-//            for (int i = 0; i < 3; i++) {
-//                NSLog(@"%@", info);
-//            }
-//        };
-//        print(@"hello world");
-//        loopPrint(@"hehe");
-//    }
-//    return 0;
-//}
-
-
-
-//#import<Foundation/Foundation.h>
-//    typedef void (^FKPrintBlock)(int);
-//    // 使用FKPrintBlock定义最后一个参数类型为块
-//    void processArray(int array[], unsigned int len, FKPrintBlock process) {
-//        for (int i = 0; i < len; i++) {
-//            process(array[i]);  // 将数组元素作为参数调用块
-//        }
-//    }
-//    int main(int argc, const char* argv[]) {
-//        @autoreleasepool {
-//            int arr[] = {2, 3, 4};
-//            processArray(arr, 3, ^(int num) {
-//                NSLog(@"元素平方为: %d", num * num);
-//            });
-//        }
-//        return 0;
-//}
 
 #import <Foundation/Foundation.h>
 
 // typedef 重命名
 typedef int (^CompletionBlock)(int, int);
 
+void test(int a, int(^SayHello)(int b));
 
 int main(int argc, const char* argv[]) {
     @autoreleasepool {
@@ -213,16 +62,16 @@ int main(int argc, const char* argv[]) {
         
         
         
-        NSString* str = @"hello";
+        NSString* str01 = @"hello";
         void(^test05)(void) = ^{
             NSLog(@"调用test05");
-            NSLog(@"%@", str);
+            NSLog(@"%@", str01);
             // 无法修改
 //            str = @"world";
-//            NSLog(@"%@", str);
+//            NSLog(@"%@", str01);
         };
         test05();
-        str = @"world";
+        str01 = @"world";
         test05();
         
         
@@ -241,10 +90,44 @@ int main(int argc, const char* argv[]) {
         test06();
         
         
+        
+        test(3, ^int(int b){
+            NSLog(@"%d", b);
+            return 10;
+        });
+        
+        
+        int temp = 19;
+        void(^test07)(void) = ^{
+            NSLog(@"执行了test07");
+        };
+        test07();
+        NSLog(@"%@", [test07 class]);
+                
+        void(^test08)(void) = ^{
+            NSLog(@"执行了test08");
+            NSLog(@"%d", temp);
+        };
+        test08();
+        NSLog(@"%@", [test08 class]);
+        
+        
+        
+        NSString* str02 = @"hello";
+        void(^test09)(void) = ^{
+            NSString*  d = [str02 copy];
+            NSLog(@"%@", d);
+        };
+        str02 = @"world";
+        test09();
     }
     return EXIT_SUCCESS;
 }
+
+
     
 
-
+void test(int a, int(^SayHello)(int)) {
+    SayHello(a);
+}
  
