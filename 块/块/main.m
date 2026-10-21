@@ -120,14 +120,18 @@ int main(int argc, const char* argv[]) {
         };
         str02 = @"world";
         test09();
+        
+        
+        
+        
     }
     return EXIT_SUCCESS;
 }
 
 
-    
-
 void test(int a, int(^SayHello)(int)) {
     SayHello(a);
 }
  
+
+
