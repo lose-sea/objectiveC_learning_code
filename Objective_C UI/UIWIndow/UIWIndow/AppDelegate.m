@@ -1,0 +1,56 @@
+//
+//  AppDelegate.m
+//  UIWIndow
+//
+//  Created by lose_sea on 2026/4/12.
+//
+
+#import "AppDelegate.h"
+#import "ViewController.h"
+
+@interface AppDelegate ()
+
+@end
+
+@implementation AppDelegate
+
+
+- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    // Override point for customization after application launch.
+    
+//    self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
+//    
+//    // 设置根视图控制器
+//    ViewController* vc = [[ViewController alloc] init];
+//    self.window.rootViewController = vc;
+//    
+//    //设置背景颜色
+//    self.window.backgroundColor = [UIColor redColor]; 
+//    
+//    //显示窗口(使window有效显示)
+//    [self.window makeKeyAndVisible];
+    
+    
+    
+    return YES;
+}
+
+
+#pragma mark - UISceneSession lifecycle
+
+
+- (UISceneConfiguration *)application:(UIApplication *)application configurationForConnectingSceneSession:(UISceneSession *)connectingSceneSession options:(UISceneConnectionOptions *)options {
+    // Called when a new scene session is being created.
+    // Use this method to select a configuration to create the new scene with.
+    return [[UISceneConfiguration alloc] initWithName:@"Default Configuration" sessionRole:connectingSceneSession.role];
+}
+
+
+- (void)application:(UIApplication *)application didDiscardSceneSessions:(NSSet<UISceneSession *> *)sceneSessions {
+    // Called when the user discards a scene session.
+    // If any sessions were discarded while the application was not running, this will be called shortly after application:didFinishLaunchingWithOptions.
+    // Use this method to release any resources that were specific to the discarded scenes, as they will not return.
+}
+
+
+@end
