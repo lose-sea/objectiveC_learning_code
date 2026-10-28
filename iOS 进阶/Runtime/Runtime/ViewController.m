@@ -20,10 +20,10 @@
     
     
     Person* person = [[Person alloc] init];
-//    [person eat];
+    [person eat];
 
     
-    [person dance];
+//    [person dance];
 }
 
 
