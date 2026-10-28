@@ -71,11 +71,18 @@ static void log_eat(id self, SEL sel) {
 //}
 
 
-- (void) eat{
-    NSLog(@"原本的 eat 方法");
+//- (void) eat{
+//    NSLog(@"原本的 eat 方法");
+//}
+
+
+- (void) eat {
+    NSLog(@"eat");
 }
 
 
-
+- (void) run {
+    NSLog(@"run");
+}
 
 @end

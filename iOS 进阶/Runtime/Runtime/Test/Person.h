@@ -12,7 +12,10 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface Person : Animal
-@property (nonatomic, strong) Dancer* dancer; 
+@property (nonatomic, strong) Dancer* dancer;
+
+- (void) eat;
+- (void) run;
 @end
 
 NS_ASSUME_NONNULL_END
