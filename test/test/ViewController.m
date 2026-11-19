@@ -17,10 +17,13 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    int x = 5;
-    float y = 23.3f;
-    NSNumber* expression = @(x * y);
-    NSLog(@"%@", expression); 
+//    int x = 5;
+//    float y = 23.3f;
+//    NSNumber* expression = @(x * y);
+//    NSLog(@"%@", expression);
+    
+    
+    
 }
 
 
