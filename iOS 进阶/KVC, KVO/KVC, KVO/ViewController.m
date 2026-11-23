@@ -75,14 +75,23 @@ static void* child02Context = &child02Context;
     
     // 添加观察者
     [self.child01 addObserver: self forKeyPath: @"fullName" options: NSKeyValueObservingOptionNew | NSKeyValueObservingOptionOld context: child01Context];
+    
+    self.child01.firstName = @"xinyan";
+    self.child01.lastName = @"zhang";
 }
 
 
 - (void) observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSKeyValueChangeKey,id> *)change context:(void *)context {
-    if ([keyPath isEqualToString: @"firstName"]) {
-        NSLog(@"The name of the child was changed. \n %@", change);
-    } else if ([keyPath isEqualToString: @"age"]) {
-        NSLog(@"The new value is %@, \n The old value is %@", [change valueForKey: NSKeyValueChangeNewKey], [change valueForKey: NSKeyValueChangeOldKey]);
+//    if ([keyPath isEqualToString: @"firstName"]) {
+//        NSLog(@"The name of the child was changed. \n %@", change);
+//    } else if ([keyPath isEqualToString: @"age"]) {
+//        NSLog(@"The new value is %@, \n The old value is %@", [change valueForKey: NSKeyValueChangeNewKey], [change valueForKey: NSKeyValueChangeOldKey]);
+//    }
+    
+    if (context == child01Context) {
+        if ([keyPath isEqualToString: @"fullName"]) {
+            NSLog(@"The fullname of First child was change.\n%@", change);
+        }
     }
 }
 
