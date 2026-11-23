@@ -20,20 +20,14 @@
 @end
 
 
+static void* child01Context = &child01Context;
+static void* child02Context = &child02Context;
+
+
 @implementation ViewController
 
 
-- (void) viewWillAppear: (BOOL) animated {
-    [super viewWillAppear: animated];
-    [self.child01 addObserver: self forKeyPath: @"firstName" options: NSKeyValueObservingOptionNew | NSKeyValueObservingOptionOld context: NULL];
-    [self.child01 addObserver: self forKeyPath: @"age" options: NSKeyValueObservingOptionNew | NSKeyValueObservingOptionOld context: NULL];
-    
-    
-    // 添加观察者后改变值 验证是否可以观察到值变化
-        [self.child01 setValue:@"xinyan" forKey:@"firstName"];
-        [self.child01 setValue:[NSNumber numberWithUnsignedInteger:23] forKey:@"age"];
 
-}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -66,6 +60,21 @@
 
 - (NSString*) description {
     return [NSString stringWithFormat: @"child01: %@, child02: %@", self.child01, self.child02];
+}
+
+
+- (void) viewWillAppear: (BOOL) animated {
+    [super viewWillAppear: animated];
+    [self.child01 addObserver: self forKeyPath: @"firstName" options: NSKeyValueObservingOptionNew | NSKeyValueObservingOptionOld context: NULL];
+    [self.child01 addObserver: self forKeyPath: @"age" options: NSKeyValueObservingOptionNew | NSKeyValueObservingOptionOld context: NULL];
+    
+    
+    // 添加观察者后改变值 验证是否可以观察到值变化
+        [self.child01 setValue:@"xinyan" forKey:@"firstName"];
+        [self.child01 setValue:[NSNumber numberWithUnsignedInteger:23] forKey:@"age"];
+    
+    // 添加观察者
+    [self.child01 addObserver: self forKeyPath: @"fullName" options: NSKeyValueObservingOptionNew | NSKeyValueObservingOptionOld context: child01Context];
 }
 
 

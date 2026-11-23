@@ -13,6 +13,11 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic, strong) NSString* firstName;
 
+@property (nonatomic,  strong) NSString* lastName;
+
+@property (nonatomic, strong) NSString* fullName;
+
+
 @property (nonatomic, assign) NSUInteger age;
 
 @end

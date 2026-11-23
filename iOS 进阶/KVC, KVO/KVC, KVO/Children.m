@@ -13,11 +13,20 @@
     self = [super init];
     if (self) {
         self.firstName = @"Tiffany";
-        self.age = 18; 
+        self.age = 18;
+        self.lastName = @"";
     }
     return self;
 }
 
+- (NSString*) fullName {
+    return [NSString stringWithFormat:@"%@ %@",self.firstName,self.lastName];
+}
+
+
++ (NSSet*) keyPathsForValuesAffectingFullName {
+    return [NSSet setWithObjects: @"firstName", @"lastName", nil];
+}
 
 - (NSString*) description {
 //    NSLog(@"name: %@, age: %@", self.firstName, self.age);
