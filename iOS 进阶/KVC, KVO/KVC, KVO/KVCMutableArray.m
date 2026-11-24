@@ -9,4 +9,18 @@
 
 @implementation KVCMutableArray
 
+
+- (instancetype) init {
+    self = [super init];
+    if (self) {
+        self.array = [NSMutableArray new];
+    }
+    return self;
+}
+
+- (NSUInteger) countOfArray {
+    return self.array.count;
+}
+
+
 @end
