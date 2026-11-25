@@ -15,6 +15,8 @@
         self.firstName = @"Tiffany";
         self.age = 18;
         self.lastName = @"";
+        
+        _cousins = [KVCMutableArray new]; 
     }
     return self;
 }

@@ -6,6 +6,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "KVCMutableArray.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -17,8 +18,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic, strong) NSString* fullName;
 
-
 @property (nonatomic, assign) NSUInteger age;
+
+@property (nonatomic, strong) KVCMutableArray* cousins;
 
 @end
 

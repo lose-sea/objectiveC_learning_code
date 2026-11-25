@@ -14,9 +14,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (NSUInteger) countOfArray;
 - (id) objectInArrayAtIndex:(NSUInteger)index;
-- (void) insertObjectFromArrayAtIndex: (NSUInteger) index;
+- (void) insertObject: (id)object inArrayAtIndex: (NSUInteger) index;
 - (void) removeObjectFromArrayAtIndex:(NSUInteger)index;
-- (void) replaceObjectInArrayAtIndex:(NSUInteger)index withObject:(id)object; 
+- (void) replaceObjectInArrayAtIndex:(NSUInteger)index withObject:(id)object;
 @end
 
 NS_ASSUME_NONNULL_END

@@ -47,6 +47,7 @@ static void* child02Context = &child02Context;
     
     
     self.child01 = [Children new];
+    self.child02 = [Children new];
     
 //    [self setValue: @"xinyan" forKeyPath: @"child01.firstName"];
 //    [self setValue: [NSNumber numberWithInt: 18] forKeyPath: @"child01.age"];
@@ -78,7 +79,19 @@ static void* child02Context = &child02Context;
     
     self.child01.firstName = @"xinyan";
     self.child01.lastName = @"zhang";
+    
+    
+    // 对数组添加观察
+    [self.child01 addObserver: self forKeyPath: @"cousins.array" options: NSKeyValueObservingOptionNew | NSKeyValueObservingOptionOld context: NULL];
+    
+    [self.child01.cousins insertObject: @"Antony" inArrayAtIndex: 0];
+    [self.child01.cousins insertObject: @"Julia" inArrayAtIndex: 1];
+    [self.child01.cousins replaceObjectInArrayAtIndex: 0 withObject: @"Ben"];
+    
 }
+
+
+
 
 
 - (void) observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSKeyValueChangeKey,id> *)change context:(void *)context {
@@ -90,9 +103,26 @@ static void* child02Context = &child02Context;
     
     if (context == child01Context) {
         if ([keyPath isEqualToString: @"fullName"]) {
-            NSLog(@"The fullname of First child was change.\n%@", change);
+//            NSLog(@"The fullname of First child was change.\n%@", change);
         }
+    } else if ([keyPath isEqualToString: @"cousins.array"] && [object isKindOfClass: [Children class]]) {
+        NSLog(@"cousin.array %@", change);
+    } else {
+//        [super observeValueForKeyPath: keyPath ofObject: object change:change context:context];
     }
+    
+}
+
+
+- (void) viewWilldisappear: (BOOL)animated {
+    [super viewWillDisappear: animated];
+    
+    // 移除观察者
+    [self.child01 removeObserver: self forKeyPath:@"firstName" context: child01Context];
+    [self.child01 removeObserver: self forKeyPath: @"age" context: child01Context];
+    [self.child01 removeObserver: self forKeyPath: @"cousins.array" context: NULL];
+    
+    NSLog(@"移除观察者"); 
 }
 
 
